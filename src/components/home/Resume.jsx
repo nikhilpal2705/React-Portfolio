@@ -1,4 +1,4 @@
-import { resumeData } from "@/constant/constant";
+import { resumeData } from "@/constants/constant";
 
 const Resume = () => {
 

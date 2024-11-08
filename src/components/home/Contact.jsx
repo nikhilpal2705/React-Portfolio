@@ -1,4 +1,4 @@
-import { contactData } from "@/constant/constant";
+import { contactData } from "@/constants/constant";
 
 const Contact = () => {
   return (

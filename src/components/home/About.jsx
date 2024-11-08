@@ -1,4 +1,4 @@
-import { aboutData } from "@/constant/constant";
+import { aboutData } from "@/constants/constant";
 
 const About = () => {
 

@@ -1,4 +1,4 @@
-import { servicesData } from "@/constant/constant";
+import { servicesData } from "@/constants/constant";
 
 const ServiceItem = ({ icon, title, description, delay, colorClass }) => (
   <div className={`col-lg-4 col-md-6`} data-aos="fade-up" data-aos-delay={delay}>

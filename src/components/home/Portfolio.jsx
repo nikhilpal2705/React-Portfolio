@@ -1,4 +1,4 @@
-import { portfolioData } from '@/constant/constant';
+import { portfolioData } from '@/constants/constant';
 import { useGLightbox } from '@/hooks/useGLightbox';
 import { useIsotope } from '@/hooks/useIsotope';
 import { useState } from 'react';
