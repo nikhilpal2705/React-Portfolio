@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const ScrollTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -20,16 +20,19 @@ const ScrollTopButton = () => {
       top: 0,
       behavior: 'smooth',
     });
+    // if (window.location.hash) {
+    //   const newUrl = window.location.origin + window.location.pathname;
+    // }
   };
 
   return (
-    <button
+    <a
       id="scroll-top"
-      className={`scroll-top ${isVisible ? 'active' : ''}`}
+      className={`scroll-top d-flex align-items-center justify-content-center ${isVisible ? 'active' : ''}`}
       onClick={scrollToTop}
     >
       <i className="bi bi-arrow-up-short"></i>
-    </button>
+    </a>
   );
 };
 

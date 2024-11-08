@@ -12,29 +12,41 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Raleway",  sans-serif;
-  --nav-font: "Poppins",  sans-serif;
+  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Raleway", sans-serif;
+  --nav-font: "Poppins", sans-serif;
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-:root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #272829; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #45505b; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #0563bb; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+:root {
+  --background-color: #ffffff;
+  /* Background color for the entire website, including individual sections */
+  --default-color: #272829;
+  /* Default color used for the majority of the text content across the entire website */
+  --heading-color: #45505b;
+  /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #0563bb;
+  /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --surface-color: #ffffff;
+  /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+  --contrast-color: #ffffff;
+  /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
-  --nav-color: #45505b;  /* The default color of the main navmenu links */
-  --nav-hover-color: #0563bb; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #212529; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #0563bb; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-color: #45505b;
+  /* The default color of the main navmenu links */
+  --nav-hover-color: #0563bb;
+  /* Applied to main navmenu links when they are hovered over or active */
+  --nav-mobile-background-color: #ffffff;
+  /* Used as the background color for mobile navigation menu */
+  --nav-dropdown-background-color: #ffffff;
+  /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-dropdown-color: #212529;
+  /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-dropdown-hover-color: #0563bb;
+  /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
@@ -89,7 +101,7 @@ h6 {
 
 /* PHP Email Form Messages
 ------------------------------*/
-.php-email-form .error-message {
+.email-form .error-message {
   display: none;
   background: #df1529;
   color: #ffffff;
@@ -99,7 +111,7 @@ h6 {
   font-weight: 600;
 }
 
-.php-email-form .sent-message {
+.email-form .sent-message {
   display: none;
   color: #ffffff;
   background: #059652;
@@ -109,7 +121,7 @@ h6 {
   font-weight: 600;
 }
 
-.php-email-form .loading {
+.email-form .loading {
   display: none;
   background: var(--surface-color);
   text-align: center;
@@ -117,7 +129,7 @@ h6 {
   margin-bottom: 24px;
 }
 
-.php-email-form .loading:before {
+.email-form .loading:before {
   content: "";
   display: inline-block;
   border-radius: 50%;
@@ -126,10 +138,10 @@ h6 {
   margin: 0 10px -6px 0;
   border: 3px solid var(--accent-color);
   border-top-color: var(--surface-color);
-  animation: php-email-form-loading 1s linear infinite;
+  animation: email-form-loading 1s linear infinite;
 }
 
-@keyframes php-email-form-loading {
+@keyframes email-form-loading {
   0% {
     transform: rotate(0deg);
   }
@@ -771,6 +783,7 @@ section,
   display: inline-block;
   padding: 8px 20px 10px 20px;
   margin: 0;
+  margin-left: 4px;
   font-size: 15px;
   font-weight: 500;
   line-height: 1;
@@ -798,6 +811,7 @@ section,
   .portfolio .portfolio-filters li {
     font-size: 14px;
     margin: 0 0 10px 0;
+    margin-left: 4px;
   }
 }
 
@@ -1106,13 +1120,13 @@ section,
   color: var(--contrast-color);
 }
 
-.contact .php-email-form {
+.contact .email-form {
   height: 100%;
 }
 
-.contact .php-email-form input[type=text],
-.contact .php-email-form input[type=email],
-.contact .php-email-form textarea {
+.contact .email-form input[type=text],
+.contact .email-form input[type=email],
+.contact .email-form textarea {
   font-size: 14px;
   padding: 10px 15px;
   box-shadow: none;
@@ -1122,19 +1136,19 @@ section,
   border-color: color-mix(in srgb, var(--default-color), transparent 80%);
 }
 
-.contact .php-email-form input[type=text]:focus,
-.contact .php-email-form input[type=email]:focus,
-.contact .php-email-form textarea:focus {
+.contact .email-form input[type=text]:focus,
+.contact .email-form input[type=email]:focus,
+.contact .email-form textarea:focus {
   border-color: var(--accent-color);
 }
 
-.contact .php-email-form input[type=text]::placeholder,
-.contact .php-email-form input[type=email]::placeholder,
-.contact .php-email-form textarea::placeholder {
+.contact .email-form input[type=text]::placeholder,
+.contact .email-form input[type=email]::placeholder,
+.contact .email-form textarea::placeholder {
   color: color-mix(in srgb, var(--default-color), transparent 70%);
 }
 
-.contact .php-email-form button[type=submit] {
+.contact .email-form button[type=submit] {
   color: var(--contrast-color);
   background: var(--accent-color);
   border: 0;
@@ -1143,7 +1157,7 @@ section,
   border-radius: 50px;
 }
 
-.contact .php-email-form button[type=submit]:hover {
+.contact .email-form button[type=submit]:hover {
   background: color-mix(in srgb, var(--accent-color), transparent 25%);
 }
 
@@ -1449,11 +1463,4 @@ section,
   font-size: 20px;
   margin-right: 8px;
   color: var(--accent-color);
-}
-
-/*--------------------------------------------------------------
-# Starter Section Section
---------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
 }
