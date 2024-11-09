@@ -21,7 +21,7 @@ function MainPage() {
                 <Resume />
                 <Portfolio />
                 <Services />
-                {/* <Contact /> */}
+                <Contact />
             </main>
         </Layout>
     );

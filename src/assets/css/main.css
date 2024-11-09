@@ -52,7 +52,7 @@
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
 
 .light-background {
-  --background-color: #f9f9f9;
+  --background-color: #f9f9f9dd;
   --surface-color: #ffffff;
 }
 
@@ -1084,6 +1084,14 @@ section,
 /*--------------------------------------------------------------
 # Contact Section
 --------------------------------------------------------------*/
+.contact .info-wrap {
+  background-color: var(--surface-color);
+  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+}
+
 .contact .info-item+.info-item {
   margin-top: 40px;
 }
@@ -1120,8 +1128,21 @@ section,
   color: var(--contrast-color);
 }
 
+.contact .email-form-shadow {
+  background-color: var(--surface-color);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 30px;
+}
+
 .contact .email-form {
   height: 100%;
+}
+
+@media (max-width: 575px) {
+  .contact .email-form-shadow {
+    padding: 20px;
+  }
 }
 
 .contact .email-form input[type=text],

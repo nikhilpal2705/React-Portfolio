@@ -1,34 +1,41 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('#hero');
 
-  // Toggle menu visibility for mobile
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  // Toggle menu visibility for mobile with useCallback
+  const toggleMenu = useCallback(() => setIsMenuOpen(prevState => !prevState), []);
 
-  // Handle scroll spy
-  const navmenulinks = [
-    '#hero',
-    '#about',
-    '#resume',
-    '#portfolio',
-    '#services',
-    '#contact',
-  ];
+  // Define menu links with useMemo to avoid re-creating array on each render
+  const navmenulinks = useMemo(() => [
+    { id: '#hero', label: 'Home', icon: 'bi-house' },
+    { id: '#about', label: 'About', icon: 'bi-person' },
+    { id: '#resume', label: 'Resume', icon: 'bi-file-earmark-text' },
+    { id: '#portfolio', label: 'Portfolio', icon: 'bi-images' },
+    { id: '#services', label: 'Services', icon: 'bi-hdd-stack' },
+    { id: '#contact', label: 'Contact', icon: 'bi-envelope' },
+  ], []);
 
+  // Debounce scroll event handler to improve performance
   useEffect(() => {
     const handleScroll = () => {
-      const position = window.scrollY + 200;
+      const position = window.scrollY + 260 // orignal 200 (use 200 if Contact form is not hidden);
 
-      navmenulinks.forEach((link) => {
-        const section = document.querySelector(link);
-        if (section) {
-          if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-            setActiveLink(link);
-          }
+      for (const link of navmenulinks) {
+        const section = document.querySelector(link.id);
+        if (section && position >= section.offsetTop && position <= section.offsetTop + section.offsetHeight) {
+          setActiveLink(link.id);
+          break;
         }
-      });
+      }
+    };
+
+
+    // using debouncer to prevent event trigger on continues scroll
+    const debouncedHandleScroll = () => {
+      clearTimeout(handleScroll.timer);
+      handleScroll.timer = setTimeout(handleScroll, 100);
     };
 
     // Listen for scroll events
@@ -38,21 +45,18 @@ const Header = () => {
     handleScroll();
 
     // Cleanup on component unmount
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []); // Empty dependency array means it runs once on mount
+    return () => window.removeEventListener('scroll', debouncedHandleScroll);
+  }, [navmenulinks]);
 
-  // Scroll to the section based on the URL hash
+  // Smooth scroll to section on load if there's a hash in URL
   useEffect(() => {
     if (window.location.hash) {
-      const sectionId = window.location.hash;
-      const section = document.querySelector(sectionId);
+      const section = document.querySelector(window.location.hash);
       if (section) {
         setTimeout(() => {
-          const scrollMarginTop = getComputedStyle(section).scrollMarginTop;
+          const scrollMarginTop = parseInt(getComputedStyle(section).scrollMarginTop, 10) || 0;
           window.scrollTo({
-            top: section.offsetTop - parseInt(scrollMarginTop, 10),
+            top: section.offsetTop - scrollMarginTop,
             behavior: 'smooth',
           });
         }, 100);
@@ -60,17 +64,28 @@ const Header = () => {
     }
   }, []); // This effect runs once on mount
 
+  // Menu Item component for readability and reuse
+  const MenuItem = ({ id, label, icon }) => (
+    <li>
+      <a
+        href={id}
+        className={activeLink === id ? 'active' : ''}
+        onClick={() => setIsMenuOpen(false)}
+      >
+        <i className={`bi ${icon} navicon`}></i>
+        <span>{label}</span>
+      </a>
+    </li>
+  );
+
   return (
     <header id="header" className={`header d-flex flex-column justify-content-center ${isMenuOpen ? 'header-show' : ''}`}>
       <i className={`header-toggle d-xl-none bi ${isMenuOpen ? 'bi-x' : 'bi-list'}`} onClick={toggleMenu}></i>
       <nav id="navmenu" className="navmenu">
         <ul>
-          <li><a href="#hero" className={activeLink === '#hero' ? 'active' : ''} onClick={() => { setIsMenuOpen(false) }}><i className="bi bi-house navicon"></i><span>Home</span></a></li>
-          <li><a href="#about" className={activeLink === '#about' ? 'active' : ''} onClick={() => { setIsMenuOpen(false) }}><i className="bi bi-person navicon"></i><span>About</span></a></li>
-          <li><a href="#resume" className={activeLink === '#resume' ? 'active' : ''} onClick={() => { setIsMenuOpen(false) }}><i className="bi bi-file-earmark-text navicon"></i><span>Resume</span></a></li>
-          <li><a href="#portfolio" className={activeLink === '#portfolio' ? 'active' : ''} onClick={() => { setIsMenuOpen(false) }}><i className="bi bi-images navicon"></i><span>Portfolio</span></a></li>
-          <li><a href="#services" className={activeLink === '#services' ? 'active' : ''} onClick={() => { setIsMenuOpen(false) }}><i className="bi bi-hdd-stack navicon"></i><span>Services</span></a></li>
-          {/* <li><a href="#contact" className={activeLink === '#contact' ? 'active' : ''} onClick={() => { setIsMenuOpen(false) }}><i className="bi bi-envelope navicon"></i><span>Contact</span></a></li> */}
+          {navmenulinks.map(link => (
+            <MenuItem key={link.id} {...link} />
+          ))}
         </ul>
       </nav>
     </header>
