@@ -1,4 +1,4 @@
-import { aboutData } from "@/constants/constant";
+import { aboutData, links } from "@/constants/constant";
 import PropTypes from 'prop-types';
 
 const About = () => {
@@ -24,6 +24,10 @@ const About = () => {
             </div>
 
             <p className="py-3">{aboutData.additionalDescription}</p>
+            <div className="col-md-12 text-center">
+              {/* <div className="loading">Loading</div> */}
+              <a className="download-btn" href={links.resume}>Download Resume</a>
+            </div>
           </div>
         </div>
       </div>

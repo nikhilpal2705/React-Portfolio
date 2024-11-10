@@ -10,7 +10,7 @@ import 'aos/dist/aos.css';
 import 'devicon'
 
 // Load this css at last
-import "@/assets/css/style.css";
+import "@/assets/css/app.css";
 
 const App = () => {
   useAOS(); // Initialize AOS for animations

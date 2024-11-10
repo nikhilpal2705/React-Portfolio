@@ -87,6 +87,21 @@
     margin-left: 4px !important;
 }
 
+
+.about .download-btn {
+    color: var(--contrast-color);
+    background: var(--accent-color);
+    border: 0;
+    padding: 10px 30px;
+    transition: 0.4s;
+    border-radius: 50px;
+  }
+  
+  .about .download-btn:hover {
+    background: color-mix(in srgb, var(--accent-color), transparent 25%);
+  }
+  
+
 @media (max-width: 575px) {
     .skills-card {
         margin-bottom: 15%;
