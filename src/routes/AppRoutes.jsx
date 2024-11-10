@@ -1,5 +1,4 @@
 import { Route, Routes } from 'react-router-dom';
-import { Suspense, lazy } from 'react';
 
 import Hero from '@/components/home/Hero';
 import About from '@/components/home/About';

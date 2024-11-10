@@ -12,5 +12,5 @@ export const useTyped = (stringArray) => {
     });
 
     return () => typed.destroy(); // Cleanup on unmount
-  }, []);
+  }, [stringArray]); // Add stringArray as a dependency
 };

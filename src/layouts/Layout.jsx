@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import Header from './Header';
 import Footer from './Footer';
 import ScrollTopButton from './ScrollTopButton';
@@ -13,4 +14,12 @@ const Layout = ({ children, header = true, footer = true, scrollTopButton = true
     );
 }
 
-export default Layout
+// Define prop types for Layout
+Layout.propTypes = {
+    children: PropTypes.node.isRequired,
+    header: PropTypes.bool,
+    footer: PropTypes.bool,
+    scrollTopButton: PropTypes.bool,
+};
+
+export default Layout;

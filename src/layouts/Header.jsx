@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
+import PropTypes from 'prop-types'; // Import PropTypes
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,7 +22,7 @@ const Header = () => {
   // Debounce scroll event handler to improve performance
   useEffect(() => {
     const handleScroll = () => {
-      const position = window.scrollY + 260 // orignal 200 (use 200 if Contact form is not hidden);
+      const position = window.scrollY + 200; // (use 260 if Contact form is hidden else use 200);
 
       for (const link of navmenulinks) {
         const section = document.querySelector(link.id);
@@ -32,15 +33,14 @@ const Header = () => {
       }
     };
 
-
-    // using debouncer to prevent event trigger on continues scroll
+    // Using debounce technique for scroll event
     const debouncedHandleScroll = () => {
       clearTimeout(handleScroll.timer);
       handleScroll.timer = setTimeout(handleScroll, 100);
     };
 
     // Listen for scroll events
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', debouncedHandleScroll);
 
     // Trigger on load to set the initial active link
     handleScroll();
@@ -78,6 +78,13 @@ const Header = () => {
       </a>
     </li>
   );
+
+  // Define prop types for MenuItem
+  MenuItem.propTypes = {
+    id: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired,
+  };
 
   return (
     <header id="header" className={`header d-flex flex-column justify-content-center ${isMenuOpen ? 'header-show' : ''}`}>

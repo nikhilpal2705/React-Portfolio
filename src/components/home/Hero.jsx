@@ -11,7 +11,7 @@ const Hero = () => {
         <div className="row justify-content-center">
           <div className="col-lg-9">
             <h2>{profileData.name}</h2>
-            <p>I'm <span className="typed"></span></p>
+            <p>I&apos;m <span className="typed"></span></p>
 
             <div className="social-links">
               <a href={links.twitter} target="_blank" rel="noopener noreferrer"><i className="bi bi-twitter-x"></i></a>

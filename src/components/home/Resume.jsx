@@ -1,4 +1,5 @@
 import { resumeData } from "@/constants/constant";
+import PropTypes from 'prop-types';
 
 const Resume = () => {
 
@@ -59,6 +60,11 @@ const ResumeSection = ({ title, children }) => (
   </>
 );
 
+ResumeSection.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.node,
+};
+
 // Sub-component for individual resume items
 const ResumeItem = ({ title, date, institution, description, children }) => (
   <div className="resume-item">
@@ -69,5 +75,13 @@ const ResumeItem = ({ title, date, institution, description, children }) => (
     {children}
   </div>
 );
+
+ResumeItem.propTypes = {
+  title: PropTypes.string.isRequired,
+  date: PropTypes.string,
+  institution: PropTypes.string,
+  description: PropTypes.string,
+  children: PropTypes.node,
+};
 
 export default Resume;

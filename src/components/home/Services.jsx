@@ -1,4 +1,5 @@
 import { servicesData } from "@/constants/constant";
+import PropTypes from 'prop-types';
 
 const ServiceItem = ({ icon, title, description, delay, colorClass }) => (
   <div className={`col-lg-4 col-md-6`} data-aos="fade-up" data-aos-delay={delay}>
@@ -20,7 +21,13 @@ const ServiceItem = ({ icon, title, description, delay, colorClass }) => (
   </div>
 );
 
-
+ServiceItem.propTypes = {
+  icon: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  delay: PropTypes.number.isRequired,
+  colorClass: PropTypes.string,
+};
 
 const Services = () => {
 

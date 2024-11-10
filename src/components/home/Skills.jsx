@@ -1,4 +1,5 @@
 import { skillsData } from "@/constants/constant";
+import PropTypes from 'prop-types';
 
 // const Skills = () => {
 //   return (
@@ -52,6 +53,13 @@ const SkillItem = ({ label, svg, iconClass }) => {
       <h6 className="mt-2">{label}</h6>
     </div>
   )
+};
+
+// Define prop types for SkillItem
+SkillItem.propTypes = {
+  label: PropTypes.string.isRequired,
+  svg: PropTypes.string,
+  iconClass: PropTypes.string,
 };
 
 const Skills = () => {
