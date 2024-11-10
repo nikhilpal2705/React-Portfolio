@@ -51,7 +51,7 @@ const ContactForm = () => {
     <form
       action="forms/contact.php"
       method="post"
-      className="email-form"
+      className="php-email-form"
     >
       <div className="row gy-4">
         <div className="col-md-6">

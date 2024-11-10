@@ -1,0 +1,111 @@
+.skills-card {
+    position: relative;
+    width: 70%;
+    background: #fff;
+    padding: 5%;
+    margin: auto;
+    margin-bottom: 5%;
+    border-bottom: 1px solid #333;
+    overflow: visible !important;
+}
+
+.skills-card:after,
+.skills-card:before {
+    z-index: -1;
+    position: absolute;
+    content: "";
+    bottom: 15px;
+    left: 10px;
+    width: 50%;
+    top: 80%;
+    max-width: 300px;
+    background: #777;
+    box-shadow: 0 15px 10px #777;
+    transform: rotate(-3deg);
+}
+
+.skills-card::after {
+    transform: rotate(3deg);
+    right: 10px;
+    left: auto;
+}
+
+.skill-item {
+    display: inline;
+    margin: 15px 0 !important;
+}
+
+.skill-item i {
+    font-size: 50px !important;
+    color: #777 !important;
+    height: 20px !important;
+}
+
+.skill-item svg {
+    width: 35px !important;
+    min-height: 20px !important;
+    padding: 0;
+    margin: 0;
+    color: #777 !important;
+}
+
+.skill-item h6 {
+    text-align: center;
+    margin: auto;
+    font-size: 1em;
+    padding-top: 5px;
+}
+
+.skill-item i:hover,
+.skill-item svg:hover {
+    color: #ff4753 !important;
+}
+
+.skills-info {
+    padding: 3%;
+}
+
+
+.contact .info-wrap {
+    background-color: var(--surface-color);
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+}
+
+
+.contact .email-form-shadow {
+    background-color: var(--surface-color);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 30px;
+}
+
+.portfolio .portfolio-filters li {
+    /* Temp css override*/
+    margin-left: 4px !important;
+}
+
+@media (max-width: 575px) {
+    .skills-card {
+        margin-bottom: 15%;
+    }
+
+    .contact .email-form-shadow {
+        padding: 20px;
+    }
+
+    .portfolio .portfolio-filters li {
+        /* Temp css override*/
+        margin-left: 4px !important;
+    }
+
+    .skills-info {
+        padding: 20% 5%;
+    }
+
+    .skills-card {
+        width: 100%;
+    }
+}

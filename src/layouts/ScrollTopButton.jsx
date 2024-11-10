@@ -20,9 +20,10 @@ const ScrollTopButton = () => {
       top: 0,
       behavior: 'smooth',
     });
-    // if (window.location.hash) {
-    //   const newUrl = window.location.origin + window.location.pathname;
-    // }
+    if (window.location.hash) {
+      const newUrl = window.location.origin + window.location.pathname;
+      window.history.pushState(null, '', newUrl);
+    }
   };
 
   return (

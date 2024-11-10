@@ -11,6 +11,7 @@ const Header = () => {
   const navmenulinks = useMemo(() => [
     { id: '#hero', label: 'Home', icon: 'bi-house' },
     { id: '#about', label: 'About', icon: 'bi-person' },
+    { id: '#skills', label: 'Skills', icon: 'bi-book' },
     { id: '#resume', label: 'Resume', icon: 'bi-file-earmark-text' },
     { id: '#portfolio', label: 'Portfolio', icon: 'bi-images' },
     { id: '#services', label: 'Services', icon: 'bi-hdd-stack' },

@@ -43,14 +43,20 @@ export const aboutData = {
 export const skillsData = {
     mainSummary: "Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit.",
     skillsLeft: [
-        { name: "HTML", level: 100, class: "" },
-        { name: "CSS", level: 90, class: "" },
-        { name: "JavaScript", level: 75, class: "" },
+        { name: "HTML", level: 100, class: "devicon-html5-plain colored" },
+        { name: "CSS", level: 90, class: "devicon-css3-plain" },
+        { name: "JavaScript", level: 75, class: "devicon-javascript-plain" },
+        { name: "jQuery", level: 75, class: "devicon-jquery-plain" },
+        { name: "React", level: 75, class: "devicon-react-original" },
+        { name: "Java", level: 90, class: "devicon-java-plain" },
     ],
     skillsRight: [
-        { name: "PHP", level: 80, class: "" },
-        { name: "WordPress/CMS", level: 90, class: "" },
-        { name: "Photoshop", level: 55, class: "" },
+        { name: "Node", level: 80, class: "devicon-nodejs-plain-wordmark" },
+        { name: "Spring Boot", level: 55, class: "devicon-spring-original" },
+        { name: "MySQL", level: 55, class: "devicon-mysql-original" },
+        { name: "MongoDB", level: 55, class: "devicon-mongodb-plain" },
+        { name: "AWS", level: 55, class: "devicon-amazonwebservices-plain-wordmark" },
+        { name: "GIT", level: 55, class: "devicon-git-plain" },
     ]
 };
 

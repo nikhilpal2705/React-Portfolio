@@ -3,8 +3,8 @@ import { links, profileData } from "@/constants/constant";
 const Footer = () => (
   <footer id="footer" className="footer position-relative light-background">
     <div className="container">
-      <h3 className="sitename">{profileData.name}</h3>
-      <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
+      {/* <h3 className="sitename">{profileData.name}</h3>
+      <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p> */}
       <div className="social-links d-flex justify-content-center">
         <a href={links.twitter} aria-label="X"><i className="bi bi-twitter-x"></i></a>
         <a href={links.facebook} aria-label="Facebook"><i className="bi bi-facebook"></i></a>
