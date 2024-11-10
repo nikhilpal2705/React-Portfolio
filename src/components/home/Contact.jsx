@@ -1,5 +1,6 @@
 import { contactData } from "@/constants/constant";
-
+import emailjs from 'emailjs-com';
+import { useEffect, useRef, useState } from "react";
 
 // const ContactOld = () => {
 //   return (
@@ -47,17 +48,55 @@ import { contactData } from "@/constants/constant";
 
 
 const ContactForm = () => {
+  const form = useRef();
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [responseMessage, setResponseMessage] = useState('');
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setIsSuccess(false);
+    setResponseMessage('');
+
+    emailjs.sendForm(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      form.current,
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    )
+      .then(() => {
+        setIsLoading(false);
+        setIsSuccess(true);
+        setResponseMessage('Your message has been sent. Thank you!');
+        form.current.reset();
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        setIsSuccess(false);
+        setResponseMessage('Failed to send email. Please try again later.');
+        console.error('Error sending email:', error);
+      });
+  };
+
+  // useEffect to hide responseMessage after 5 seconds
+  useEffect(() => {
+    if (responseMessage) {
+      const timer = setTimeout(() => {
+        setResponseMessage('');
+      }, 5000); // Hide the message after 5 seconds
+
+      return () => clearTimeout(timer); // Cleanup timeout on component unmount or before running the effect again
+    }
+  }, [responseMessage]); // Runs when responseMessage changes
+
   return (
-    <form
-      action="forms/contact.php"
-      method="post"
-      className="php-email-form"
-    >
+    <form ref={form} onSubmit={sendEmail} className="php-email-form">
       <div className="row gy-4">
         <div className="col-md-6">
           <input
             type="text"
-            name="name"
+            name="from_name"
             className="form-control"
             placeholder="Your Name"
             required
@@ -67,8 +106,8 @@ const ContactForm = () => {
         <div className="col-md-6">
           <input
             type="email"
+            name="from_email"
             className="form-control"
-            name="email"
             placeholder="Your Email"
             required
           />
@@ -77,8 +116,8 @@ const ContactForm = () => {
         <div className="col-md-12">
           <input
             type="text"
-            className="form-control"
             name="subject"
+            className="form-control"
             placeholder="Subject"
             required
           />
@@ -86,8 +125,8 @@ const ContactForm = () => {
 
         <div className="col-md-12">
           <textarea
-            className="form-control"
             name="message"
+            className="form-control"
             rows="6"
             placeholder="Message"
             required
@@ -95,18 +134,14 @@ const ContactForm = () => {
         </div>
 
         <div className="col-md-12 text-center">
-          <div className="loading">Loading</div>
-          <div className="error-message"></div>
-          <div className="sent-message">
-            Your message has been sent. Thank you!
-          </div>
-
-          <button type="submit">Send Message</button>
+          {isLoading && <div className="loading d-block">Loading...</div>}
+          {responseMessage && (<div className={`${isSuccess ? 'sent-message' : 'error-message'} d-block`}>{responseMessage}</div>)}
+          <button type="submit" disabled={isLoading}>Send Message</button>
         </div>
       </div>
     </form>
-  )
-}
+  );
+};
 
 
 const Contact = () => {
