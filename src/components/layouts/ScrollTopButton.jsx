@@ -20,14 +20,15 @@ const ScrollTopButton = () => {
       top: 0,
       behavior: 'smooth',
     });
-    if (window.location.hash) {
-      const newUrl = window.location.origin + window.location.pathname;
-      window.history.pushState(null, '', newUrl);
-    }
+    // if (window.location.hash) {
+    //   const newUrl = window.location.origin + window.location.pathname;
+    //   window.history.pushState(null, '', newUrl);
+    // }
   };
 
   return (
     <a
+      href='#hero'
       id="scroll-top"
       className={`scroll-top d-flex align-items-center justify-content-center ${isVisible ? 'active' : ''}`}
       onClick={scrollToTop}

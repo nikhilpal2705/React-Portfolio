@@ -7,7 +7,7 @@ import Portfolio from '@/components/home/Portfolio';
 import Services from '@/components/home/Services';
 import Contact from '@/components/home/Contact';
 import Skills from "@/components/home/Skills";
-import Layout from "@/layouts/Layout";
+import Layout from "@/components/layouts/Layout";
 import PortfolioDetail from '@/components/pages/PortfolioDetail';
 
 function MainPage() {
