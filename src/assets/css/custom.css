@@ -80,6 +80,7 @@
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     padding: 30px;
+    overflow: hidden;
 }
 
 .portfolio .portfolio-filters li {
@@ -109,6 +110,7 @@
 
     .contact .email-form-shadow {
         padding: 20px;
+        overflow: hidden;
     }
 
     .portfolio .portfolio-filters li {

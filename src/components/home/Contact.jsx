@@ -1,5 +1,6 @@
 import { contactData } from "@/constants/constant";
 import emailjs from 'emailjs-com';
+import ReCAPTCHA from 'react-google-recaptcha';
 import { useEffect, useRef, useState } from "react";
 
 // const ContactOld = () => {
@@ -49,13 +50,28 @@ import { useEffect, useRef, useState } from "react";
 
 const ContactForm = () => {
   const form = useRef();
+  const captchaRef = useRef();
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [responseMessage, setResponseMessage] = useState('');
+  const [captchaValue, setCaptchaValue] = useState(null); // Store the captcha value
 
-  const sendEmail = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    const captchaToken = captchaValue;
+
+
+    // Run reCAPTCHA v3 to get the token
+    // Use size="invisible" to handle automatic captcha
+    // captchaToken = await captchaRef.current.executeAsync();
+
+    if (!captchaToken) {
+      setIsLoading(false);
+      setResponseMessage('Please complete the reCAPTCHA.');
+      return;
+    }
+
     setIsSuccess(false);
     setResponseMessage('');
 
@@ -63,18 +79,21 @@ const ContactForm = () => {
       import.meta.env.VITE_EMAILJS_SERVICE_ID,
       import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
       form.current,
-      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      { 'g-recaptcha-response': captchaToken }
     )
       .then(() => {
         setIsLoading(false);
         setIsSuccess(true);
         setResponseMessage('Your message has been sent. Thank you!');
         form.current.reset();
+        captchaRef.current.reset();
       })
       .catch((error) => {
         setIsLoading(false);
         setIsSuccess(false);
         setResponseMessage('Failed to send email. Please try again later.');
+        captchaRef.current.reset();
         console.error('Error sending email:', error);
       });
   };
@@ -90,8 +109,13 @@ const ContactForm = () => {
     }
   }, [responseMessage]); // Runs when responseMessage changes
 
+  const handleCaptchaChange = (value) => {
+    setCaptchaValue(value); // Store the captcha response value
+  };
+
+
   return (
-    <form ref={form} onSubmit={sendEmail} className="php-email-form">
+    <form ref={form} onSubmit={handleSubmit} className="php-email-form">
       <div className="row gy-4">
         <div className="col-md-6">
           <input
@@ -131,6 +155,18 @@ const ContactForm = () => {
             placeholder="Message"
             required
           ></textarea>
+        </div>
+
+        {/* Google reCAPTCHA */}
+        <div className="col-md-12 text-center">
+          <ReCAPTCHA
+            ref={captchaRef}
+            theme="light"
+            style={{ display: "inline-block" }}
+            sitekey={import.meta.env.VITE_GOOGLE_RECAPTCHA_SITE_KEY}
+            size="normal"
+            onChange={handleCaptchaChange} // Store the reCAPTCHA token
+          />
         </div>
 
         <div className="col-md-12 text-center">
