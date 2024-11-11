@@ -70,7 +70,7 @@ const Header = () => {
     <li>
       <a
         href={"/" + id}
-        className={activeLink === id ? 'active' : ''}
+        className={activeLink == id ? 'active' : ''}
         onClick={() => setIsMenuOpen(false)}
       >
         <i className={`bi ${icon} navicon`}></i>
