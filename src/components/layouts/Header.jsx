@@ -1,9 +1,13 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types'; // Import PropTypes
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('#hero');
+  const [scrolling, setScrolling] = useState(false); // To track if scroll is in progress
+  const navigate = useNavigate();
+  const location = useLocation(); // To get the current location (route)
 
   // Toggle menu visibility for mobile with useCallback
   const toggleMenu = useCallback(() => setIsMenuOpen(prevState => !prevState), []);
@@ -39,19 +43,29 @@ const Header = () => {
       handleScroll.timer = setTimeout(handleScroll, 10);
     };
 
-    // Listen for scroll events
-    window.addEventListener('scroll', debouncedHandleScroll);
+    if (location.pathname == '/') {
+      // Listen for scroll events
+      window.addEventListener('scroll', debouncedHandleScroll);
 
-    // Trigger on load to set the initial active link
-    handleScroll();
+      // Trigger on load to set the initial active link
+      handleScroll();
+    }
 
     // Cleanup on component unmount
     return () => window.removeEventListener('scroll', debouncedHandleScroll);
-  }, [navmenulinks]);
+  }, [navmenulinks, location]);
+
+  // Update active link based on the current route
+  useEffect(() => {
+    if (location.pathname == '/portfolio-details') {
+      setActiveLink('#portfolio');
+    }
+  }, [location]);
 
   // Smooth scroll to section on load if there's a hash in URL
   useEffect(() => {
-    if (window.location.hash) {
+    if (window.location.hash && !scrolling) {
+      setScrolling(true);
       const section = document.querySelector(window.location.hash);
       if (section) {
         setTimeout(() => {
@@ -63,21 +77,42 @@ const Header = () => {
         }, 100);
       }
     }
-  }, []); // This effect runs once on mount
+  }, [scrolling]);
 
   // Menu Item component for readability and reuse
-  const MenuItem = ({ id, label, icon }) => (
-    <li>
-      <a
-        href={"/" + id}
-        className={activeLink == id ? 'active' : ''}
-        onClick={() => setIsMenuOpen(false)}
-      >
-        <i className={`bi ${icon} navicon`}></i>
-        <span>{label}</span>
-      </a>
-    </li>
-  );
+  const MenuItem = ({ id, label, icon }) => {
+    const handleClick = (e) => {
+      e.preventDefault(); // Prevent default link behavior
+      setIsMenuOpen(false); // Close the menu on mobile
+
+      // Update the URL hash to reflect the section
+      navigate('/' + id);
+
+      setTimeout(() => {
+        // Smooth scroll to the target section after navigating
+        const targetSection = document.querySelector(id);
+        if (targetSection) {
+          targetSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start', // Align the top of the section with the viewport
+          });
+        }
+      }, 0);
+    };
+
+    return (
+      <li>
+        <Link
+          to={id} // Just use the hash part
+          className={activeLink === id ? 'active' : ''}
+          onClick={handleClick} // Trigger custom scroll behavior
+        >
+          <i className={`bi ${icon} navicon`}></i>
+          <span>{label}</span>
+        </Link>
+      </li>
+    );
+  };
 
   // Define prop types for MenuItem
   MenuItem.propTypes = {
@@ -97,7 +132,7 @@ const Header = () => {
             ))}
           </ul>
         </nav>
-    </div >
+      </div >
     </header>
   );
 };

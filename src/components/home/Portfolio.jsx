@@ -2,6 +2,7 @@ import { portfolioData } from '@/constants/constant';
 import { useGLightbox } from '@/hooks/useGLightbox';
 import { useIsotope } from '@/hooks/useIsotope';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const PortfolioItem = ({ item, }) => {
   return (
@@ -13,9 +14,13 @@ const PortfolioItem = ({ item, }) => {
         <a href={item.image} title={item.title} data-gallery={`portfolio-gallery-${item.filter}`} className="glightbox preview-link">
           <i className="bi bi-zoom-in"></i>
         </a>
-        <a href={"portfolio-details?" + item.id} title="More Details" className="details-link">
+        <Link
+          to={`/portfolio-details?id=${item.id}`}
+          title="More Details"
+          className="details-link"
+        >
           <i className="bi bi-link-45deg"></i>
-        </a>
+        </Link>
       </div>
     </div>
   )
