@@ -1,3 +1,8 @@
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 .skills-card {
     position: relative;
     width: 70%;
@@ -87,9 +92,30 @@
     background: color-mix(in srgb, var(--accent-color), transparent 25%);
 }
 
-body {
-    max-width: 100%;
-    overflow-x: hidden;
+.loading-spinner {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #ffffff;
+    animation: spin 1s linear infinite;
+    margin-right: 8px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.contact .php-email-form button[type=submit]:disabled {
+    background: color-mix(in srgb, var(--accent-color), transparent 30%);
+    cursor: not-allowed;
 }
 
 @media (max-width: 575px) {
