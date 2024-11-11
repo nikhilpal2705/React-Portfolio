@@ -14,10 +14,11 @@ const Hero = () => {
             <p>I&apos;m <span className="typed"></span></p>
 
             <div className="social-links">
-              <a href={links.twitter} target="_blank" rel="noopener noreferrer"><i className="bi bi-twitter-x"></i></a>
-              <a href={links.facebook} target="_blank" rel="noopener noreferrer"><i className="bi bi-facebook"></i></a>
-              <a href={links.instagram} target="_blank" rel="noopener noreferrer"><i className="bi bi-instagram"></i></a>
+              <a href={"mailto:" + links.email} target="_blank" rel="noopener noreferrer"><i className="bi bi-envelope-fill"></i></a>
               <a href={links.linkedin} target="_blank" rel="noopener noreferrer"><i className="bi bi-linkedin"></i></a>
+              <a href={links.github} target="_blank" rel="noopener noreferrer"><i className="bi bi-github"></i></a>
+              <a href={links.telegram} target="_blank" rel="noopener noreferrer"><i className="bi bi-telegram"></i></a>
+              <a href={links.twitter} target="_blank" rel="noopener noreferrer"><i className="bi bi-twitter-x"></i></a>
             </div>
 
           </div>

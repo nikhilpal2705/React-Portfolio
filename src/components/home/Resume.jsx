@@ -17,10 +17,10 @@ const Resume = () => {
           {/* Left Column */}
           <div className="col-lg-6" data-aos="fade-up" data-aos-delay="100">
             <ResumeSection title="Summary">
-              <ResumeItem title={resumeData.summary.name} description={resumeData.summary.description}>
+              <ResumeItem title={resumeData.summary.title} description={resumeData.summary.description}>
                 <ul>
-                  <li>{resumeData.summary.phone}</li>
                   <li>{resumeData.summary.email}</li>
+                  <li>{resumeData.summary.city}</li>
                 </ul>
               </ResumeItem>
             </ResumeSection>
@@ -54,10 +54,10 @@ const Resume = () => {
 
 // Sub-component for resume sections
 const ResumeSection = ({ title, children }) => (
-  <>
+  <div>
     <h3 className="resume-title">{title}</h3>
     {children}
-  </>
+  </div>
 );
 
 ResumeSection.propTypes = {

@@ -36,7 +36,7 @@ const Header = () => {
     // Using debounce technique for scroll event
     const debouncedHandleScroll = () => {
       clearTimeout(handleScroll.timer);
-      handleScroll.timer = setTimeout(handleScroll, 100);
+      handleScroll.timer = setTimeout(handleScroll, 10);
     };
 
     // Listen for scroll events

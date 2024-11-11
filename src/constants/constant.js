@@ -1,47 +1,45 @@
 import images from "@/assets/img/images";
 
 export const links = {
-    email: "dummyEmail@gmail.com",
-    phone: "+123 456 7890",
-    linkedin: "https://www.linkedin.com/in/dummyName",
-    github: "https://github.com/dummyName",
-    telegram: "https://t.me/dummyName",
-    twitter: "https://twitter.com/dummyName",
-    facebook: "https://facebook.com/dummyName",
-    instagram: "https://instagram.com/dummyName",
-    resume: "https://drive.google.com/"
+    email: "nsuryavanshi.dev@gmail.com",
+    // phone: "",
+    linkedin: "https://www.linkedin.com/in/nikhilpal2705",
+    github: "https://github.com/nikhilpal2705",
+    telegram: "https://t.me/nikhilpal2705",
+    twitter: "https://x.com/nikhilpal2705",
+    resume: "https://drive.google.com/drive/folders/1YGYat6G7YPisYaq7OZqf2DdUl4a_N6kp?usp=sharing",
+    website: "https://nikhilpal2705.vercel.app"
 };
 
 export const profileData = {
     bgImage: images["hero-bg"],
-    name: "Full Name",
-    roles: ["Designer", "Developer", "Freelancer", "Photographer"],
-    city: "New York, USA",
-    address: "A108 Adam Street, New York, NY 535022"
+    name: "Nikhil Suryavanshi",
+    roles: ["Software Engineer", "Full Stack Developer"],
+    city: "Gorakhpur, Uttar Pradesh, India",
+    address: "Taramandal, Gorakhpur, Uttar Pradesh, India, 273017",
+    currentCity: "Noida, Uttar Pradesh, India"
 };
 
 export const aboutData = {
-    mainSummary: "Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.",
-    title: "UI/UX Designer & Web Developer",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    mainSummary: "Experienced Full Stack Developer with a track record of delivering high-quality software solutions, specializing in optimizing performance and integrating complex systems.",
+    title: "Software Engineer",
+    description: "I am a driven Software Engineer with 1.8 years of hands-on experience in full-stack development. My expertise lies in building scalable web applications, enhancing UI/UX, and ensuring backend efficiency. Passionate about implementing secure API integrations, enhancing frontend performance, and utilizing DevOps practices to streamline deployment processes.",
     profileImage: images["profile"],
     detailsLeft: [
-        { label: "Birthday", value: "1 May 1995" },
-        { label: "Website", value: "www.example.com" },
-        { label: "Phone", value: links.phone },
-        { label: "City", value: profileData.city }
+        { label: "Age", value: "28" },
+        { label: "Email", value: links.email },
+        { label: "Home Town", value: profileData.city }
     ],
     detailsRight: [
-        { label: "Age", value: "30" },
-        { label: "Degree", value: "Master" },
-        { label: "Email", value: links.email },
-        { label: "Freelance", value: "Available" }
+        { label: "Degree", value: "Bachelor of Technology" },
+        { label: "Field", value: "Computer Science & Engineering" },
+        { label: "Website", value: links.website.split("https://")[1] },
     ],
-    additionalDescription: "Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis. Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque."
+    additionalDescription: "Alongside my work, I am dedicated to continuous learning, with a focus on exploring cloud technologies, microservices architecture, and open-source contributions."
 };
 
 export const skillsData = {
-    mainSummary: "Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit.",
+    mainSummary: "Technically proficient in frontend, backend, database, and DevOps, with a focus on building maintainable, efficient, and secure code.",
     skillsLeft: [
         { name: "HTML", level: 90, class: "devicon-html5-plain colored" },
         { name: "CSS", level: 80, class: "devicon-css3-plain" },
@@ -49,7 +47,7 @@ export const skillsData = {
         { name: "jQuery", level: 85, class: "devicon-jquery-plain" },
         { name: "React", level: 75, class: "devicon-react-original" },
         { name: "Angular", level: 50, class: "devicon-angularjs-plain" },
-        { name: "Java", level: 80, class: "devicon-java-plain" },
+        { name: "Java", level: 80, class: "devicon-java-plain" }
     ],
     skillsRight: [
         { name: "Node", level: 90, class: "devicon-nodejs-plain-wordmark" },
@@ -58,129 +56,114 @@ export const skillsData = {
         { name: "MongoDB", level: 80, class: "devicon-mongodb-plain" },
         { name: "AWS", level: 60, class: "devicon-amazonwebservices-plain-wordmark" },
         { name: "Docker", level: 55, class: "devicon-docker-plain" },
-        { name: "GIT", level: 90, class: "devicon-git-plain" },
+        { name: "GIT", level: 90, class: "devicon-git-plain" }
     ]
 };
 
 export const resumeData = {
-    mainSummary: "Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.",
+    mainSummary: "Full Stack Developer with experience across the entire software development lifecycle, from planning and coding to testing and deployment.",
     summary: {
-        name: profileData.name,
-        description: "Innovative and deadline-driven Graphic Designer with 3+ years of experience designing and developing user-centered digital/print marketing material from initial concept to final, polished deliverable.",
+        title: profileData.name,
+        description: "A results-oriented developer proficient in Java, JavaScript, and modern frameworks. I aim to create meaningful digital solutions that align with business goals and meet user needs.",
         phone: links.phone,
         email: links.email,
-        city: profileData.city
+        city: profileData.currentCity
     },
     education: [
         {
-            title: "Master of Fine Arts & Graphic Design",
-            date: "2015 - 2016",
-            institution: "Rochester Institute of Technology, Rochester, NY",
-            description: "Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero voluptatum qui ut dignissimos deleniti."
+            title: "Bachelor of Technology (B.Tech)",
+            date: "2014 - 2018",
+            institution: "Shri Ramswaroop Memorial College of Engineering and Management, Lucknow, India",
+            description: "Graduated with a major in Computer Science & Engineering, where I developed foundational knowledge in data structures, algorithms, software engineering principles, and database management."
         },
         {
-            title: "Bachelor of Fine Arts & Graphic Design",
-            date: "2010 - 2014",
-            institution: "Rochester Institute of Technology, Rochester, NY",
-            description: "Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis."
+            title: "Intermediate",
+            date: "2012 - 2014",
+            institution: "S.M.T.D. Inter College, Basti, India",
+            description: "Completed my education focusing on Mathematics, Physics, and Chemistry, preparing for a career in engineering."
         }
     ],
     experience: [
         {
-            title: "Senior Graphic Design Specialist",
-            date: "2019 - Present",
-            company: "Experion, New York, NY",
+            title: "Software Engineer",
+            date: "Feb. 2023 - Present",
+            company: "Agami Technologies, Noida, India",
             tasks: [
-                "Lead in the design, development, and implementation of graphic, layout, and production communication materials.",
-                "Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project.",
-                "Supervise the assessment of all graphic materials to ensure quality and accuracy.",
-                "Oversee the efficient use of production project budgets ranging from $2,000 - $25,000."
-            ]
-        },
-        {
-            title: "Graphic Design Specialist",
-            date: "2017 - 2018",
-            company: "Stepping Stone Advertising, New York, NY",
-            tasks: [
-                "Developed numerous marketing programs (logos, brochures, infographics, presentations, and advertisements).",
-                "Managed up to 5 projects or tasks at a given time while under pressure.",
-                "Recommended and consulted with clients on the most appropriate graphic design.",
-                "Created 4+ design presentations and proposals monthly for clients and account managers."
+                "Developed and maintained features for mortgage, CRM, and marketing applications, achieving seamless client data management and customer engagement enhancements.",
+                "Led the engineering and optimization of RESTful APIs, reducing response times by up to 3x through query optimization and efficient caching.",
+                "Enhanced frontend loading performance by 40% by implementing memoization to prevent re-rendering and virtualization for large datasets, while adhering to strict coding practices.",
+                "Implemented OAuth 2.0 for authorization and integrated third-party services, including Twilio for communication, AWS (S3 for storage, SES for email, and SNS for notifications), and Zapier for workflow automation.",
+                "Actively contributed to code reviews and automated testing, ensuring high code quality and robustness."
             ]
         }
     ]
 };
 
 export const portfolioData = {
-    mainSummary: "Magnam dolores commodi suscipit...",
+    mainSummary: "A collection of projects demonstrating proficiency in full-stack development, showcasing skills in React, Node.js, and Java.",
     filters: [
-        { name: "App", class: "filter-app" },
-        { name: "Card", class: "filter-product" },
-        { name: "Web", class: "filter-branding" }
+        { name: "React", class: "filter-react" },
+        { name: "Node", class: "filter-node" },
+        { name: "Java", class: "filter-java" }
     ],
     portfolioItems: [
-        { filter: "filter-app", title: "App 1", description: "Lorem ipsum, dolor sit", image: images["portfolio"] },
-        { filter: "filter-app", title: "App 2", description: "Lorem ipsum, dolor sit", image: images["portfolio"] },
-        { filter: "filter-app", title: "App 3", description: "Lorem ipsum, dolor sit", image: images["portfolio"] },
-        { filter: "filter-product", title: "Product 1", description: "Lorem ipsum, dolor sit", image: images["portfolio"] },
-        { filter: "filter-product", title: "Product 2", description: "Lorem ipsum, dolor sit", image: images["portfolio"] },
-        { filter: "filter-product", title: "Product 3", description: "Lorem ipsum, dolor sit", image: images["portfolio"] },
-        { filter: "filter-branding", title: "Branding 1", description: "Lorem ipsum, dolor sit", image: images["portfolio"] },
-        { filter: "filter-branding", title: "Branding 2", description: "Lorem ipsum, dolor sit", image: images["portfolio"] },
-        { filter: "filter-branding", title: "Branding 3", description: "Lorem ipsum, dolor sit", image: images["portfolio"] }
+        { filter: "filter-react filter-java", title: "AgroCare", description: "An agriculture product management tool built with React.js, Spring Boot, and MySQL. This project facilitates crop monitoring and sales management for farmers.", image: images["portfolio"], id: "agrocare" },
+        { filter: "filter-node", title: "GFG Stats Card", description: "A Node.js and Express.js web app that displays GeeksforGeeks user statistics for easy GitHub profile integration.", image: images["portfolio"], id: "gfgcard" },
+        { filter: "filter-react", title: "Portfolio", description: "A portfolio application with an intuitive interface.", image: images["portfolio"], id: "portfolio" }
     ]
 };
 
 export const servicesData = {
-    mainSummary: "Magnam dolores commodi suscipit...",
+    mainSummary: "Offering expertise in software development, API integration, and application optimization.",
     services: [
         {
-            icon: "bi bi-activity",
-            title: "Nesciunt Mete",
-            description: "Provident nihil minus qui consequatur non omnis maiores.",
+            icon: "bi bi-code-slash",
+            title: "Software Development",
+            description: "Build tailored software solutions designed to meet specific business requirements, ensuring functionality and scalability.",
             delay: 100,
             colorClass: "item-cyan"
         },
         {
-            icon: "bi bi-broadcast",
-            title: "Eosle Commodi",
-            description: "Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.",
+            icon: "bi bi-plug",
+            title: "API Integration",
+            description: "Effortlessly connect your applications with external services through secure and efficient API integrations.",
             delay: 200,
             colorClass: "item-orange"
         },
         {
-            icon: "bi bi-easel",
-            title: "Ledo Markt",
-            description: "Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.",
+            icon: "bi bi-speedometer2",
+            title: "Performance Optimization",
+            description: "Optimize your application’s performance, minimizing latency and maximizing response times.",
             delay: 300,
             colorClass: "item-teal"
         },
         {
-            icon: "bi bi-bounding-box-circles",
-            title: "Asperiores Commodit",
-            description: "Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit provident adipisci neque.",
+            icon: "bi bi-palette",
+            title: "Frontend Development",
+            description: "Create interactive, user-friendly interfaces that engage users and enhance the user experience.",
             delay: 400,
             colorClass: "item-red"
         },
         {
-            icon: "bi bi-calendar4-week",
-            title: "Velit Doloremque",
-            description: "Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem alias eius labore.",
+            icon: "bi bi-server",
+            title: "Backend Development",
+            description: "Design secure and scalable backend architectures that support complex business operations.",
             delay: 500,
             colorClass: "item-indigo"
         },
         {
-            icon: "bi bi-chat-square-text",
-            title: "Dolori Architecto",
-            description: "Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.",
+            icon: "bi bi-cloud-upload",
+            title: "DevOps & Cloud Services",
+            description: "Implement continuous integration and deployment strategies with cloud services for reliable, scalable deployment.",
             delay: 600,
             colorClass: "item-pink"
         }
     ]
 };
 
+
 export const contactData = {
-    mainSummary: "Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit",
+    mainSummary: "For inquiries or collaboration opportunities, feel free to reach out.",
     address: profileData.address,
     phone: links.phone,
     email: links.email

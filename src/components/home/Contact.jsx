@@ -1,4 +1,4 @@
-import { contactData } from "@/constants/constant";
+import { contactData, profileData } from "@/constants/constant";
 import emailjs from 'emailjs-com';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { useEffect, useRef, useState } from "react";
@@ -161,6 +161,7 @@ const ContactForm = () => {
         <div className="col-md-12 text-center">
           <ReCAPTCHA
             ref={captchaRef}
+            className="g-recaptcha"
             theme="light"
             style={{ display: "inline-block" }}
             sitekey={import.meta.env.VITE_GOOGLE_RECAPTCHA_SITE_KEY}
@@ -191,15 +192,17 @@ const Contact = () => {
       <div className="container" data-aos="fade" data-aos-delay="100">
         <div className="info-wrap" data-aos="fade-up" data-aos-delay="200">
           <div className="row gy-5">
-            <div className="col-lg-4">
+
+            <div className={contactData.phone ? "col-lg-4" : "col-lg-6"}>
               <div className="info-item d-flex align-items-center">
-                <i className="bi bi-geo-alt flex-shrink-0"></i>
+                <i className="bi bi-envelope flex-shrink-0"></i>
                 <div>
-                  <h3>Address</h3>
-                  <p>{contactData.address}</p>
+                  <h3>Email</h3>
+                  <p>{contactData.email}</p>
                 </div>
               </div>
             </div>
+
 
             {contactData.phone && <div className="col-lg-4">
               <div className="info-item d-flex align-items-center">
@@ -211,15 +214,16 @@ const Contact = () => {
               </div>
             </div>}
 
-            <div className="col-lg-4">
+            <div className={contactData.phone ? "col-lg-4" : "col-lg-6"}>
               <div className="info-item d-flex align-items-center">
-                <i className="bi bi-envelope flex-shrink-0"></i>
+                <i className="bi bi-geo-alt flex-shrink-0"></i>
                 <div>
-                  <h3>Email</h3>
-                  <p>{contactData.email}</p>
+                  <h3>Address</h3>
+                  <p>{profileData.city}</p>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
         <div className="email-form-shadow" data-aos="fade-up" data-aos-delay="300" >

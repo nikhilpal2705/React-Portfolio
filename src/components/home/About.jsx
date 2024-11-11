@@ -11,9 +11,9 @@ const About = () => {
 
       <div className="container" data-aos="fade-up" data-aos-delay="100">
         <div className="row gy-4 justify-content-center">
-          <div className="col-lg-4">
+          {aboutData.profileImage && <div className="col-lg-4">
             <img src={aboutData.profileImage} className="img-fluid" alt="Profile" />
-          </div>
+          </div>}
 
           <div className="col-lg-8 content">
             <h2>{aboutData.title}</h2>
