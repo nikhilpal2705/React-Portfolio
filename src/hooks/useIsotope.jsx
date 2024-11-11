@@ -1,23 +1,30 @@
 import Isotope from 'isotope-layout';
+import imagesLoaded from 'imagesloaded';
 import { useEffect, useRef } from 'react';
 
-export const useIsotope = (filter) => {
+export const useIsotope = (filter, layoutMode = 'masonry', sortBy = 'original-order') => {
     const isotopeContainer = useRef(null);
     const isotopeInstance = useRef(null);
 
     useEffect(() => {
-        // Initialize Isotope
-        isotopeInstance.current = new Isotope(isotopeContainer.current, {
-            itemSelector: '.isotope-item',
-            layoutMode: 'masonry',
-            filter: '*',
+        // Wait until images are loaded before initializing Isotope
+        imagesLoaded(isotopeContainer.current, () => {
+            // Initialize Isotope
+            isotopeInstance.current = new Isotope(isotopeContainer.current, {
+                itemSelector: '.isotope-item',
+                layoutMode,
+                filter,
+                sortBy,
+            });
         });
 
         return () => {
             // Cleanup Isotope on component unmount
-            isotopeInstance.current.destroy();
+            if (isotopeInstance.current) {
+                isotopeInstance.current.destroy();
+            }
         };
-    }, []);
+    }, [layoutMode, sortBy]);
 
     useEffect(() => {
         // Apply filter when it changes

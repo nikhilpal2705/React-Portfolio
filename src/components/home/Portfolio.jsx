@@ -23,7 +23,7 @@ const PortfolioItem = ({ item, }) => {
 
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('*');
-  const isotopeContainer = useIsotope(activeFilter);
+  const isotopeContainer = useIsotope(activeFilter, 'masonry', 'original-order');
   useGLightbox();
   const handleFilterClick = (filter) => setActiveFilter(filter);
 

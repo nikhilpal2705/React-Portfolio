@@ -88,14 +88,16 @@ const Header = () => {
 
   return (
     <header id="header" className={`header d-flex flex-column justify-content-center ${isMenuOpen ? 'header-show' : ''}`}>
-      <i className={`header-toggle d-xl-none bi ${isMenuOpen ? 'bi-x' : 'bi-list'}`} onClick={toggleMenu}></i>
-      <nav id="navmenu" className="navmenu">
-        <ul>
-          {navmenulinks.map(link => (
-            <MenuItem key={link.id} {...link} />
-          ))}
-        </ul>
-      </nav>
+      <div className="container">
+        <i className={`header-toggle d-xl-none bi ${isMenuOpen ? 'bi-x' : 'bi-list'}`} onClick={toggleMenu}></i>
+        <nav id="navmenu" className="navmenu">
+          <ul>
+            {navmenulinks.map(link => (
+              <MenuItem key={link.id} {...link} />
+            ))}
+          </ul>
+        </nav>
+    </div >
     </header>
   );
 };

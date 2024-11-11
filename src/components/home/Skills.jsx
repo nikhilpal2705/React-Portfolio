@@ -47,7 +47,7 @@ import PropTypes from 'prop-types';
 
 const SkillItem = ({ label, svg, iconClass }) => {
   return (
-    <div data-aos="fade-up" data-aos-delay="100"className="skill-item col-3 col-sm-2 my-3 mx-auto" style={{ display: 'inline', textAlign: 'center' }}>
+    <div data-aos="fade-up" data-aos-delay="100" className="skill-item col-3 col-sm-2 my-3 mx-auto" style={{ display: 'inline', textAlign: 'center' }}>
       {svg ? <svg aria-hidden="true" focusable="false" data-icon={label} role="i" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentcolor" d={svg} /></svg>
         : <i className={`${iconClass} mx-auto my-auto`}></i>}
       <h6 className="mt-2">{label}</h6>
@@ -71,10 +71,12 @@ const Skills = () => {
         <p>{skillsData.mainSummary}</p>
       </div>
 
-      <div className="row d-flex justify-content-center skills-info">
-        {[...skillsData.skillsLeft, ...skillsData.skillsRight].map((item) =>
-          <SkillItem key={item.name} iconClass={item.class} svg={item.svg} label={item.name} />
-        )}
+      <div className="container">
+        <div className="row d-flex justify-content-center skills-info">
+          {[...skillsData.skillsLeft, ...skillsData.skillsRight].map((item) =>
+            <SkillItem key={item.name} iconClass={item.class} svg={item.svg} label={item.name} />
+          )}
+        </div>
       </div>
     </section>
   );

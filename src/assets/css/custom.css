@@ -102,6 +102,10 @@
     background: color-mix(in srgb, var(--accent-color), transparent 25%);
 }
 
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
 
 @media (max-width: 575px) {
     .skills-card {
