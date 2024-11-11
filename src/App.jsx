@@ -11,6 +11,7 @@ import 'devicon'
 
 // Load this css at last
 import "@/assets/css/app.css";
+import "@/assets/img/images"
 
 const App = () => {
   useAOS(); // Initialize AOS for animations

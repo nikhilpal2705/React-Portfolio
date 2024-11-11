@@ -35,8 +35,8 @@ const Portfolio = () => {
       </div>
 
       <div className="container">
-        <div className="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-          <ul className="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="50">
+        <div className="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order" data-aos="fade-up" data-aos-delay="40">
+          <ul className="portfolio-filters isotope-filters">
             <li className={activeFilter == '*' ? 'filter-active' : ''} onClick={() => handleFilterClick('*')}>All</li>
             {portfolioData.filters.map((item) => {
               const filterClass = "." + item.class;
@@ -47,7 +47,7 @@ const Portfolio = () => {
             })}
           </ul>
 
-          <div className="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="100" ref={isotopeContainer}>
+          <div className="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="80" ref={isotopeContainer}>
             {portfolioData.portfolioItems.map((item, index) => (<PortfolioItem key={index} item={item} activeFilter={activeFilter} />))}
           </div>
         </div>
