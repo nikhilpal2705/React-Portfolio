@@ -69,7 +69,7 @@ const Header = () => {
   const MenuItem = ({ id, label, icon }) => (
     <li>
       <a
-        href={id}
+        href={"/" + id}
         className={activeLink === id ? 'active' : ''}
         onClick={() => setIsMenuOpen(false)}
       >

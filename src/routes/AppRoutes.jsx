@@ -30,9 +30,9 @@ function AppRoutes() {
     return (
         <Routes>
             <Route path="/" element={<MainPage />} />
-            <Route path="/portfolio-details" element={<Layout header={false}><PortfolioDetail /></Layout>} />
-            {/* <Route path="/service-details" element={<Layout header={false}><PortfolioDetail /></Layout>} />
-            <Route path="/starter-page" element={<Layout header={false}><PortfolioDetail /></Layout>} /> */}
+            <Route path="/portfolio-details" element={<Layout header={true}><PortfolioDetail /></Layout>} />
+            {/* <Route path="/service-details" element={<Layout header={false}><PortfolioDetail /></Layout>} /> */}
+            {/* <Route path="/starter-page" element={<Layout header={false}><PortfolioDetail /></Layout>} /> */}
 
         </Routes>
     );

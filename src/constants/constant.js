@@ -107,8 +107,8 @@ export const portfolioData = {
         { name: "Java", class: "filter-java" }
     ],
     portfolioItems: [
-        { filter: "filter-react filter-java", title: "AgroCare", description: "An agriculture product management tool built with React.js, Spring Boot, and MySQL. This project facilitates crop monitoring and sales management for farmers.", image: images["portfolio"], id: "agrocare" },
-        { filter: "filter-node", title: "GFG Stats Card", description: "A Node.js and Express.js web app that displays GeeksforGeeks user statistics for easy GitHub profile integration.", image: images["portfolio"], id: "gfgcard" },
+        { filter: "filter-react filter-java", title: "AgroCare", description: "An agriculture product management tool built with React.js, Spring Boot, and MySQL. This project facilitates crop monitoring and sales management for farmers.", image: images["agrocare"], id: "agrocare" },
+        { filter: "filter-node", title: "GFG Stats Card", description: "A Node.js and Express.js web app that displays GeeksforGeeks user statistics for easy GitHub profile integration.", image: images["gfgcard"], id: "gfgcard" },
         { filter: "filter-react", title: "Portfolio", description: "A portfolio application with an intuitive interface.", image: images["portfolio"], id: "portfolio" }
     ]
 };
