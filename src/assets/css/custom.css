@@ -65,29 +65,14 @@
     padding: 3%;
 }
 
-
-.contact .info-wrap {
-    background-color: var(--surface-color);
-    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    margin-bottom: 30px;
-    border-radius: 5px;
-}
-
-
-.contact .email-form-shadow {
-    background-color: var(--surface-color);
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    padding: 30px;
-    overflow: hidden;
-}
-
 .portfolio .portfolio-filters li {
     /* Temp css override*/
     margin-left: 4px !important;
 }
 
+.box-shadow {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
 
 .about .download-btn {
     color: var(--contrast-color);
@@ -110,11 +95,6 @@ body {
 @media (max-width: 575px) {
     .skills-card {
         margin-bottom: 15%;
-    }
-
-    .contact .email-form-shadow {
-        padding: 20px;
-        overflow: hidden;
     }
 
     .portfolio .portfolio-filters li {

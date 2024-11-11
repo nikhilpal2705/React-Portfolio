@@ -1082,29 +1082,31 @@ section,
 /*--------------------------------------------------------------
 # Contact Section
 --------------------------------------------------------------*/
-.contact .info-item+.info-item {
-  margin-top: 40px;
+.contact .info-item {
+  background-color: var(--surface-color);
+  padding: 20px 0 30px 0;
 }
 
 .contact .info-item i {
-  color: var(--accent-color);
-  background: color-mix(in srgb, var(--accent-color), transparent 92%);
   font-size: 20px;
-  width: 44px;
-  height: 44px;
+  color: var(--accent-color);
+  width: 56px;
+  height: 56px;
+  font-size: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50px;
+  border-radius: 4px;
   transition: all 0.3s ease-in-out;
-  margin-right: 15px;
+  border-radius: 50%;
+  border: 2px dotted color-mix(in srgb, var(--accent-color), transparent 40%);
 }
 
 .contact .info-item h3 {
-  padding: 0;
+  font-size: 20px;
   font-size: 18px;
   font-weight: 700;
-  margin-bottom: 5px;
+  margin: 10px 0;
 }
 
 .contact .info-item p {
@@ -1113,13 +1115,16 @@ section,
   font-size: 14px;
 }
 
-.contact .info-item:hover i {
-  background: var(--accent-color);
-  color: var(--contrast-color);
+.contact .php-email-form {
+  background-color: var(--surface-color);
+  height: 100%;
+  padding: 30px;
 }
 
-.contact .php-email-form {
-  height: 100%;
+@media (max-width: 575px) {
+  .contact .php-email-form {
+    padding: 20px;
+  }
 }
 
 .contact .php-email-form input[type=text],
@@ -1130,7 +1135,7 @@ section,
   box-shadow: none;
   border-radius: 0;
   color: var(--default-color);
-  background-color: color-mix(in srgb, var(--background-color), transparent 50%);
+  background-color: var(--surface-color);
   border-color: color-mix(in srgb, var(--default-color), transparent 80%);
 }
 
@@ -1149,14 +1154,14 @@ section,
 .contact .php-email-form button[type=submit] {
   color: var(--contrast-color);
   background: var(--accent-color);
-  border: 0;
+border: 0;
   padding: 10px 30px;
   transition: 0.4s;
   border-radius: 50px;
 }
 
 .contact .php-email-form button[type=submit]:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 25%);
+  background: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
 
 /*--------------------------------------------------------------

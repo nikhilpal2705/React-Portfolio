@@ -3,51 +3,6 @@ import emailjs from 'emailjs-com';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { useEffect, useRef, useState } from "react";
 
-// const ContactOld = () => {
-//   return (
-//     <section id="contact" className="contact section">
-//       <div className="container section-title" data-aos="fade-up">
-//         <h2>Contact</h2>
-//         <p>{contactData.mainSummary}</p>
-//       </div>
-
-//       <div className="container" data-aos="fade" data-aos-delay="100">
-//         <div className="row gy-4">
-//           <div className="col-lg-4">
-//             <div className="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-//               <i className="bi bi-geo-alt flex-shrink-0"></i>
-//               <div>
-//                 <h3>Address</h3>
-//                 <p>{contactData.address}</p>
-//               </div>
-//             </div>
-
-//             {contactData.phone && <div className="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-//               <i className="bi bi-telephone flex-shrink-0"></i>
-//               <div>
-//                 <h3>Call</h3>
-//                 <p>{contactData.phone}</p>
-//               </div>
-//             </div>}
-
-//             <div className="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-//               <i className="bi bi-envelope flex-shrink-0"></i>
-//               <div>
-//                 <h3>Email</h3>
-//                 <p>{contactData.email}</p>
-//               </div>
-//             </div>
-//           </div>
-//           <div className="col-lg-8" data-aos="fade-up" data-aos-delay="200">
-//             <ContactForm />
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-
 const ContactForm = () => {
   const form = useRef();
   const captchaRef = useRef();
@@ -189,45 +144,42 @@ const Contact = () => {
         <p>{contactData.mainSummary}</p>
       </div>
 
-      <div className="container" data-aos="fade" data-aos-delay="100">
-        <div className="info-wrap" data-aos="fade-up" data-aos-delay="200">
-          <div className="row gy-5">
+      <div className="container" data-aos="fade-up" data-aos-delay="100">
 
-            <div className={contactData.phone ? "col-lg-4" : "col-lg-6"}>
-              <div className="info-item d-flex align-items-center">
-                <i className="bi bi-envelope flex-shrink-0"></i>
-                <div>
-                  <h3>Email</h3>
-                  <p>{contactData.email}</p>
-                </div>
-              </div>
+        <div className="row gy-4">
+
+          <div className={contactData.phone ? "col-lg-4" : "col-lg-6"} >
+            <div className="box-shadow info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
+              <i className="bi bi-geo-alt"></i>
+              <h3>Address</h3>
+              <p>{profileData.city}</p>
             </div>
-
-
-            {contactData.phone && <div className="col-lg-4">
-              <div className="info-item d-flex align-items-center">
-                <i className="bi bi-telephone flex-shrink-0"></i>
-                <div>
-                  <h3>Call</h3>
-                  <p>{contactData.phone}</p>
-                </div>
-              </div>
-            </div>}
-
-            <div className={contactData.phone ? "col-lg-4" : "col-lg-6"}>
-              <div className="info-item d-flex align-items-center">
-                <i className="bi bi-geo-alt flex-shrink-0"></i>
-                <div>
-                  <h3>Address</h3>
-                  <p>{profileData.city}</p>
-                </div>
-              </div>
-            </div>
-
           </div>
+
+          {contactData.phone && <div className="col-lg-4">
+            <div className="box-shadow info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
+              <i className="bi bi-telephone"></i>
+              <h3>Call</h3>
+              <p>{contactData.phone}</p>
+            </div>
+          </div>}
+
+          <div className={contactData.phone ? "col-lg-4" : "col-lg-6"} >
+            <div className="box-shadow info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
+              <i className="bi bi-envelope"></i>
+              <h3>Email</h3>
+              <p>{contactData.email}</p>
+            </div>
+          </div>
+
         </div>
-        <div className="email-form-shadow" data-aos="fade-up" data-aos-delay="300" >
-          <ContactForm />
+
+        <div className="row gy-4 mt-1">
+          <div className="col-lg-12" data-aos="fade-up" data-aos-delay="400">
+            <div className="box-shadow">
+              <ContactForm />
+            </div>
+          </div>
         </div>
       </div>
     </section>
