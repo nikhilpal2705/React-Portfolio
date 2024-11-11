@@ -33,7 +33,7 @@ const Services = () => {
 
   return (
     <section id="services" className="services section">
-      <div className="container section-title" data-aos="fade-up" data-aos-delay={100}>
+      <div className="container section-title" data-aos="fade-up">
         <h2>Services</h2>
         <p>{servicesData.mainSummary}</p>
       </div>
