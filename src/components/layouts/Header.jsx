@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import PropTypes from 'prop-types'; // Import PropTypes
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import DarkModeToggle from './DarkModeToggle';
@@ -9,6 +9,7 @@ const Header = () => {
   const [scrolling, setScrolling] = useState(false); // To track if scroll is in progress
   const navigate = useNavigate();
   const location = useLocation(); // To get the current location (route)
+  const headerRef = useRef(null); // Create a ref for the header
 
   // Toggle menu visibility for mobile with useCallback
   const toggleMenu = useCallback(() => setIsMenuOpen(prevState => !prevState), []);
@@ -122,11 +123,26 @@ const Header = () => {
     icon: PropTypes.string.isRequired,
   };
 
+  // Handle click outside to close menu
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (headerRef.current && !headerRef.current.contains(event.target)) {
+        setIsMenuOpen(false); // Close the menu if clicked outside
+      }
+    };
+
+    // Add event listener for clicks outside of the header
+    document.addEventListener('mousedown', handleClickOutside);
+
+    // Cleanup event listener on unmount
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   return (
-    <header id="header" className={`header d-flex flex-column justify-content-center ${isMenuOpen ? 'header-show' : ''}`}>
+    <header ref={headerRef} id="header" className={`header d-flex flex-column justify-content-center ${isMenuOpen ? 'header-show' : ''}`}>
+      <DarkModeToggle />
       <div className="container">
         <i className={`header-toggle d-xl-none bi ${isMenuOpen ? 'bi-x' : 'bi-list'}`} onClick={toggleMenu}></i>
-        <DarkModeToggle />
         <nav id="navmenu" className="navmenu">
           <ul>
             {navmenulinks.map(link => (
@@ -134,7 +150,7 @@ const Header = () => {
             ))}
           </ul>
         </nav>
-      </div >
+      </div>
     </header>
   );
 };

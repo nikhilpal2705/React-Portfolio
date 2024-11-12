@@ -5,11 +5,15 @@ import { toast } from 'react-toastify';
 import { useTheme } from '@/contexts/ThemeContext';
 
 const ContactForm = () => {
-    const { isDarkMode } = useTheme(); // Access the current theme from context
+    const { isDarkMode, themeChangeKey } = useTheme(); // Access the current theme from context
     const form = useRef();
     const captchaRef = useRef();
     const [isLoading, setIsLoading] = useState(false);
     const [captchaValue, setCaptchaValue] = useState(null); // Store captcha value
+
+    useEffect(() => {
+        setCaptchaValue(null);
+    }, [isDarkMode])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -104,7 +108,7 @@ const ContactForm = () => {
                         ref={captchaRef}
                         className="g-recaptcha"
                         theme={isDarkMode ? 'dark' : 'light'}  // Dynamically set the theme
-                        key={isDarkMode ? 'dark' : 'light'}  // Force remount on theme change
+                        key={themeChangeKey}  // Force remount on theme change
                         style={{ display: "inline-block" }}
                         sitekey={import.meta.env.VITE_GOOGLE_RECAPTCHA_SITE_KEY}
                         size="normal"

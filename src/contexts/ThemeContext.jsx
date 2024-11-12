@@ -5,30 +5,51 @@ const ThemeContext = createContext();
 
 // Create a Provider component to wrap around the app
 export const ThemeProvider = ({ children }) => {
-    // Initialize the theme as a boolean based on localStorage or the current theme in the document
-    const [isDarkMode, setIsDarkMode] = useState(() => {
+    // Initialize the theme state to include both isDarkMode and themeChangeKey
+    const [themeState, setThemeState] = useState(() => {
         const savedTheme = localStorage.getItem('theme');
-        if (savedTheme !== null) {
-            return savedTheme === 'dark'; // Convert string to boolean
-        }
-        // Default to dark theme if 'dark-mode' class is present, else light theme
-        return document.documentElement.classList.contains('dark-mode');
+        const isDarkMode = savedTheme ? savedTheme === 'dark' : document.documentElement.classList.contains('dark-mode');
+        return { isDarkMode, themeChangeKey: 0 };
     });
 
     // Effect to apply the theme class and update localStorage
     useEffect(() => {
         // Apply or remove the 'dark-mode' class based on the state
-        document.documentElement.classList.toggle('dark-mode', isDarkMode);
-        localStorage.setItem('theme', isDarkMode ? 'dark' : 'light'); // Store theme as 'dark' or 'light'
-    }, [isDarkMode]);
+        document.documentElement.classList.toggle('dark-mode', themeState.isDarkMode);
+        localStorage.setItem('theme', themeState.isDarkMode ? 'dark' : 'light'); // Store theme as 'dark' or 'light'
 
-    // Function to toggle theme between light and dark
+        // Increment the themeChangeKey every time isDarkMode changes
+        setThemeState(prevState => ({
+            ...prevState,
+            themeChangeKey: prevState.themeChangeKey + 1
+        }));
+    }, [themeState.isDarkMode]);
+
+    // Event listener to handle theme changes based on system settings
+    useEffect(() => {
+        const handleThemeChange = (e) => {
+            localStorage.setItem(e.matches ? 'dark' : 'light');
+            document.documentElement.classList.toggle('dark-mode', e.matches);
+        };
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', handleThemeChange);
+
+        // Cleanup listener on component unmount
+        return () => {
+            window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', handleThemeChange);
+        };
+    }, []);
+
+    // Function to toggle the theme
     const toggleTheme = () => {
-        setIsDarkMode((prevTheme) => !prevTheme);
+        setThemeState(prevState => ({
+            ...prevState,
+            isDarkMode: !prevState.isDarkMode
+        }));
     };
 
     return (
-        <ThemeContext.Provider value={{ isDarkMode, toggleTheme }}>
+        <ThemeContext.Provider value={{ isDarkMode: themeState.isDarkMode, toggleTheme, themeChangeKey: themeState.themeChangeKey }}>
             {children}
         </ThemeContext.Provider>
     );

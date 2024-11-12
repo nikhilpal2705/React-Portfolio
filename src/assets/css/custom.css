@@ -42,7 +42,7 @@ body {
 
 .skill-item i {
     font-size: 50px !important;
-    color: color-mix(in srgb, var(--default-color), transparent 30%) !important;
+    color: color-mix(in srgb, var(--default-color), transparent 35%) !important;
     height: 20px !important;
 }
 
@@ -51,7 +51,7 @@ body {
     min-height: 20px !important;
     padding: 0;
     margin: 0;
-    color: color-mix(in srgb, var(--default-color), transparent 30%) !important;
+    color: color-mix(in srgb, var(--default-color), transparent 35%) !important;
 }
 
 .skill-item h6 {
@@ -140,14 +140,17 @@ body {
 
 /* Toggle Theme Button Styles */
 .theme-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     top: 1rem;
-    left: 2rem;
-    z-index: 10;
-    display: inline-flex;
+    left: 1.95rem;
     padding: 0.5rem 1rem;
-    border: none;
+    font-size: 16px;
+    z-index: 9997;
     border-radius: 20px;
+    border: none;
     cursor: pointer;
     background-color: color-mix(in srgb, var(--default-color), transparent 92%);
     color: var(--nav-color);

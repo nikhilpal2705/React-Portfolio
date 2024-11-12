@@ -7,13 +7,15 @@ const DarkModeToggle = () => {
     const toggleDarkMode = () => { toggleTheme((prevMode) => !prevMode) };
 
     return (
-        <button
-            onClick={toggleDarkMode}
-            className="theme-toggle"
-            title={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-        >
-            <i className={`bi ${isDarkMode ? 'bi-sun' : 'bi-moon'}`} aria-hidden="true"></i>
-        </button>
+        <div className="container">
+            <button
+                onClick={toggleDarkMode}
+                className="theme-toggle"
+                title={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+            >
+                <i className={`bi ${isDarkMode ? 'bi-sun' : 'bi-moon'}`} aria-hidden="true"></i>
+            </button>
+        </div>
     );
 };
 
