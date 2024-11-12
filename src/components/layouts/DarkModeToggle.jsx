@@ -2,9 +2,9 @@ import { useTheme } from '@/contexts/ThemeContext';
 import React from 'react';
 
 const DarkModeToggle = () => {
-    const { isDarkMode, setIsDarkMode } = useTheme(); // Get the current theme and the setter
+    const { isDarkMode, toggleTheme } = useTheme(); // Get the current theme and the setter
     // Toggle the theme
-    const toggleDarkMode = () => { setIsDarkMode((prevMode) => !prevMode) };
+    const toggleDarkMode = () => { toggleTheme((prevMode) => !prevMode) };
 
     return (
         <button

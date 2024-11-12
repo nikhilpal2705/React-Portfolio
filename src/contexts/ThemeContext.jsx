@@ -5,26 +5,36 @@ const ThemeContext = createContext();
 
 // Create a Provider component to wrap around the app
 export const ThemeProvider = ({ children }) => {
-    // Retrieve theme from localStorage or default to 'light'
+    // Initialize the theme as a boolean based on localStorage or the current theme in the document
     const [isDarkMode, setIsDarkMode] = useState(() => {
         const savedTheme = localStorage.getItem('theme');
-        return savedTheme ? savedTheme === 'dark' : false; // false means 'light' mode
+        if (savedTheme !== null) {
+            return savedTheme === 'dark'; // Convert string to boolean
+        }
+        // Default to dark theme if 'dark-mode' class is present, else light theme
+        return document.documentElement.classList.contains('dark-mode');
     });
 
+    // Effect to apply the theme class and update localStorage
     useEffect(() => {
-        // Update the document element's class and store in localStorage when theme changes
+        // Apply or remove the 'dark-mode' class based on the state
         document.documentElement.classList.toggle('dark-mode', isDarkMode);
-        localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+        localStorage.setItem('theme', isDarkMode ? 'dark' : 'light'); // Store theme as 'dark' or 'light'
     }, [isDarkMode]);
 
+    // Function to toggle theme between light and dark
+    const toggleTheme = () => {
+        setIsDarkMode((prevTheme) => !prevTheme);
+    };
+
     return (
-        <ThemeContext.Provider value={{ isDarkMode, setIsDarkMode }}>
+        <ThemeContext.Provider value={{ isDarkMode, toggleTheme }}>
             {children}
         </ThemeContext.Provider>
     );
 };
 
-// Custom hook to use theme
+// Custom hook to access the theme context
 export const useTheme = () => {
     const context = useContext(ThemeContext);
     if (!context) {
