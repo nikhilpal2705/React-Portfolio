@@ -56,7 +56,8 @@ export const skillsData = {
         { name: "MongoDB", level: 80, class: "devicon-mongodb-plain" },
         { name: "AWS", level: 60, class: "devicon-amazonwebservices-plain-wordmark" },
         { name: "Docker", level: 55, class: "devicon-docker-plain" },
-        { name: "GIT", level: 90, class: "devicon-git-plain" }
+        { name: "GIT", level: 90, class: "devicon-git-plain" },
+        { name: "Linux", level: 90, class: "devicon-linux-plain" }
     ]
 };
 

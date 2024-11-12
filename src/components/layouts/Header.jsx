@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types'; // Import PropTypes
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import DarkModeToggle from './DarkModeToggle';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -125,6 +126,7 @@ const Header = () => {
     <header id="header" className={`header d-flex flex-column justify-content-center ${isMenuOpen ? 'header-show' : ''}`}>
       <div className="container">
         <i className={`header-toggle d-xl-none bi ${isMenuOpen ? 'bi-x' : 'bi-list'}`} onClick={toggleMenu}></i>
+        <DarkModeToggle />
         <nav id="navmenu" className="navmenu">
           <ul>
             {navmenulinks.map(link => (

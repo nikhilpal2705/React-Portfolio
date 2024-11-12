@@ -1,7 +1,7 @@
 import { links, profileData } from "@/constants/constant";
 
 const Footer = () => (
-  <footer id="footer" className="footer position-relative light-background">
+  <footer id="footer" className="footer position-relative main-background">
     <div className="container">
       {/* <h3 className="sitename">{profileData.name}</h3>
       <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p> */}

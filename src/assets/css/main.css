@@ -1,14 +1,5 @@
-/**
-* Template Name: MyResume
-* Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
-* Updated: Jun 29 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
 /*--------------------------------------------------------------
 # Font & Color Variables
-# Help: https://bootstrapmade.com/color-system/
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
@@ -19,6 +10,7 @@
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root {
+  /* Default Light Mode Colors */
   --background-color: #ffffff;
   /* Background color for the entire website, including individual sections */
   --default-color: #272829;
@@ -31,10 +23,6 @@
   /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff;
   /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
-}
-
-/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
-:root {
   --nav-color: #45505b;
   /* The default color of the main navmenu links */
   --nav-hover-color: #0563bb;
@@ -49,20 +37,55 @@
   /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
-/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
-
-.light-background {
-  --background-color: #f9f9f9;
-  --surface-color: #ffffff;
-}
-
-.dark-background {
-  --background-color: #060606;
-  --default-color: #ffffff;
-  --heading-color: #ffffff;
-  --surface-color: #252525;
+/* Dark Mode - These colors override the default values when dark mode is active */
+.dark-mode {
+  --background-color: #121212;
+  /* Dark background color for the entire website */
+  --default-color: #e0e0e0;
+  /* Lighter color for text content to ensure readability on dark background */
+  --heading-color: #bbdefb;
+  /* Light color for headings, subheadings and title */
+  --accent-color: #1e88e5;
+  /* Accent color that stands out on dark background */
+  --surface-color: #333333;
+  /* Surface color for boxed elements, cards, or sections that need contrast from the background */
   --contrast-color: #ffffff;
+  /* Contrast color for text, ensuring readability on dark backgrounds */
+  --nav-color: #bbdefb;
+  /* Light color for the main navmenu links */
+  --nav-hover-color: #1e88e5;
+  /* Applied to main navmenu links when hovered over or active */
+  --nav-mobile-background-color: #121212;
+  /* Dark background color for mobile navigation menu */
+  --nav-dropdown-background-color: #333333;
+  /* Dark background color for dropdown items */
+  --nav-dropdown-color: #e0e0e0;
+  /* Light color for navigation links in dropdown items */
+  --nav-dropdown-hover-color: #1e88e5;
+  /* Highlighted color for dropdown links when hovered over */
 }
+
+/* Section Preset Backgrounds - These classes override global colors for specific sections */
+.main-background {
+  --background-color: #f9f9f9;
+  /* Light background color for sections */
+  --surface-color: #ffffff;
+  /* Light surface color for boxes */
+}
+
+.dark-mode .main-background {
+  --background-color: #060606;
+  /* Dark background color for sections */
+  --default-color: #ffffff;
+  /* Light text color */
+  --heading-color: #ffffff;
+  /* Light heading color */
+  --surface-color: #252525;
+  /* Dark surface color for boxes */
+  --contrast-color: #ffffff;
+  /* Light contrast color for readability */
+}
+
 
 /* Smooth scroll */
 :root {

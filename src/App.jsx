@@ -3,6 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import AppRoutes from "./routes/AppRoutes";
 import Preloader from '@/components/layouts/Preloader';
 import { ToastContainer } from 'react-toastify';
+import { useTheme } from '@/contexts/ThemeContext';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
@@ -17,13 +18,25 @@ import "@/assets/img/images"
 
 const App = () => {
   useAOS(); // Initialize AOS for animations
-
+  const { isDarkMode } = useTheme(); // Access the current theme from context
   return (
     <>
       <Preloader />
       <BrowserRouter>
         <AppRoutes />
-        <ToastContainer />
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss={false}
+          draggable
+          pauseOnHover
+          theme={isDarkMode ? "dark" : "light"}
+          transition:Bounce
+        />
       </BrowserRouter>
     </>
   );

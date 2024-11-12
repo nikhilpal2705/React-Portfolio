@@ -5,7 +5,7 @@ const Hero = () => {
   useTyped(profileData.roles)
 
   return (
-    <section id="hero" className="hero section light-background">
+    <section id="hero" className="hero section main-background">
       <img src={profileData.bgImage} alt="" />
       <div className="container" data-aos="zoom-out">
         <div className="row justify-content-center">

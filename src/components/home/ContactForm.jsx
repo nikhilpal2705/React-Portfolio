@@ -1,13 +1,15 @@
+import { useRef, useState, useEffect } from 'react';
 import emailjs from 'emailjs-com';
 import ReCAPTCHA from 'react-google-recaptcha';
-import { useRef, useState } from "react";
-import { toast } from "react-toastify";
+import { toast } from 'react-toastify';
+import { useTheme } from '@/contexts/ThemeContext';
 
 const ContactForm = () => {
+    const { isDarkMode } = useTheme(); // Access the current theme from context
     const form = useRef();
     const captchaRef = useRef();
     const [isLoading, setIsLoading] = useState(false);
-    const [captchaValue, setCaptchaValue] = useState(null); // Store the captcha value
+    const [captchaValue, setCaptchaValue] = useState(null); // Store captcha value
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -101,7 +103,8 @@ const ContactForm = () => {
                     <ReCAPTCHA
                         ref={captchaRef}
                         className="g-recaptcha"
-                        theme="light"
+                        theme={isDarkMode ? 'dark' : 'light'}  // Dynamically set the theme
+                        key={isDarkMode ? 'dark' : 'light'}  // Force remount on theme change
                         style={{ display: "inline-block" }}
                         sitekey={import.meta.env.VITE_GOOGLE_RECAPTCHA_SITE_KEY}
                         size="normal"
