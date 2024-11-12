@@ -180,21 +180,22 @@ body {
 .tech-tag {
     display: flex;
     align-items: center;
-    background-color: #f0f0f0;
-    color: #333;
+    background-color: color-mix(in srgb, var(--default-color), transparent 92%);
+    color: color-mix(in srgb, var(--default-color), transparent 10%);
     padding: 0.25rem 0.75rem;
     border-radius: 12px;
-    font-size: 0.875rem;
+    font-size: 0.9rem;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
 }
 
 .tech-tag .tech-icon {
     margin-right: 0.5rem;
-    font-size: 1.2rem; /* Adjust icon size */
+    font-size: 1.2rem;
 }
 
 .tech-tag:hover {
-    background-color: #ddd;
+    background-color: color-mix(in srgb, var(--default-color), transparent 85%);
+    color: var(--accent-color);
     cursor: default;
 }
