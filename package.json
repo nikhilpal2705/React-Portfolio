@@ -24,6 +24,7 @@
     "react-google-recaptcha": "^3.1.0",
     "react-router-dom": "6.17.0",
     "react-toastify": "^10.0.6",
+    "swiper": "^11.1.14",
     "typed.js": "^2.1.0"
   },
   "devDependencies": {

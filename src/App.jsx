@@ -8,7 +8,6 @@ import { useTheme } from '@/contexts/ThemeContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import 'aos/dist/aos.css';
 import 'devicon'
 import 'react-toastify/dist/ReactToastify.css';
 

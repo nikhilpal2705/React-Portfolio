@@ -169,3 +169,32 @@ body {
 .theme-toggle:hover .bi {
     color: var(--accent-color);
 }
+
+.tech-used {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-top: 0.5rem;
+}
+
+.tech-tag {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.875rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.tech-tag .tech-icon {
+    margin-right: 0.5rem;
+    font-size: 1.2rem; /* Adjust icon size */
+}
+
+.tech-tag:hover {
+    background-color: #ddd;
+    cursor: default;
+}

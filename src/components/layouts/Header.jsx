@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import PropTypes from 'prop-types'; // Import PropTypes
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import DarkModeToggle from './DarkModeToggle';
+import ThemeToggle from './ThemeToggle';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -140,7 +140,7 @@ const Header = () => {
 
   return (
     <header ref={headerRef} id="header" className={`header d-flex flex-column justify-content-center ${isMenuOpen ? 'header-show' : ''}`}>
-      <DarkModeToggle />
+      <ThemeToggle />
       <div className="container">
         <i className={`header-toggle d-xl-none bi ${isMenuOpen ? 'bi-x' : 'bi-list'}`} onClick={toggleMenu}></i>
         <nav id="navmenu" className="navmenu">
