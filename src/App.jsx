@@ -4,6 +4,7 @@ import AppRoutes from "./routes/AppRoutes";
 import Preloader from '@/components/layouts/Preloader';
 import { ToastContainer } from 'react-toastify';
 import { useTheme } from '@/contexts/ThemeContext';
+import { Analytics } from '@vercel/analytics/react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
@@ -20,6 +21,7 @@ const App = () => {
   const { isDarkMode } = useTheme(); // Access the current theme from context
   return (
     <>
+      <Analytics />
       <Preloader />
       <BrowserRouter>
         <AppRoutes />
