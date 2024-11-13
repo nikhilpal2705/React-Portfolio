@@ -4,18 +4,18 @@ import { useIsotope } from '@/hooks/useIsotope';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const PortfolioItem = ({ item, activeFilter }) => {
+const PortfolioItem = ({ item, index }) => {
   return (
     <div className={`col-lg-4 col-md-6 portfolio-item isotope-item ${item.filter}`}>
       <img src={item.image} className="img-fluid" alt={item.title} />
       <div className="portfolio-info">
         <h4>{item.title}</h4>
-        <p>{item.description}</p>
+        <p className={`desc${index}`}>{item.description}</p>
         <a
           href={item.image}
           title={item.title}
-          data-gallery={`portfolio-gallery-${activeFilter}`}
           className="glightbox preview-link"
+          data-description={`.desc${index}`}
         >
           <i className="bi bi-zoom-in"></i>
         </a>
@@ -35,7 +35,7 @@ const PortfolioItem = ({ item, activeFilter }) => {
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('*');
   const isotopeContainer = useIsotope(activeFilter, 'masonry', 'original-order');
-  useGLightbox(activeFilter);
+  useGLightbox();
   const handleFilterClick = (filter) => setActiveFilter(filter);
 
   return (
@@ -59,7 +59,7 @@ const Portfolio = () => {
           </ul>
 
           <div className="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200" ref={isotopeContainer}>
-            {portfolioData.portfolioItems.map((item, index) => (<PortfolioItem key={index} item={item} activeFilter={activeFilter} />))}
+            {portfolioData.portfolioItems.map((item, index) => (<PortfolioItem key={index} item={item} index={index} />))}
           </div>
         </div>
       </div>

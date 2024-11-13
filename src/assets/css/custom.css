@@ -3,6 +3,8 @@ body {
     overflow-x: hidden;
 }
 
+/* ================== Skill Section START =============*/
+
 .skills-card {
     position: relative;
     width: 70%;
@@ -71,14 +73,14 @@ body {
     padding: 3%;
 }
 
-.portfolio .portfolio-filters li {
-    /* Temp css override*/
-    margin-left: 4px !important;
-}
+/* ================== Skill Section START =============*/
 
+
+/*  Shadow to contact boxes */
 .box-shadow {
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 }
+
 
 .about .download-btn {
     color: var(--contrast-color);
@@ -93,6 +95,7 @@ body {
     background: color-mix(in srgb, var(--accent-color), transparent 25%);
 }
 
+/* Loader for send message button */
 .loading-spinner {
     display: inline-block;
     width: 1em;
@@ -138,7 +141,7 @@ body {
     }
 }
 
-/* Toggle Theme Button Styles */
+/* ================== Toggle Theme Button START =============*/
 .theme-toggle {
     display: flex;
     justify-content: center;
@@ -170,6 +173,11 @@ body {
     color: var(--accent-color);
 }
 
+/* ================== Toggle Theme Button END =============*/
+
+
+/* ========== Portfolio detail page START ================= */
+
 .tech-used {
     display: flex;
     flex-wrap: wrap;
@@ -199,3 +207,34 @@ body {
     color: var(--accent-color);
     cursor: default;
 }
+
+/* ========== Portfolio detail page END ================= */
+
+
+
+.portfolio .portfolio-filters li {
+    /* Temp css override*/
+    margin-left: 4px !important;
+}
+
+/* ========== Glightbox START ================= */
+
+
+.glightbox-clean .gslide-description {
+    background: color-mix(in srgb, var(--background-color), transparent 10%) !important;
+}
+
+
+.glightbox-clean .gdesc-inner .gslide-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--heading-color);
+    font-family: var(--heading-font);
+}
+
+.glightbox-clean .gdesc-inner .gslide-desc {
+    color: color-mix(in srgb, var(--default-color), transparent 30%);
+    font-size: 14px;
+}
+
+/* ========== Glightbox END ================= */
