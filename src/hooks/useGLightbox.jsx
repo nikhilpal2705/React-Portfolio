@@ -6,7 +6,11 @@ import { useEffect } from 'react';
 export const useGLightbox = () => {
     useEffect(() => {
         // Initialize GLightbox
-        const lightbox = GLightbox({ selector: '.glightbox' });
+        const lightbox = GLightbox({
+            selector: '.glightbox',
+            touchNavigation: true,
+            loop: true
+        });
         return () => {
             lightbox.destroy(); // Cleanup GLightbox on component unmount
         };
