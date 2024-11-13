@@ -3,12 +3,70 @@ import PropTypes from 'prop-types'; // Import PropTypes
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
 
-const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState('#hero');
-  const [scrolling, setScrolling] = useState(false); // To track if scroll is in progress
+
+const MenuItem = ({ id, label, icon, activeLink, setIsMenuOpen }) => {
   const navigate = useNavigate();
+
+
+  // Scroll to section on clicking nav menu
+  const handleClick = (e) => {
+    e.preventDefault(); // Prevent default link behavior
+    setIsMenuOpen(false); // Close the menu on mobile
+
+    // Update the URL hash to reflect the section
+    navigate('/' + id);
+
+    setTimeout(() => {
+      // Smooth scroll to the target section after navigating
+      const targetSection = document.querySelector(id);
+      if (targetSection) {
+        targetSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start', // Align the top of the section with the viewport
+        });
+      }
+    }, 0);
+  };
+
+  return (
+    <li>
+      <Link
+        to={id} // Just use the hash part
+        className={activeLink === id ? 'active' : ''}
+        onClick={handleClick} // Trigger custom scroll behavior
+      >
+        <i className={`bi ${icon} navicon`}></i>
+        <span>{label}</span>
+      </Link>
+    </li>
+  );
+};
+
+MenuItem.propTypes = {
+  id: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
+  activeLink: PropTypes.string.isRequired,
+  setIsMenuOpen: PropTypes.func.isRequired,
+};
+
+
+const Header = () => {
   const location = useLocation(); // To get the current location (route)
+
+  const [activeLink, setActiveLink] = useState(() => {
+      // Update active link based on the current route
+    if (location.pathname == '/portfolio-details') {
+      return '#portfolio';
+    } else {
+      return '#hero'
+    }
+
+  });
+
+  
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolling, setScrolling] = useState(false); // To track if scroll is in progress
   const headerRef = useRef(null); // Create a ref for the header
 
   // Toggle menu visibility for mobile with useCallback
@@ -25,7 +83,9 @@ const Header = () => {
     { id: '#contact', label: 'Contact', icon: 'bi-envelope' },
   ], []);
 
-  // Debounce scroll event handler to improve performance
+
+
+  // Set Active Nav menu on scroll
   useEffect(() => {
     const handleScroll = () => {
       const position = window.scrollY + 200; // (use 260 if Contact form is hidden else use 200);
@@ -57,18 +117,13 @@ const Header = () => {
     return () => window.removeEventListener('scroll', debouncedHandleScroll);
   }, [navmenulinks, location]);
 
-  // Update active link based on the current route
-  useEffect(() => {
-    if (location.pathname == '/portfolio-details') {
-      setActiveLink('#portfolio');
-    }
-  }, [location]);
+
 
   // Smooth scroll to section on load if there's a hash in URL
   useEffect(() => {
-    if (window.location.hash && !scrolling) {
+    if (location.hash?.length && !scrolling) {
       setScrolling(true);
-      const section = document.querySelector(window.location.hash);
+      const section = document.querySelector(location.hash);
       if (section) {
         setTimeout(() => {
           const scrollMarginTop = parseInt(getComputedStyle(section).scrollMarginTop, 10) || 0;
@@ -76,52 +131,13 @@ const Header = () => {
             top: section.offsetTop - scrollMarginTop,
             behavior: 'smooth',
           });
-        }, 100);
+        }, 200);
       }
     }
   }, [scrolling]);
 
-  // Menu Item component for readability and reuse
-  const MenuItem = ({ id, label, icon }) => {
-    const handleClick = (e) => {
-      e.preventDefault(); // Prevent default link behavior
-      setIsMenuOpen(false); // Close the menu on mobile
 
-      // Update the URL hash to reflect the section
-      navigate('/' + id);
 
-      setTimeout(() => {
-        // Smooth scroll to the target section after navigating
-        const targetSection = document.querySelector(id);
-        if (targetSection) {
-          targetSection.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start', // Align the top of the section with the viewport
-          });
-        }
-      }, 0);
-    };
-
-    return (
-      <li>
-        <Link
-          to={id} // Just use the hash part
-          className={activeLink === id ? 'active' : ''}
-          onClick={handleClick} // Trigger custom scroll behavior
-        >
-          <i className={`bi ${icon} navicon`}></i>
-          <span>{label}</span>
-        </Link>
-      </li>
-    );
-  };
-
-  // Define prop types for MenuItem
-  MenuItem.propTypes = {
-    id: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
-    icon: PropTypes.string.isRequired,
-  };
 
   // Handle click outside to close menu
   useEffect(() => {
@@ -138,6 +154,8 @@ const Header = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+
+
   return (
     <header ref={headerRef} id="header" className={`header d-flex flex-column justify-content-center ${isMenuOpen ? 'header-show' : ''}`}>
       <ThemeToggle />
@@ -146,7 +164,12 @@ const Header = () => {
         <nav id="navmenu" className="navmenu">
           <ul>
             {navmenulinks.map(link => (
-              <MenuItem key={link.id} {...link} />
+              <MenuItem
+                key={link.id}
+                {...link}
+                activeLink={activeLink}
+                setIsMenuOpen={setIsMenuOpen}
+              />
             ))}
           </ul>
         </nav>

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -6,7 +5,6 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Link } from 'react-router-dom';
 import images from '@/assets/img/images';
-import 'devicon/devicon.min.css';
 
 const PortfolioDetail = () => {
     const swiperConfig = {

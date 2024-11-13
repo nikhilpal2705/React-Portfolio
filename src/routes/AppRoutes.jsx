@@ -1,7 +1,10 @@
+import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Layout from "@/components/layouts/Layout";
-import PortfolioDetail from '@/components/pages/PortfolioDetail';
-import Home from '@/components/pages/Home';
+
+// Lazy-load the route components
+const Home = lazy(() => import('@/components/pages/Home'));
+const PortfolioDetail = lazy(() => import('@/components/pages/PortfolioDetail'));
 
 function AppRoutes() {
     return (
