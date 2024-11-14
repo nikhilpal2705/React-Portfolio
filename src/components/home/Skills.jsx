@@ -1,4 +1,4 @@
-import { skillsData } from "@/constants/constant";
+import { skillsData } from "@/constants";
 import PropTypes from 'prop-types';
 
 // const Skills = () => {

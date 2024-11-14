@@ -1,4 +1,4 @@
-import { links, profileData } from '@/constants/constant';
+import { links, profileData } from '@/constants';
 import { useTyped } from '@/hooks/useTyped';
 
 const Hero = () => {

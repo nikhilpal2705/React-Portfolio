@@ -1,4 +1,4 @@
-import { links, profileData } from "@/constants/constant";
+import { links, profileData } from "@/constants";
 
 const Footer = () => (
   <footer id="footer" className="footer position-relative main-background">

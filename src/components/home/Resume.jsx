@@ -1,4 +1,4 @@
-import { resumeData } from "@/constants/constant";
+import { resumeData } from "@/constants";
 import PropTypes from 'prop-types';
 
 const Resume = () => {

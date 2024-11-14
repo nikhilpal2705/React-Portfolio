@@ -91,7 +91,7 @@ const Header = () => {
       if (targetSection) {
         setTimeout(() => {
           targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 250);
+        }, 0);
       }
     }
   }, [location]);

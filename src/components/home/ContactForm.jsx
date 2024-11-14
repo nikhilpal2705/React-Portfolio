@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from 'react';
 import emailjs from 'emailjs-com';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { toast } from 'react-toastify';
-import { useTheme } from '@/contexts/ThemeContext';
+import { useTheme } from '@/hooks/useTheme';
 
 const ContactForm = () => {
     const { isDarkMode, themeChangeKey } = useTheme(); // Access the current theme from context

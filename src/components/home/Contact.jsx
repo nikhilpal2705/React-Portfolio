@@ -1,4 +1,4 @@
-import { contactData, profileData } from "@/constants/constant";
+import { contactData, profileData } from "@/constants";
 import ContactForm from "./ContactForm";
 
 

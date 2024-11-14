@@ -1,21 +1,25 @@
-import { Link, Outlet, useLocation, useSearchParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { Link, useSearchParams } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { projectData } from '@/constants/constant';
+import { portfolioDetailData } from '@/constants';
 
 // Subcomponent for Project Description
 const ProjectDescription = ({ description }) => (
     <div className="portfolio-description">
         <h2>About the Project</h2>
-        {/* Mapping through project description array and rendering each paragraph */}
         {description.map((item, index) => (
             <p key={index}>{item}</p>
         ))}
     </div>
 );
+
+ProjectDescription.propTypes = {
+    description: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 
 // Subcomponent for Project Info
 const ProjectInfo = ({ projectInfo }) => (
@@ -44,6 +48,20 @@ const ProjectInfo = ({ projectInfo }) => (
     </div>
 );
 
+ProjectInfo.propTypes = {
+    projectInfo: PropTypes.shape({
+        techUsed: PropTypes.arrayOf(
+            PropTypes.shape({
+                icon: PropTypes.string,
+                name: PropTypes.string,
+            })
+        ).isRequired,
+        projectDate: PropTypes.string.isRequired,
+        projectURL: PropTypes.string,
+        sourceCodeURL: PropTypes.string.isRequired,
+    }).isRequired,
+};
+
 // Subcomponent for the Swiper (Image Slider)
 const ProjectSwiper = ({ projectImages }) => (
     <Swiper
@@ -68,7 +86,6 @@ const ProjectSwiper = ({ projectImages }) => (
         modules={[Navigation, Pagination, Autoplay]}  // Include necessary Swiper modules
         className="portfolio-details-slider"
     >
-        {/* Mapping through project images and rendering each one inside a SwiperSlide */}
         {projectImages.map((image, index) => image && (
             <SwiperSlide key={index}>
                 <img src={image} alt={`Project Image ${index + 1}`} />
@@ -77,8 +94,11 @@ const ProjectSwiper = ({ projectImages }) => (
     </Swiper>
 );
 
+ProjectSwiper.propTypes = {
+    projectImages: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 
-// Page Title Component for consistency and reusability
+// Page Title Component
 const PageTitle = ({ children }) => (
     <main className="main">
         <div className="page-title" data-aos="fade">
@@ -98,9 +118,12 @@ const PageTitle = ({ children }) => (
     </main>
 );
 
+PageTitle.propTypes = {
+    children: PropTypes.node.isRequired,
+};
+
 // 'Project Not Found' Component to handle missing project data
 const ProjectNotFound = () => (
-
     <PageTitle>
         <div className="container d-flex flex-column align-items-center justify-content-center" data-aos="fade">
             <h4>Project Not Found</h4>
@@ -109,12 +132,11 @@ const ProjectNotFound = () => (
     </PageTitle>
 );
 
-
 const PortfolioDetail = () => {
     const [searchParams] = useSearchParams();
     const projectId = searchParams.get('id');  // Get 'id' from the search parameters
 
-    const projectInfo = projectData[projectId];  // Get project data based on projectId
+    const projectInfo = portfolioDetailData[projectId];  // Get project data based on projectId
 
     // If project data is not found, render a 'Project Not Found' page
     if (!projectInfo) {
@@ -125,7 +147,6 @@ const PortfolioDetail = () => {
         <PageTitle>
             <div className="container" data-aos="fade-up">
                 {projectInfo.projectImages && <ProjectSwiper projectImages={projectInfo.projectImages} />}
-
                 <div className="row justify-content-between gy-4 mt-4">
                     <div className="col-lg-8" data-aos="fade-up">
                         <ProjectDescription description={projectInfo.projectDescription} />
@@ -138,6 +159,5 @@ const PortfolioDetail = () => {
         </PageTitle>
     );
 };
-
 
 export default PortfolioDetail;

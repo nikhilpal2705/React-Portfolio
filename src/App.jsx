@@ -1,23 +1,18 @@
 import { Suspense } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { ToastContainer, Bounce } from 'react-toastify';
-import { useTheme } from '@/contexts/ThemeContext';
 import { useAOS } from '@/hooks/useAOS';
 import { Analytics } from '@vercel/analytics/react';
+import { useTheme } from './hooks/useTheme';
 
 // Import the AppRoutes component (which handles lazy loading of routes)
 import AppRoutes from './routes/AppRoutes';
 
 // Import global styles
-import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import 'bootstrap-icons/font/bootstrap-icons.css';
-import 'devicon';
-import 'react-toastify/dist/ReactToastify.css';
 
 // Load additional CSS and inages at last
-import "@/assets/css/app.css";
-import "@/assets/img/images";
+import "@/assets/css/index.css";
 
 // Load Components
 import ScrollToTop from './components/layouts/scrollToTop';

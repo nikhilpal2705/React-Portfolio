@@ -1,4 +1,5 @@
-import { portfolioData } from '@/constants/constant';
+import PropTypes from 'prop-types';
+import { portfolioData } from '@/constants';
 import { useGLightbox } from '@/hooks/useGLightbox';
 import { useIsotope } from '@/hooks/useIsotope';
 import { useState } from 'react';
@@ -31,6 +32,17 @@ const PortfolioItem = ({ item, index }) => {
   );
 };
 
+// Define prop types for PortfolioItem
+PortfolioItem.propTypes = {
+  item: PropTypes.shape({
+    filter: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  }).isRequired,
+  index: PropTypes.number.isRequired,
+};
 
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('*');
@@ -48,10 +60,10 @@ const Portfolio = () => {
       <div className="container">
         <div className="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order" data-aos="fade-up" data-aos-delay="100">
           <ul className="portfolio-filters isotope-filters">
-            <li className={activeFilter == '*' ? 'filter-active' : ''} onClick={() => handleFilterClick('*')}>All</li>
+            <li className={activeFilter === '*' ? 'filter-active' : ''} onClick={() => handleFilterClick('*')}>All</li>
             {portfolioData.filters.map((item) => {
               const filterClass = `.${item.class}`;
-              const isActive = activeFilter == filterClass;
+              const isActive = activeFilter === filterClass;
               return (
                 <li key={item.class} className={isActive ? 'filter-active' : ''} onClick={() => handleFilterClick(filterClass)}>{item.name}</li>
               );
@@ -66,6 +78,5 @@ const Portfolio = () => {
     </section>
   );
 };
-
 
 export default Portfolio;

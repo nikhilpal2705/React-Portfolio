@@ -1,4 +1,4 @@
-import { servicesData } from "@/constants/constant";
+import { servicesData } from "@/constants";
 import PropTypes from 'prop-types';
 
 const ServiceItem = ({ icon, title, description, delay, colorClass }) => (

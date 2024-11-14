@@ -1,4 +1,4 @@
-import { aboutData, links } from "@/constants/constant";
+import { aboutData, links } from '@/constants';
 import PropTypes from 'prop-types';
 
 const About = () => {

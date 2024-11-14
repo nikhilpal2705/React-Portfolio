@@ -1,5 +1,4 @@
-import { useTheme } from '@/contexts/ThemeContext';
-import React from 'react';
+import { useTheme } from "@/hooks/useTheme";
 
 const ThemeToggle = () => {
     const { isDarkMode, toggleTheme } = useTheme(); // Get the current theme and the setter
