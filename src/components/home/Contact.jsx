@@ -18,7 +18,7 @@ const Contact = () => {
             <div className="box-shadow info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
               <i className="bi bi-geo-alt"></i>
               <h3>Address</h3>
-              <p>{profileData.city}</p>
+              <p>{profileData.address}</p>
             </div>
           </div>
 
