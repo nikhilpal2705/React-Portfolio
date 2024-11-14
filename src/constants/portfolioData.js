@@ -33,7 +33,7 @@ export const portfolioDetailData = {
             'Utilized MySQL as a database to store and manage product information and user data.',
             'Implemented authentication and authorization using Spring Security and JWT to safeguard user data.',
         ],
-        projectImages: [images["agrocare"], images["agrocare"], images["agrocare"], images["agrocare"]]
+        projectImages: [images["agrocare"], images["agrocare1"], images["agrocare2"], images["agrocare3"], images["agrocare4"]]
     },
     gfgcard: {
         techUsed: [
@@ -63,6 +63,6 @@ export const portfolioDetailData = {
             'A portfolio application with an intuitive interface.',
             'Designed and implemented interactive, responsive user interfaces using React.js for intuitive product management.',
         ],
-        projectImages: [images["portfolio"], images["portfolio"], images["portfolio"], images["portfolio"]]
+        projectImages: [images["portfolio"], images["portfolio1"], images["portfolio2"], images["portfolio3"], images["portfolio4"]]
     }
 };

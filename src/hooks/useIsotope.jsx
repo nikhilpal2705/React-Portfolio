@@ -24,7 +24,7 @@ export const useIsotope = (filter, layoutMode = 'masonry', sortBy = 'original-or
                 isotopeInstance.current.destroy();
             }
         };
-    }, [layoutMode, sortBy, filter]);
+    }, [layoutMode, sortBy]);
 
     useEffect(() => {
         // Apply filter when it changes
