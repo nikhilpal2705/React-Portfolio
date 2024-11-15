@@ -7,7 +7,7 @@ export const links = {
     github: "https://github.com/nikhilpal2705",
     telegram: "https://t.me/nikhilpal2705",
     twitter: "https://x.com/nikhilpal2705",
-    resume: "https://drive.google.com/drive/folders/1YGYat6G7YPisYaq7OZqf2DdUl4a_N6kp?usp=sharing",
+    resume: "https://drive.google.com/file/d/1Dva97yfJhkyZyAKyrgmXlFnsnpqOGa_1/view?usp=sharing",
     website: "https://nikhilpal2705.vercel.app"
 };
 

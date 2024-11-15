@@ -26,7 +26,7 @@ const About = () => {
             <p className="py-3">{aboutData.additionalDescription}</p>
             <div className="col-md-12 text-center">
               {/* <div className="loading">Loading</div> */}
-              <a className="download-btn" href={links.resume}>Download Resume</a>
+              <a className="download-btn" href={links.resume} target="_blank" rel="noopener noreferrer">Download Resume</a>
             </div>
           </div>
         </div>
