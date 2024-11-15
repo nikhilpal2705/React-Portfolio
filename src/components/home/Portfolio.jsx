@@ -8,7 +8,11 @@ import { Link } from 'react-router-dom';
 const PortfolioItem = ({ item, index }) => {
   return (
     <div className={`col-lg-4 col-md-6 portfolio-item isotope-item ${item.filter}`}>
-      <img src={item.image} className="img-fluid" alt={item.title} />
+      <img
+        src={item.image}
+        className="img-fluid custom-border"
+        alt={item.title}
+      />
       <div className="portfolio-info">
         <h4>{item.title}</h4>
         <p className={`desc${index}`}>{item.description}</p>
