@@ -8,7 +8,12 @@ export const links = {
     telegram: "https://t.me/nikhilpal2705",
     twitter: "https://x.com/nikhilpal2705",
     resume: "https://drive.google.com/file/d/1Dva97yfJhkyZyAKyrgmXlFnsnpqOGa_1/view?usp=sharing",
-    website: "https://nikhilpal2705.vercel.app"
+    website: "https://suryavanshi.vercel.app",
+    leetcode: "https://leetcode.com/nikhilpal2705/",
+    gfg: "https://www.geeksforgeeks.org/user/nikhilpal2705",
+    hackerrank: "https://www.hackerrank.com/nikhilpal2705",
+    codeforces: "https://codeforces.com/profile/nikhilpal2705",
+    codechef: "https://www.codechef.com/users/nikhilpal2705",
 };
 
 export const profileData = {

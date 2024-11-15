@@ -43,7 +43,7 @@ export const portfolioDetailData = {
             { name: 'CSS3', icon: 'devicon-css3-plain' },
         ],
         projectDate: 'September 2023 - Present',
-        projectURL: 'https://geeks-for-geeks-stats-card.vercel.app/?username=nikhilpal2705',
+        projectURL: 'https://gfgstatscard.vercel.app/nikhilpal2705',
         sourceCodeURL: 'https://github.com/nikhilpal2705/GeeksForGeeks-Stats-Card',
         projectDescription: [
             'Built a dynamic web application that empowers users to showcase their GeeksforGeeks problem-solving skills on GitHub profiles and personal websites.',

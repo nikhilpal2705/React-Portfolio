@@ -5,6 +5,7 @@ import Portfolio from '@/components/home/Portfolio';
 import Services from '@/components/home/Services';
 import Contact from '@/components/home/Contact';
 import Skills from "@/components/home/Skills";
+import CodingProfiles from '@/components/home/CodingProfiles';
 
 function Home() {
     return (
@@ -12,6 +13,7 @@ function Home() {
             <Hero />
             <About />
             <Skills />
+            <CodingProfiles/>
             <Resume />
             <Portfolio />
             <Services />
