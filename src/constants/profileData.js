@@ -28,7 +28,7 @@ export const profileData = {
 export const aboutData = {
     mainSummary: "Experienced Full Stack Developer with a track record of delivering high-quality software solutions, specializing in optimizing performance and integrating complex systems.",
     title: "Software Engineer",
-    description: "I am a driven Software Engineer with 1.8 years of hands-on experience in full-stack development. My expertise lies in building scalable web applications, enhancing UI/UX, and ensuring backend efficiency. Passionate about implementing secure API integrations, enhancing frontend performance, and utilizing DevOps practices to streamline deployment processes.",
+    description: `I am a driven Software Engineer with ${((new Date() - new Date("2023-02-13")) / (1000 * 60 * 60 * 24 * 365.25)).toFixed(1)} years of hands-on experience in full-stack development. My expertise lies in building scalable web applications, enhancing UI/UX, and ensuring backend efficiency. Passionate about implementing secure API integrations, enhancing frontend performance, and utilizing DevOps practices to streamline deployment processes.`,
     profileImage: images["profile"],
     detailsLeft: [
         { label: "Age", value: "28" },
