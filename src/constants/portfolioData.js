@@ -23,6 +23,7 @@ export const portfolioDetailData = {
             { name: 'MySQL', icon: 'devicon-mysql-plain' },
             { name: 'Hibernate', icon: 'devicon-hibernate-plain' },
             { name: 'Ant Design', icon: 'devicon-antdesign-plain' },
+            { name: 'CSS3', icon: 'devicon-css3-plain' },
         ],
         projectDate: 'November 2024 - February 2024',
         // projectURL: 'https://www.example.com',
@@ -50,19 +51,22 @@ export const portfolioDetailData = {
             'Developed server-side logic with Node.js and Express.js, crafted stats card with JavaScript and CSS.',
             'The stats card dynamically updates based on a user’s GitHub activity and problem-solving contributions.',
         ],
-        projectImages: [images["gfgcard"], images["gfgcard"], images["gfgcard"], images["gfgcard"]]
+        projectImages: [images["gfgcard"], images["gfgcard1"], images["gfgcard"], images["gfgcard1"]]
     },
     portfolio: {
         techUsed: [
             { name: 'React JS', icon: 'devicon-react-original' },
+            { name: 'npm', icon: 'devicon-npm-original-wordmark' },
+            { name: 'Bootstrap', icon: 'devicon-bootstrap-plain' },
+            { name: 'CSS3', icon: 'devicon-css3-plain' },
         ],
         projectDate: 'October 2024 - Present',
-        projectURL: 'https://nikhilpal2705.vercel.app/',
+        projectURL: 'https://suryavanshi.vercel.app/',
         sourceCodeURL: 'https://github.com/nikhilpal2705/nikhilpal2705.github.io',
         projectDescription: [
             'A portfolio application with an intuitive interface.',
             'Designed and implemented interactive, responsive user interfaces using React.js for intuitive product management.',
         ],
-        projectImages: [images["portfolio"], images["portfolio1"], images["portfolio2"], images["portfolio3"], images["portfolio4"]]
+        projectImages: [images["portfolio"], images["portfolio1"], images["portfolio2"], images["portfolio3"], images["portfolio4"], images["portfolio5"], images["portfolio6"], images["portfolio7"]]
     }
 };
