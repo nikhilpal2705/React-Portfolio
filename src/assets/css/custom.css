@@ -225,29 +225,34 @@ body {
 }
 
 .portfolio .portfolio-item .portfolio-info {
-    margin: 1px;
-    border-bottom-left-radius: 0.3rem;
-    border-bottom-right-radius: 0.3rem;
+    border-top: 0px;
 }
 
 /* ========== Glightbox START ================= */
 
 
-.glightbox-clean .gslide-description {
-    background: color-mix(in srgb, var(--background-color), transparent 10%) !important;
-}
+@media (min-width: 768px) {
+
+    .glightbox-clean .gslide-description {
+        background: color-mix(in srgb, var(--background-color), transparent 10%) !important;
+    }
 
 
-.glightbox-clean .gdesc-inner .gslide-title {
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--heading-color);
-    font-family: var(--heading-font);
-}
+    .glightbox-clean .gdesc-inner .gslide-title {
+        font-size: 18px !important;
+        font-weight: 600 !important;
+        color: var(--heading-color) !important;
+        font-family: var(--heading-font) !important;
+    }
 
-.glightbox-clean .gdesc-inner .gslide-desc {
-    color: color-mix(in srgb, var(--default-color), transparent 30%);
-    font-size: 14px;
+    .glightbox-clean .gdesc-inner .gslide-desc {
+        color: color-mix(in srgb, var(--default-color), transparent 30%) !important;
+        font-size: 14px !important;
+    }
+
+    .glightbox-clean .gdesc-inner .gslide-desc .desc-more {
+        color: color-mix(in srgb, var(--default-color), transparent 50%) !important;
+    }
 }
 
 /* ========== Glightbox END ================= */

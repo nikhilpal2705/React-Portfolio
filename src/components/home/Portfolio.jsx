@@ -13,7 +13,7 @@ const PortfolioItem = ({ item, index }) => {
         className="img-fluid custom-border"
         alt={item.title}
       />
-      <div className="portfolio-info">
+      <div className="portfolio-info custom-border">
         <h4>{item.title}</h4>
         <p className={`desc${index}`}>{item.description}</p>
         <a
