@@ -194,7 +194,7 @@ h6 {
   .header {
     background-color: var(--background-color);
     border-right: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-    width: 300px;
+    /* width: 300px; */
     left: -100%;
   }
 }
