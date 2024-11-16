@@ -1,5 +1,6 @@
 import { skillsData } from "@/constants";
 import PropTypes from 'prop-types';
+import { useState } from "react";
 
 // const Skills = () => {
 //   return (
@@ -45,14 +46,41 @@ import PropTypes from 'prop-types';
 // );
 
 
+
 const SkillItem = ({ label, svg, iconClass }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-    <div data-aos="fade-up" data-aos-delay="100" className="skill-item col-4 col-sm-4 col-md-2 my-2 text-center">
-      {svg ? <svg aria-hidden="true" focusable="false" data-icon={label} role="i" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentcolor" d={svg} /></svg>
-        : <i className={`${iconClass} mx-auto my-auto`}></i>}
+    <div
+      data-aos="fade-up"
+      data-aos-delay="100"
+      className="skill-item col-4 col-sm-4 col-md-2 my-2 text-center"
+
+    >
+      {svg ? (
+        <svg
+          // onMouseEnter={() => setIsHovered(true)}
+          // onMouseLeave={() => setIsHovered(false)}
+          className={`icon ${isHovered ? '' : 'icon-color'}`}  // Conditionally add/remove the icon-color class
+          aria-hidden="true"
+          focusable="false"
+          data-icon={label}
+          role="i"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 384 512"
+        >
+          <path fill="currentcolor" d={svg} />
+        </svg>
+      ) : (
+        <i
+          // onMouseEnter={() => setIsHovered(true)}
+          // onMouseLeave={() => setIsHovered(false)}
+          className={`mx-auto my-auto ${iconClass} ${isHovered ? '' : 'icon-color'}`}>
+        </i>
+      )}
       <h6 className="mt-2">{label}</h6>
     </div>
-  )
+  );
 };
 
 // Define prop types for SkillItem

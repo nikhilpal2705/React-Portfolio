@@ -44,7 +44,6 @@ body {
 
 .skill-item i {
     font-size: 50px !important;
-    color: color-mix(in srgb, var(--default-color), transparent 30%) !important;
     height: 20px !important;
 }
 
@@ -53,6 +52,9 @@ body {
     min-height: 20px !important;
     padding: 0;
     margin: 0;
+}
+
+.skill-item .icon-color {
     color: color-mix(in srgb, var(--default-color), transparent 30%) !important;
 }
 
