@@ -17,12 +17,7 @@ const Resume = () => {
           {/* Left Column */}
           <div className="col-lg-6" data-aos="fade-up" data-aos-delay="100">
             <ResumeSection title="Summary">
-              <ResumeItem title={resumeData.summary.title} description={resumeData.summary.description}>
-                <ul>
-                  <li>{resumeData.summary.email}</li>
-                  <li>{resumeData.summary.city}</li>
-                </ul>
-              </ResumeItem>
+              <ResumeItem title={resumeData.summary.title} description={resumeData.summary.description} />
             </ResumeSection>
 
             <ResumeSection title="Education">

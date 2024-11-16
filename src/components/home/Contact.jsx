@@ -34,7 +34,11 @@ const Contact = () => {
             <div className="box-shadow info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
               <i className="bi bi-envelope"></i>
               <h3>Email</h3>
-              <p>{contactData.email}</p>
+              <p>
+                <a href={`mailto:${contactData.email}`} className="text-decoration-none" style={{ color: 'inherit' }}  target="_blank" rel="noopener noreferrer">
+                  {contactData.email}
+                </a>
+              </p>
             </div>
           </div>
 

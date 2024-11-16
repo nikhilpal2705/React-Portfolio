@@ -21,12 +21,12 @@ const CodingProfiles = () => {
             </div>
 
             <div className="container">
-                <div className="row justify-content-center">
+                <div className="row justify-content-center p-md-4 p-0 pt-md-2">
                     {profiles.map(({ link, icon, name, color }) => (
                         <div
                             data-aos="fade-up"
                             data-aos-delay="100"
-                            className="col-4 col-sm-4 col-md-2 my-1 text-center"
+                            className="col-4 col-sm-4 col-md-2 my-1 text-center mb-0"
                             key={name}>
                             <a
                                 href={link}
@@ -46,4 +46,3 @@ const CodingProfiles = () => {
 };
 
 export default CodingProfiles;
-

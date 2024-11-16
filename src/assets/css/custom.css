@@ -39,7 +39,7 @@ body {
 
 .skill-item {
     display: inline;
-    margin: 15px 0 !important;
+    margin: 25px 0 !important;
 }
 
 .skill-item i {
@@ -70,7 +70,7 @@ body {
 }
 
 .skills-info {
-    padding: 3%;
+    padding: 3% 0% 3% 0%;
 }
 
 /* ================== Skill Section START =============*/
@@ -133,7 +133,8 @@ body {
     }
 
     .skills-info {
-        padding: 20% 5%;
+        padding: 0%;
+        padding-bottom: 15%;
     }
 
     .skills-card {

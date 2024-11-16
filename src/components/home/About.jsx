@@ -9,24 +9,29 @@ const About = () => {
         <p>{aboutData.mainSummary}</p>
       </div>
 
-      <div className="container" data-aos="fade-up" data-aos-delay="100">
+      <div className="container">
         <div className="row gy-4 justify-content-center">
-          {aboutData.profileImage && <div className="col-lg-4">
+          {aboutData.profileImage && <div className="col-lg-4" data-aos="fade-up" data-aos-delay="100">
             <img src={aboutData.profileImage} className="img-fluid" alt="Profile" />
           </div>}
 
           <div className="col-lg-8 content">
-            <h2>{aboutData.title}</h2>
-            <p className="fst-italic py-3">{aboutData.description}</p>
-            <div className="row">
+
+            <div data-aos="fade-up" data-aos-delay="100">
+              <h2>{aboutData.title}</h2>
+              <p className="fst-italic py-3">{aboutData.description}</p>
+            </div>
+
+            <div className="row" data-aos="fade-up" data-aos-delay="200">
               <InfoColumn items={aboutData.detailsLeft} />
               <InfoColumn items={aboutData.detailsRight} />
             </div>
 
-            <p className="py-3">{aboutData.additionalDescription}</p>
-            <div className="col-md-12 text-center">
-              {/* <div className="loading">Loading</div> */}
-              <a className="download-btn" href={links.resume} target="_blank" rel="noopener noreferrer">Download Resume</a>
+            <div data-aos="fade-up" data-aos-delay="300">
+              <p className="py-3">{aboutData.additionalDescription}</p>
+              <div className="col-md-12 text-center">
+                <a className="download-btn" href={links.resume} target="_blank" rel="noopener noreferrer">Download Resume</a>
+              </div>
             </div>
           </div>
         </div>

@@ -6,12 +6,12 @@ export const skillsData = {
         { name: "JavaScript", level: 75, class: "devicon-javascript-plain" },
         { name: "jQuery", level: 85, class: "devicon-jquery-plain" },
         { name: "React", level: 75, class: "devicon-react-original" },
-        { name: "Angular", level: 50, class: "devicon-angularjs-plain" },
+        { name: "Vue", level: 80, class: "devicon-vuejs-plain" },
         { name: "Java", level: 80, class: "devicon-java-plain" }
     ],
     skillsRight: [
-        { name: "Node", level: 90, class: "devicon-nodejs-plain-wordmark" },
         { name: "Spring Boot", level: 70, class: "devicon-spring-original" },
+        { name: "Node", level: 90, class: "devicon-nodejs-plain-wordmark" },
         { name: "MySQL", level: 90, class: "devicon-mysql-original" },
         { name: "MongoDB", level: 80, class: "devicon-mongodb-plain" },
         { name: "AWS", level: 60, class: "devicon-amazonwebservices-plain-wordmark" },
