@@ -26,7 +26,7 @@ export const portfolioDetailData = {
             { name: 'CSS3', icon: 'devicon-css3-plain' },
         ],
         projectDate: 'November 2024 - February 2024',
-        // projectURL: 'https://www.example.com',
+        projectURL: 'https://agrocare-m8hl.onrender.com',
         sourceCodeURL: 'https://github.com/nikhilpal2705/AgroCare',
         projectDescription: [
             'Designed and implemented interactive, responsive user interfaces using React.js for intuitive product management, enabling farmers to efficiently manage and monitor agricultural data.',
@@ -61,7 +61,7 @@ export const portfolioDetailData = {
             { name: 'CSS3', icon: 'devicon-css3-plain' },
         ],
         projectDate: 'October 2024 - Present',
-        projectURL: 'https://suryavanshi.vercel.app/',
+        projectURL: 'https://suryavanshi.vercel.app',
         sourceCodeURL: 'https://github.com/nikhilpal2705/nikhilpal2705.github.io',
         projectDescription: [
             'A portfolio application with an intuitive interface.',
