@@ -11,7 +11,7 @@
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root {
   /* Default Light Mode Colors */
-  --background-color: #ffffff;
+  --background-color: #fdfdfd;
   /* Background color for the entire website, including individual sections */
   --default-color: #272829;
   /* Default color used for the majority of the text content across the entire website */

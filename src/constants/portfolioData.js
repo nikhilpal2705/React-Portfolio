@@ -24,8 +24,9 @@ export const portfolioDetailData = {
             { name: 'Hibernate', icon: 'devicon-hibernate-plain' },
             { name: 'Ant Design', icon: 'devicon-antdesign-plain' },
             { name: 'CSS3', icon: 'devicon-css3-plain' },
+            { name: 'Docker', icon: 'devicon-docker-plain' },
         ],
-        projectDate: 'November 2024 - February 2024',
+        projectDate: 'November 2023 - Present',
         projectURL: 'https://agrocare-m8hl.onrender.com',
         sourceCodeURL: 'https://github.com/nikhilpal2705/AgroCare',
         projectDescription: [
