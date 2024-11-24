@@ -100,7 +100,7 @@ ProjectSwiper.propTypes = {
 
 // Page Title Component
 const PageTitle = ({ children }) => (
-    <main className="main">
+    <main className="detail">
         <div className="page-title" data-aos="fade">
             <div className="container">
                 <nav className="breadcrumbs">

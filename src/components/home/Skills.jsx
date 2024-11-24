@@ -92,18 +92,19 @@ SkillItem.propTypes = {
 
 const Skills = () => {
   return (
-    <section id="skills" className="section skills-card">
+    <section id="skills" className="section ">
 
       <div className="container section-title" data-aos="fade-up">
         <h2>Skills</h2>
         <p>{skillsData.mainSummary}</p>
       </div>
-
       <div className="container">
-        <div className="row justify-content-center skills-info">
-          {[...skillsData.skillsLeft, ...skillsData.skillsRight].map((item) =>
-            <SkillItem key={item.name} iconClass={item.class} svg={item.svg} label={item.name} />
-          )}
+        <div className="skills-card">
+          <div className="row justify-content-center skills-info">
+            {[...skillsData.skillsLeft, ...skillsData.skillsRight].map((item) =>
+              <SkillItem key={item.name} iconClass={item.class} svg={item.svg} label={item.name} />
+            )}
+          </div>
         </div>
       </div>
     </section>
