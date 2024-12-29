@@ -11,7 +11,7 @@ const ThemeToggle = () => {
             className="theme-toggle"
             title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
         >
-            <i className={`bi ${isDarkMode ? 'bi-sun' : 'bi-moon'}`} aria-hidden="true"></i>
+            <i className={`bi ${isDarkMode ? 'bi-sun' : 'bi-moon'}`}></i>
         </button>
     );
 };

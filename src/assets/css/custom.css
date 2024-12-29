@@ -3,6 +3,35 @@ body {
     overflow-x: hidden;
 }
 
+*::-webkit-scrollbar {
+    /* Vertical scrollbar width */
+    width: 4px;
+    /* Horizontal scrollbar height */
+    height: 4px;
+}
+
+*::-webkit-scrollbar-thumb {
+    /* Scrollbar thumb color */
+    background: color-mix(in srgb, var(--default-color), transparent 60%);
+    /* Optional: Rounded corners */
+    border-radius: 5px;
+}
+
+*::-webkit-scrollbar-track {
+    /* Scrollbar track color */
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    /* Change appearance on hover */
+    background: color-mix(in srgb, var(--default-color), transparent 25%);
+}
+
+*::-webkit-scrollbar-thumb:active {
+    /* Change appearance on active/click */
+    background: color-mix(in srgb, var(--accent-color), transparent 10%);
+}
+
 /* ================== Skill Section START =============*/
 
 .skills-card {
@@ -237,8 +266,22 @@ body {
     /* Rounds the corners (adjust as needed) */
 }
 
+
 .portfolio .portfolio-item .portfolio-info {
     border-top: 0px;
+}
+
+.portfolio-image-wrapper {
+    position: relative;
+}
+
+.icon-wrapper {
+    position: absolute;
+    margin: 2px;
+    z-index: 10;
+    /* border-width: 0px; */
+    background: color-mix(in srgb, var(--background-color), transparent 10%);
+    padding: 6px;
 }
 
 /* ========== Glightbox START ================= */

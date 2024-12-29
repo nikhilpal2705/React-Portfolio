@@ -62,7 +62,6 @@ const SkillItem = ({ label, svg, iconClass }) => {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           className={`icon ${isHovered ? '' : 'icon-color'}`}  // Conditionally add/remove the icon-color class
-          aria-hidden="true"
           focusable="false"
           data-icon={label}
           role="i"
