@@ -9,57 +9,28 @@ import { HiOutlineZoomIn } from 'react-icons/hi';
 
 const PortfolioItem = ({ item, index }) => {
   const [showInfo, setShowInfo] = useState(false);
-  const portfolioItemRef = useRef(null);
-
-  const hideInfo = useCallback(() => {
-    setShowInfo(false);
-  }, []);
-
-  // Handle click outside to close the info
-  const handleClickOutside = useCallback((event) => {
-    if (portfolioItemRef.current && !portfolioItemRef.current.contains(event.target)) {
-      hideInfo();
-    }
-  }, [hideInfo]);
-
-  // Check if the element is in the viewport
-  const handleScroll = useCallback(() => {
-    if (portfolioItemRef.current) {
-      const rect = portfolioItemRef.current.getBoundingClientRect();
-      if (rect.top > window.innerHeight || rect.bottom < 0) {
-        hideInfo();
-      }
-    }
-  }, [hideInfo]);
-
-  useEffect(() => {
-    if (showInfo) {
-      document.addEventListener('click', handleClickOutside);
-      window.addEventListener('scroll', handleScroll);
-    }
-
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [showInfo, handleClickOutside, handleScroll]);
 
   return (
     <div
       className={`col-lg-4 col-md-6 portfolio-item isotope-item ${item.filter}`}
-      ref={portfolioItemRef}
+      onMouseLeave={() => setShowInfo(false)}
     >
       <div className="portfolio-image-wrapper position-relative">
+        {/* Portfolio Image */}
         <img
-          onClick={hideInfo}
+          onClick={() => setShowInfo((prev) => !prev)}
           src={item.image}
           className="img-fluid custom-border"
           alt={item.title}
+          onMouseEnter={() => setShowInfo(true)}
         />
 
         {/* Icon Wrapper */}
-        <div className="icon-wrapper custom-border position-absolute top-0 end-0 p-2">
-          {/* Zoom icon */}
+        <div
+          className="icon-wrapper custom-border position-absolute top-0 end-0 p-2"
+          onMouseEnter={() => setShowInfo(false)}
+        >
+          {/* Zoom Icon */}
           <a
             href={item.image}
             title="Zoom In"
@@ -68,7 +39,8 @@ const PortfolioItem = ({ item, index }) => {
           >
             <HiOutlineZoomIn />
           </a>
-          {/* Portfolio detail icon */}
+
+          {/* Portfolio Details Icon */}
           <Link
             to={`/portfolio-details?id=${item.id}`}
             title="More Details"
@@ -77,23 +49,24 @@ const PortfolioItem = ({ item, index }) => {
             <AiOutlineLink />
           </Link>
 
-          {/* Info button */}
-          <a
-            onClick={() => setShowInfo(!showInfo)}
-            className="preview-link ms-3"
+          {/* Info Button */}
+          <button
+            type="button"
+            onClick={() => setShowInfo((prev) => !prev)}
+            className="preview-link ms-3 btn btn-link p-0"
             title="Show Info"
           >
             <AiOutlineInfoCircle />
-          </a>
+          </button>
         </div>
 
+        {/* Portfolio Info */}
         <div className={`portfolio-info custom-border ${showInfo ? 'show' : ''}`}>
           <div className="d-flex justify-content-between">
             <h4 className="me-auto">{item.title}</h4>
           </div>
           <p className={`desc${index}`}>{item.description}</p>
         </div>
-
       </div>
     </div>
   );
