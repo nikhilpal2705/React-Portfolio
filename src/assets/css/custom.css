@@ -260,3 +260,11 @@ body {
 }
 
 /* ========== Glightbox END ================= */
+
+
+/* Invalid validation */
+
+.invalid-feedback {
+    font-size: 12px;
+    margin-left: 2px;
+}

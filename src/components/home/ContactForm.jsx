@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
 import emailjs from 'emailjs-com';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { toast } from 'react-toastify';
@@ -6,17 +7,16 @@ import { useTheme } from '@/hooks/useTheme';
 
 const ContactForm = () => {
     const { isDarkMode, themeChangeKey } = useTheme(); // Access the current theme from context
-    const form = useRef();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const captchaRef = useRef();
     const [isLoading, setIsLoading] = useState(false);
     const [captchaValue, setCaptchaValue] = useState(null); // Store captcha value
 
     useEffect(() => {
         setCaptchaValue(null);
-    }, [isDarkMode])
+    }, [isDarkMode]);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const onSubmit = async (data) => {
         setIsLoading(true);
         // Run reCAPTCHA v3 to get the token
         // Use size="invisible" to handle automatic captcha
@@ -28,25 +28,27 @@ const ContactForm = () => {
             return;
         }
 
-        emailjs.sendForm(
+        emailjs.send(
             import.meta.env.VITE_EMAILJS_SERVICE_ID,
             import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-            form.current,
-            import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-            { 'g-recaptcha-response': captchaValue }
+            {
+                ...data,
+                'g-recaptcha-response': captchaValue,
+            },
+            import.meta.env.VITE_EMAILJS_PUBLIC_KEY
         )
             .then(() => {
                 setIsLoading(false);
                 toast.success('Your message has been sent. Thank you!');
-                form.current.reset();
-                captchaRef.current.reset(); // Reset the reCAPTCHA widget
+                reset();
+                captchaRef.current?.reset(); // Safely reset the reCAPTCHA widget
                 setCaptchaValue(null);
             })
             .catch((error) => {
                 setIsLoading(false);
                 toast.error('Failed to send email. Please try again later.');
-                console.error('Error sending email:', error);
-                captchaRef.current.reset(); // Reset the reCAPTCHA widget
+                console.error('Error sending email:', error?.text || error);
+                captchaRef.current?.reset(); // Safely reset the reCAPTCHA widget
                 setCaptchaValue(null);
             });
     };
@@ -58,48 +60,71 @@ const ContactForm = () => {
         setCaptchaValue(value); // Store the captcha token on change
     };
 
-
     return (
-        <form ref={form} onSubmit={handleSubmit} className="php-email-form">
+        <form onSubmit={handleSubmit(onSubmit)} className="php-email-form">
             <div className="row gy-4">
                 <div className="col-md-6">
                     <input
                         type="text"
-                        name="from_name"
-                        className="form-control"
                         placeholder="Your Name"
-                        required
+                        {...register('from_name', { required: 'Your Name is required.' })}
+                        className={`form-control ${errors.from_name && 'is-invalid'}`}
+                        aria-invalid={!!errors.from_name}
                     />
+                    {errors.from_name && (
+                        <div className="invalid-feedback">{errors.from_name.message}</div>
+                    )}
                 </div>
 
                 <div className="col-md-6">
                     <input
                         type="email"
-                        name="from_email"
-                        className="form-control"
                         placeholder="Your Email"
-                        required
+                        {...register('from_email', {
+                            required: 'Your Email is required.',
+                            pattern: {
+                                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                                message: 'Invalid email address.',
+                            },
+                        })}
+                        className={`form-control ${errors.from_email && 'is-invalid'}`}
+                        aria-invalid={!!errors.from_email}
                     />
+                    {errors.from_email && (
+                        <div className="invalid-feedback">{errors.from_email.message}</div>
+                    )}
                 </div>
 
                 <div className="col-md-12">
                     <input
                         type="text"
-                        name="subject"
-                        className="form-control"
                         placeholder="Subject"
-                        required
+                        {...register('subject', { required: 'Subject is required.' })}
+                        className={`form-control ${errors.subject && 'is-invalid'}`}
+                        aria-invalid={!!errors.subject}
                     />
+                    {errors.subject && (
+                        <div className="invalid-feedback">{errors.subject.message}</div>
+                    )}
                 </div>
 
                 <div className="col-md-12">
                     <textarea
-                        name="message"
-                        className="form-control"
                         rows="6"
                         placeholder="Message"
-                        required
+                        {...register('message', {
+                            required: 'Message is required.',
+                            minLength: {
+                                value: 10,
+                                message: 'Message must be at least 10 characters long.',
+                            },
+                        })}
+                        className={`form-control ${errors.message && 'is-invalid'}`}
+                        aria-invalid={!!errors.message}
                     ></textarea>
+                    {errors.message && (
+                        <div className="invalid-feedback">{errors.message.message}</div>
+                    )}
                 </div>
 
                 {/* Google reCAPTCHA */}
@@ -107,9 +132,9 @@ const ContactForm = () => {
                     <ReCAPTCHA
                         ref={captchaRef}
                         className="g-recaptcha"
-                        theme={isDarkMode ? 'dark' : 'light'}  // Dynamically set the theme
-                        key={themeChangeKey}  // Force remount on theme change
-                        style={{ display: "inline-block" }}
+                        theme={isDarkMode ? 'dark' : 'light'} // Dynamically set the theme
+                        key={themeChangeKey} // Force remount on theme change
+                        style={{ display: 'inline-block' }}
                         sitekey={import.meta.env.VITE_GOOGLE_RECAPTCHA_SITE_KEY}
                         size="normal"
                         onChange={handleCaptchaChange} // Set captcha value on change
@@ -118,7 +143,7 @@ const ContactForm = () => {
 
                 <div className="col-md-12 text-center">
                     <button type="submit" disabled={isLoading}>
-                        {isLoading ? (<span><span className="loading-spinner"></span>Sending...</span>) : ("Send Message")}
+                        {isLoading ? (<span><span className="loading-spinner"></span> Sending...</span>) : ('Send Message')}
                     </button>
                 </div>
             </div>
