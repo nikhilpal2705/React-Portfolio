@@ -106,10 +106,11 @@ const PageTitle = ({ children }) => (
                 <nav className="breadcrumbs">
                     <ol>
                         <li><Link to="/">Home</Link></li>
-                        <li className="current">Portfolio Details</li>
+                        <li><Link to="/#projects">Projects</Link></li>
+                        <li className="current">Project Details</li>
                     </ol>
                 </nav>
-                <h1>Portfolio Details</h1>
+                <h1>Project Details</h1>
             </div>
         </div>
         <section id="portfolio-details" className="portfolio-details section">
@@ -132,7 +133,7 @@ const ProjectNotFound = () => (
     </PageTitle>
 );
 
-const PortfolioDetail = () => {
+const ProjectDetails = () => {
     const [searchParams] = useSearchParams();
     const projectId = searchParams.get('id');  // Get 'id' from the search parameters
 
@@ -160,4 +161,4 @@ const PortfolioDetail = () => {
     );
 };
 
-export default PortfolioDetail;
+export default ProjectDetails;

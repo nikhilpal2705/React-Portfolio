@@ -37,7 +37,7 @@ const Header = () => {
     { id: '#about', label: 'About', icon: 'bi-person' },
     { id: '#skills', label: 'Skills', icon: 'bi-book' },
     { id: '#resume', label: 'Resume', icon: 'bi-file-earmark-text' },
-    { id: '#portfolio', label: 'Portfolio', icon: 'bi-images' },
+    { id: '#projects', label: 'Projects', icon: 'bi-images' },
     { id: '#services', label: 'Services', icon: 'bi-hdd-stack' },
     { id: '#contact', label: 'Contact', icon: 'bi-envelope' },
   ], []);
@@ -45,12 +45,12 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const headerRef = useRef(null);
   const location = useLocation();
-  const [activeMenu, setActiveMenu] = useState(location.pathname === '/portfolio-details' ? '#portfolio' : '#hero');
+  const [activeMenu, setActiveMenu] = useState(location.pathname === '/project-details' ? '#projects' : '#hero');
 
   // Update activeMenu based on route change
   useEffect(() => {
-    if (location.pathname === '/portfolio-details') {
-      setActiveMenu('#portfolio');
+    if (location.pathname === '/project-details') {
+      setActiveMenu('#projects');
     } else if (location.pathname === '/') {
       setActiveMenu('#hero');
     }

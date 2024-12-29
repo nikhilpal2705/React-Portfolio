@@ -4,18 +4,18 @@ const Layout = lazy(() => import('@/components/layouts/Layout'));
 
 // Lazy-load the route components
 const Home = lazy(() => import('@/components/pages/Home'));
-const PortfolioDetail = lazy(() => import('@/components/pages/PortfolioDetail'));
+const ProjectDetails = lazy(() => import('@/components/pages/ProjectDetails'));
 
 function AppRoutes() {
     return (
         <Routes>
             <Route element={<Layout />}>
                 <Route path="/" element={<Home />} />
-                <Route path="/portfolio-details" element={<PortfolioDetail />} />
+                <Route path="/project-details" element={<ProjectDetails />} />
             </Route>
             {/* Other routes with Different Layout */}
             <Route element={<Layout header={false} />}>
-                {/* <Route path="/service-details" element={<PortfolioDetail />} /> */}
+                {/* <Route path="/service-details" element={<ProjectDetails />} /> */}
             </Route>
 
         </Routes>

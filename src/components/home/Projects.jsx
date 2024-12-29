@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { AiOutlineLink, AiOutlineInfoCircle } from 'react-icons/ai';
 import { HiOutlineZoomIn } from 'react-icons/hi';
 
-const PortfolioItem = ({ item, index }) => {
+const ProjectsItem = ({ item, index }) => {
   const [showInfo, setShowInfo] = useState(false);
 
   return (
@@ -16,7 +16,7 @@ const PortfolioItem = ({ item, index }) => {
       onMouseLeave={() => setShowInfo(false)}
     >
       <div className="portfolio-image-wrapper position-relative">
-        {/* Portfolio Image */}
+        {/* Project Image */}
         <img
           onClick={() => setShowInfo((prev) => !prev)}
           src={item.image}
@@ -40,9 +40,9 @@ const PortfolioItem = ({ item, index }) => {
             <HiOutlineZoomIn />
           </a>
 
-          {/* Portfolio Details Icon */}
+          {/* Project Details Icon */}
           <Link
-            to={`/portfolio-details?id=${item.id}`}
+            to={`/project-details?id=${item.id}`}
             title="More Details"
             className="preview-link ms-3"
           >
@@ -60,7 +60,7 @@ const PortfolioItem = ({ item, index }) => {
           </button>
         </div>
 
-        {/* Portfolio Info */}
+        {/* Project Info */}
         <div className={`portfolio-info custom-border ${showInfo ? 'show' : ''}`}>
           <div className="d-flex justify-content-between">
             <h4 className="me-auto">{item.title}</h4>
@@ -72,8 +72,8 @@ const PortfolioItem = ({ item, index }) => {
   );
 };
 
-// Define prop types for PortfolioItem
-PortfolioItem.propTypes = {
+// Define prop types for ProjectItem
+ProjectsItem.propTypes = {
   item: PropTypes.shape({
     filter: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
@@ -84,16 +84,16 @@ PortfolioItem.propTypes = {
   index: PropTypes.number.isRequired,
 };
 
-const Portfolio = () => {
+const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('*');
   const isotopeContainer = useIsotope(activeFilter, 'masonry', 'original-order');
   useGLightbox();
   const handleFilterClick = (filter) => setActiveFilter(filter);
 
   return (
-    <section id="portfolio" className="portfolio section">
+    <section id="projects" className="portfolio section">
       <div className="container section-title" data-aos="fade-up">
-        <h2>Portfolio</h2>
+        <h2>Projects</h2>
         <p>{portfolioData.mainSummary}</p>
       </div>
 
@@ -111,7 +111,7 @@ const Portfolio = () => {
           </ul>
 
           <div className="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200" ref={isotopeContainer}>
-            {portfolioData.portfolioItems.map((item, index) => (<PortfolioItem key={index} item={item} index={index} />))}
+            {portfolioData.portfolioItems.map((item, index) => (<ProjectsItem key={index} item={item} index={index} />))}
           </div>
         </div>
       </div>
@@ -119,4 +119,4 @@ const Portfolio = () => {
   );
 };
 
-export default Portfolio;
+export default Projects;
