@@ -45,7 +45,7 @@ body {
 
 .skill-item i {
     font-size: 50px !important;
-    height: 20px !important;
+    min-height: 20px !important;
 }
 
 .skill-item svg {
@@ -67,10 +67,19 @@ body {
     color: color-mix(in srgb, var(--default-color), transparent 10%);
 }
 
-.skill-item i:hover,
-.skill-item svg:hover {
+.skill-item i.icon-color:hover,
+.skill-item svg.icon-color:hover {
     color: var(--accent-color) !important;
 }
+
+.skill-item i,
+.skill-item svg {
+    /* Smooth transition on hover */
+    transition: color 0.3s ease !important;
+
+}
+
+
 
 .skills-info {
     padding: 3% 0% 3% 0%;

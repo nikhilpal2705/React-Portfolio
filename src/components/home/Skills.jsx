@@ -59,8 +59,8 @@ const SkillItem = ({ label, svg, iconClass }) => {
     >
       {svg ? (
         <svg
-          // onMouseEnter={() => setIsHovered(true)}
-          // onMouseLeave={() => setIsHovered(false)}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
           className={`icon ${isHovered ? '' : 'icon-color'}`}  // Conditionally add/remove the icon-color class
           aria-hidden="true"
           focusable="false"
@@ -73,8 +73,8 @@ const SkillItem = ({ label, svg, iconClass }) => {
         </svg>
       ) : (
         <i
-          // onMouseEnter={() => setIsHovered(true)}
-          // onMouseLeave={() => setIsHovered(false)}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
           className={`mx-auto my-auto ${iconClass} ${isHovered ? '' : 'icon-color'}`}>
         </i>
       )}
