@@ -14,23 +14,27 @@ const PortfolioItem = ({ item, index }) => {
         alt={item.title}
       />
       <div className="portfolio-info custom-border">
-        <h4>{item.title}</h4>
+        <div className="d-flex justify-content-between">
+          <h4 className="me-auto">{item.title}</h4>
+          <div className="d-flex">
+            <a
+              href={item.image}
+              title={item.title}
+              className="glightbox preview-link"
+              data-description={`.desc${index}`}
+            >
+              <i className="bi bi-zoom-in"></i>
+            </a>
+            <Link
+              to={`/portfolio-details?id=${item.id}`}
+              title="More Details"
+              className="details-link ms-2"
+            >
+              <i className="bi bi-link-45deg"></i>
+            </Link>
+          </div>
+        </div>
         <p className={`desc${index}`}>{item.description}</p>
-        <a
-          href={item.image}
-          title={item.title}
-          className="glightbox preview-link"
-          data-description={`.desc${index}`}
-        >
-          <i className="bi bi-zoom-in"></i>
-        </a>
-        <Link
-          to={`/portfolio-details?id=${item.id}`}
-          title="More Details"
-          className="details-link"
-        >
-          <i className="bi bi-link-45deg"></i>
-        </Link>
       </div>
     </div>
   );
