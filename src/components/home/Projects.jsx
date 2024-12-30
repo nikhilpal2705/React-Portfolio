@@ -7,22 +7,30 @@ import { Link } from 'react-router-dom';
 import { AiOutlineLink, AiOutlineInfoCircle } from 'react-icons/ai';
 import { HiOutlineZoomIn } from 'react-icons/hi';
 
+
 const ProjectsItem = ({ item, index }) => {
   const [showInfo, setShowInfo] = useState(false);
+  const [isTouch, setIsTouch] = useState(false);
+
+  // Detect touch devices
+  const handleTouchStart = () => {
+    if (!isTouch) setIsTouch(true);
+  };
 
   return (
     <div
       className={`col-lg-4 col-md-6 portfolio-item isotope-item ${item.filter}`}
       onMouseLeave={() => setShowInfo(false)}
+      onTouchStart={handleTouchStart} // Detect touch interaction
     >
       <div className="portfolio-image-wrapper position-relative">
         {/* Project Image */}
         <img
           onClick={() => setShowInfo((prev) => !prev)}
+          onMouseEnter={() => !isTouch && setShowInfo(true)}
           src={item.image}
           className="img-fluid custom-border"
           alt={item.title}
-          onMouseEnter={() => setShowInfo(true)}
         />
 
         {/* Icon Wrapper */}
