@@ -1,4 +1,4 @@
-import { resumeData } from "@/constants";
+import { links, resumeData } from "@/constants";
 import PropTypes from 'prop-types';
 
 const Resume = () => {
@@ -41,6 +41,13 @@ const Resume = () => {
               ))}
             </ResumeSection>
           </div>
+
+          <div className="p-3" data-aos="fade-up" data-aos-delay="300">
+            <div className="text-center">
+              <a className="download-btn" href={links.resume} target="_blank" rel="noopener noreferrer">Download Resume</a>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

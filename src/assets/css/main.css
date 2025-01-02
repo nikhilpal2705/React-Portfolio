@@ -17,7 +17,7 @@
   /* Default color used for the majority of the text content across the entire website */
   --heading-color: #45505b;
   /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #f57c00;
+  --accent-color: #E95420;
   /* Adjusted to a relative orange color */
   /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff;
@@ -26,7 +26,7 @@
   /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
   --nav-color: #45505b;
   /* The default color of the main navmenu links */
-  --nav-hover-color: #f57c00;
+  --nav-hover-color: #E95420;
   /* Slightly darker orange for hover */
   /* Applied to main navmenu links when they are hovered over or active */
   --nav-mobile-background-color: #ffffff;
@@ -35,7 +35,7 @@
   /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
   --nav-dropdown-color: #212529;
   /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #f57c00;
+  --nav-dropdown-hover-color: #E95420;
   /* Hover color on dropdown items */
   /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 
@@ -47,7 +47,7 @@
     /* Lighter color for text content to ensure readability on dark background */
     --heading-color: #bbdefb;
     /* Light color for headings, subheadings and title */
-    --accent-color: #e65100;
+    --accent-color: #E95420;
     /* Lighter orange for dark mode */
     /* Accent color that stands out on dark background */
     --surface-color: #333333;
@@ -56,7 +56,7 @@
     /* Contrast color for text, ensuring readability on dark backgrounds */
     --nav-color: #bbdefb;
     /* Light color for the main navmenu links */
-    --nav-hover-color: #e65100;
+    --nav-hover-color: #E95420;
     /* Darker orange for hover in dark mode */
     /* Applied to main navmenu links when hovered over or active */
     --nav-mobile-background-color: #121212;
@@ -65,7 +65,7 @@
     /* Dark background color for dropdown items */
     --nav-dropdown-color: #e0e0e0;
     /* Light color for navigation links in dropdown items */
-    --nav-dropdown-hover-color: #e65100;
+    --nav-dropdown-hover-color: #E95420;
     /* Darker hover color for dropdown links */
     /* Highlighted color for dropdown links when hovered over */
   }
@@ -1492,19 +1492,22 @@ section,
   font-size: 15px;
 }
 
-.service-details ul {
+.service-details ul,
+.portfolio-description ul {
   list-style: none;
   padding: 0;
   font-size: 15px;
 }
 
-.service-details ul li {
+.service-details ul li,
+.portfolio-description ul li {
   padding: 5px 0;
   display: flex;
   align-items: center;
 }
 
-.service-details ul i {
+.service-details ul i,
+.portfolio-description ul i {
   font-size: 20px;
   margin-right: 8px;
   color: var(--accent-color);

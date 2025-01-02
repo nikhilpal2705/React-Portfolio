@@ -8,13 +8,34 @@ import 'swiper/css/pagination';
 import { portfolioDetailData } from '@/constants';
 
 // Subcomponent for Project Description
-const ProjectDescription = ({ description }) => (
+const ProjectDescription = ({ projectInfo }) => (
     <div className="portfolio-description">
-        <h2>About the Project</h2>
-        {description.map((item, index) => (
-            <p key={index}>{item}</p>
-        ))}
+        <div>
+            <h2 className='mb-3'>About the Project</h2> {/* Adds margin-bottom */}
+            {projectInfo.projectDescription.map((item, index) => (
+                <p key={index}>{item}</p>
+            ))}
+        </div>
+
+        {projectInfo.keyFeatures && <div className="mt-4">
+            <h2 className='mb-3'>Key Features</h2> {/* Adds margin-top */}
+            <ul>
+                {Object.keys(projectInfo.keyFeatures).map((item, index) => (
+                    <li key={index}>
+                        <i className="bi bi-check-circle"></i>
+                        <strong>{item}:</strong>
+                        <span className='ms-1'>{projectInfo.keyFeatures[item]}</span>
+                    </li>
+                ))}
+            </ul>
+        </div>}
+        
+        {projectInfo.setup && <div className="mt-4">
+            <h2 className='mb-3'>Setup Instructions</h2> {/* Adds margin-top */}
+            <p>{projectInfo.setup}</p>
+        </div>}
     </div>
+
 );
 
 ProjectDescription.propTypes = {
@@ -40,13 +61,25 @@ const ProjectInfo = ({ projectInfo }) => (
                 </div>
             </li>
             {/* Displaying other project details such as date, URL, and source code */}
-            <li><strong>Project Date:</strong> {projectInfo.projectDate}</li>
-            {projectInfo.projectURL && <li><strong>Project URL:</strong> <a href={projectInfo.projectURL} target="_blank" rel="noopener noreferrer">{projectInfo.projectURL}</a></li>}
-            <li><strong>Source Code:</strong> <a href={projectInfo.sourceCodeURL} target="_blank" rel="noopener noreferrer">{projectInfo.sourceCodeURL}</a></li>
-            {projectInfo.projectURL && <li><a href={projectInfo.projectURL} className="btn-visit align-self-start" target="_blank" rel="noopener noreferrer">Visit Website</a></li>}
+            <li>
+                <strong>Project Date:</strong>
+                {projectInfo.projectDate}
+            </li>
+            {projectInfo.projectURL && <li className="text-wrap">
+                <strong>Project URL:</strong>
+                <a href={projectInfo.projectURL} target="_blank" rel="noopener noreferrer">{projectInfo.projectURL}</a>
+            </li>}
+            <li className="text-wrap">
+                <strong>Source Code:</strong>
+                <a href={projectInfo.sourceCodeURL} target="_blank" rel="noopener noreferrer">{projectInfo.sourceCodeURL}</a>
+            </li>
+            {projectInfo.projectURL && <li>
+                <a href={projectInfo.projectURL} className="btn-visit align-self-start" target="_blank" rel="noopener noreferrer">Visit Website</a>
+            </li>}
         </ul>
     </div>
 );
+
 
 ProjectInfo.propTypes = {
     projectInfo: PropTypes.shape({
@@ -150,9 +183,9 @@ const ProjectDetails = () => {
                 {projectInfo.projectImages && <ProjectSwiper projectImages={projectInfo.projectImages} />}
                 <div className="row justify-content-between gy-4 mt-4">
                     <div className="col-lg-8" data-aos="fade-up">
-                        <ProjectDescription description={projectInfo.projectDescription} />
+                        <ProjectDescription projectInfo={projectInfo} />
                     </div>
-                    <div className="col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div className="col-lg-4 ps-lg-5" data-aos="fade-up" data-aos-delay="100">
                         <ProjectInfo projectInfo={projectInfo} />
                     </div>
                 </div>

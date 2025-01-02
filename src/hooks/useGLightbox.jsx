@@ -9,7 +9,9 @@ export const useGLightbox = () => {
         const lightbox = GLightbox({
             selector: '.glightbox',
             touchNavigation: true,
-            loop: true
+            loop: true,
+            openEffect: 'zoom',
+            closeEffect: 'zoom',
         });
         return () => {
             lightbox.destroy(); // Cleanup GLightbox on component unmount

@@ -85,7 +85,7 @@ body {
 }
 
 .skill-item .icon-color {
-    color: color-mix(in srgb, var(--default-color), transparent 30%) !important;
+    color: color-mix(in srgb, var(--default-color), transparent 25%) !important;
 }
 
 .skill-item h6 {
@@ -123,8 +123,8 @@ body {
 }
 
 
-.about .download-btn {
-    color: var(--contrast-color);
+.download-btn {
+    color: var(--contrast-color) !important;
     background: var(--accent-color);
     border: 0;
     padding: 10px 30px;
@@ -132,7 +132,7 @@ body {
     border-radius: 50px;
 }
 
-.about .download-btn:hover {
+.download-btn:hover {
     background: color-mix(in srgb, var(--accent-color), transparent 25%);
 }
 
@@ -319,4 +319,15 @@ body {
 .invalid-feedback {
     font-size: 12px;
     margin-left: 2px;
+}
+
+.coding-profile-icon:hover {
+    opacity: 0.75;
+    /* Makes the icon 80% visible */
+    transition: opacity 0.3s ease-in-out;
+    /* Smooth transition effect */
+}
+
+.cursor-default {
+    cursor: default;
 }

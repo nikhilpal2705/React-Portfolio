@@ -3,7 +3,7 @@ import { useTheme } from "@/hooks/useTheme";
 import { SiLeetcode, SiGeeksforgeeks, SiHackerrank, SiCodeforces, SiCodechef, SiGithub } from "react-icons/si";
 
 const profiles = [
-    { link: links.leetcode, icon: <SiLeetcode size={40} />, name: "LeetCode", color: "#d16c06" },
+    { link: links.leetcode, icon: <SiLeetcode className="" size={40} />, name: "LeetCode", color: "#d16c06" },
     { link: links.gfg, icon: <SiGeeksforgeeks size={40} />, name: "GeeksforGeeks", color: "#35914c" },
     { link: links.hackerrank, icon: <SiHackerrank size={40} />, name: "HackerRank", color: "#2EC866" },
     { link: links.codeforces, icon: <SiCodeforces size={40} />, name: "Codeforces", color: "#445f9d" },
@@ -33,7 +33,9 @@ const CodingProfiles = () => {
                                 title={`${name} Profile`}
                                 style={{ color: isDarkMode ? color.dark || color : color.light || color }}
                                 target="_blank"
-                                rel="noopener noreferrer">
+                                rel="noopener noreferrer"
+                                className="coding-profile-icon"
+                                >
                                 {icon}
                                 <p className="mt-2">{name}</p>
                             </a>

@@ -13,7 +13,10 @@ const Footer = () => (
         <a href={links.twitter} aria-label="X" target="_blank" rel="noopener noreferrer"><i className="bi bi-twitter-x"></i></a>
       </div>
       <div className="copyright">
-        <span>Copyright</span> <strong className="px-1 sitename">{profileData.name}</strong> <span>All Rights Reserved</span>
+        <span>Copyright</span>
+        <strong className="px-1 sitename">{profileData.name}</strong>
+        <span className="px-1">•</span>
+        <span className="px-1">All Rights Reserved</span>
       </div>
     </div>
   </footer>

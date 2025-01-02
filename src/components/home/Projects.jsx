@@ -43,6 +43,7 @@ const ProjectsItem = ({ item, index }) => {
             href={item.image}
             title="Zoom In"
             className="glightbox preview-link"
+            data-title={item.title}
             data-description={`.desc${index}`}
           >
             <HiOutlineZoomIn />

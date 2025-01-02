@@ -77,7 +77,7 @@ const SkillItem = ({ label, svg, iconClass }) => {
           className={`mx-auto my-auto ${iconClass} ${isHovered ? '' : 'icon-color'}`}>
         </i>
       )}
-      <h6 className="mt-2">{label}</h6>
+      <h6 className="mt-2 cursor-default">{label}</h6>
     </div>
   );
 };

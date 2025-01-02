@@ -35,6 +35,12 @@ export const portfolioDetailData = {
             'Utilized MySQL as a database to store and manage product information and user data.',
             'Implemented authentication and authorization using Spring Security and JWT to safeguard user data.',
         ],
+        keyFeatures: {
+            "User Registration & Authentication": "Allows secure registration and login functionality with role-based access (Admin, User).",
+            "Crop Management": "Users can add, update, and view crop-related information.",
+            "Dashboard": "A central interface for users to manage crop-related data."
+        },
+        setup: "The repository contains detailed instructions on setting up both the backend and frontend. You will need to configure the backend Spring Boot API, connect it to a MySQL database, and deploy the frontend with React.js. Docker can be used to streamline the setup process.",
         projectImages: [images["agrocare"], images["agrocare1"], images["agrocare2"], images["agrocare3"], images["agrocare4"]]
     },
     gfgcard: {
@@ -52,6 +58,12 @@ export const portfolioDetailData = {
             'Developed server-side logic with Node.js and Express.js, crafted stats card with JavaScript and CSS.',
             'The stats card dynamically updates based on a user’s GitHub activity and problem-solving contributions.',
         ],
+        keyFeatures: {
+            "Dynamic Stats Generation": " Fetches data from GeeksForGeeks and displays it as a card.",
+            "Markdown & HTML Integration": "Easily integrates with GitHub profiles or other websites.",
+            "Customization": "Users can adjust the theme of the card (light/dark).",
+            "Raw Data Option": " Allows users to fetch raw JSON data of their stats."
+        },
         projectImages: [images["gfgcard"], images["gfgcard1"], images["gfgcard"], images["gfgcard1"]]
     },
     portfolio: {
@@ -65,9 +77,15 @@ export const portfolioDetailData = {
         projectURL: 'https://suryavanshi.vercel.app',
         sourceCodeURL: 'https://github.com/nikhilpal2705/nikhilpal2705.github.io',
         projectDescription: [
-            'A portfolio application with an intuitive interface.',
+            "This project is a personal portfolio website designed to showcase the user's skills, projects, and professional achievements.",
+            "It serves as an online resume and a platform to demonstrate various projects and technologies the user has worked on.",
             'Designed and implemented interactive, responsive user interfaces using React.js for intuitive product management.',
         ],
+        keyFeatures: {
+            "Project Showcases": "Highlights key personal and professional projects with descriptions and links.",
+            "Contact Form": "A simple interface for visitors to get in touch.",
+            "Responsive Design": "Ensures the portfolio looks great on all devices, including mobile."
+        },
         projectImages: [images["portfolio"], images["portfolio1"], images["portfolio2"], images["portfolio3"], images["portfolio4"], images["portfolio5"], images["portfolio6"], images["portfolio7"]]
     }
 };
