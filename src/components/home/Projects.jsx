@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { portfolioData } from '@/constants';
 import { useGLightbox } from '@/hooks/useGLightbox';
 import { useIsotope } from '@/hooks/useIsotope';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AiOutlineLink, AiOutlineInfoCircle } from 'react-icons/ai';
 import { HiOutlineZoomIn } from 'react-icons/hi';

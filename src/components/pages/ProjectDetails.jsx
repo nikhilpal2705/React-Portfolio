@@ -23,13 +23,15 @@ const ProjectDescription = ({ projectInfo }) => (
                 {Object.keys(projectInfo.keyFeatures).map((item, index) => (
                     <li key={index}>
                         <i className="bi bi-check-circle"></i>
-                        <strong>{item}:</strong>
-                        <span className='ms-1'>{projectInfo.keyFeatures[item]}</span>
+                        <span>
+                            <strong>{item}:</strong>
+                            <span className='ms-1'>{projectInfo.keyFeatures[item]}</span>
+                        </span>
                     </li>
                 ))}
             </ul>
         </div>}
-        
+
         {projectInfo.setup && <div className="mt-4">
             <h2 className='mb-3'>Setup Instructions</h2> {/* Adds margin-top */}
             <p>{projectInfo.setup}</p>
@@ -39,7 +41,11 @@ const ProjectDescription = ({ projectInfo }) => (
 );
 
 ProjectDescription.propTypes = {
-    description: PropTypes.arrayOf(PropTypes.string).isRequired,
+    projectInfo: PropTypes.shape({
+        projectDescription: PropTypes.arrayOf(PropTypes.string).isRequired,
+        keyFeatures: PropTypes.objectOf(PropTypes.string),
+        setup: PropTypes.string,
+    }).isRequired,
 };
 
 // Subcomponent for Project Info
