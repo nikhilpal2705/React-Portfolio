@@ -95,7 +95,7 @@ ProjectsItem.propTypes = {
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('*');
-  const isotopeContainer = useIsotope(activeFilter, 'masonry', 'original-order');
+  const isotopeContainer = useIsotope(activeFilter);
   useGLightbox();
   const handleFilterClick = (filter) => setActiveFilter(filter);
 

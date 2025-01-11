@@ -24,7 +24,9 @@ const ContactForm = () => {
 
         if (!captchaValue) {
             setIsLoading(false);
-            toast.warn('Please complete the reCAPTCHA.');
+            toast.warn('Please complete the reCAPTCHA.', {
+                toastId: 'recaptchaWarning', // Fixed ID ensures seamless replacement
+            });
             return;
         }
 
@@ -39,14 +41,18 @@ const ContactForm = () => {
         )
             .then(() => {
                 setIsLoading(false);
-                toast.success('Your message has been sent. Thank you!');
+                toast.success('Your message has been sent. Thank you!', {
+                    toastId: 'successSent'
+                });
                 reset();
                 captchaRef.current?.reset(); // Safely reset the reCAPTCHA widget
                 setCaptchaValue(null);
             })
             .catch((error) => {
                 setIsLoading(false);
-                toast.error('Failed to send email. Please try again later.');
+                toast.error('Failed to send email. Please try again later.', {
+                    toastId: 'failedSendError'
+                });
                 console.error('Error sending email:', error?.text || error);
                 captchaRef.current?.reset(); // Safely reset the reCAPTCHA widget
                 setCaptchaValue(null);

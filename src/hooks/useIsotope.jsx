@@ -2,7 +2,7 @@ import Isotope from 'isotope-layout';
 import imagesLoaded from 'imagesloaded';
 import { useEffect, useRef } from 'react';
 
-export const useIsotope = (filter, layoutMode = 'masonry', sortBy = 'original-order') => {
+export const useIsotope = (filter) => {
     const isotopeContainer = useRef(null);
     const isotopeInstance = useRef(null);
 
@@ -12,9 +12,9 @@ export const useIsotope = (filter, layoutMode = 'masonry', sortBy = 'original-or
             // Initialize Isotope
             isotopeInstance.current = new Isotope(isotopeContainer.current, {
                 itemSelector: '.isotope-item',
-                layoutMode,
+                layoutMode: 'masonry',
+                sortBy: 'original-order',
                 filter,
-                sortBy,
             });
         });
 
@@ -24,7 +24,7 @@ export const useIsotope = (filter, layoutMode = 'masonry', sortBy = 'original-or
                 isotopeInstance.current.destroy();
             }
         };
-    }, [layoutMode, sortBy]);
+    }, []);
 
     useEffect(() => {
         // Apply filter when it changes

@@ -41,6 +41,7 @@ const App = () => {
           pauseOnHover
           theme={isDarkMode ? "dark" : "light"}
           transition={Bounce}
+          // limit={2}
         />
       </BrowserRouter>
     </>
