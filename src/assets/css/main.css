@@ -10,87 +10,87 @@
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root {
-  /* Default Light Mode Colors */
-  --background-color: #fdfdfd;
+  /*================= Default Light Mode Colors */
   /* Background color for the entire website, including individual sections */
-  --default-color: #272829;
+  --background-color: #fdfdfd;
   /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #45505b;
+  --default-color: #272829;
   /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #E95420;
+  --heading-color: #45505b;
   /* Adjusted to a relative orange color */
   /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff;
+  --accent-color: #E95420;
   /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff;
+  --surface-color: #ffffff;
   /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
-  --nav-color: #45505b;
+  --contrast-color: #ffffff;
   /* The default color of the main navmenu links */
-  --nav-hover-color: #E95420;
+  --nav-color: #45505b;
   /* Slightly darker orange for hover */
   /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #ffffff;
+  --nav-hover-color: #E95420;
   /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #ffffff;
+  --nav-mobile-background-color: #ffffff;
   /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #212529;
+  --nav-dropdown-background-color: #ffffff;
   /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #E95420;
+  --nav-dropdown-color: #212529;
   /* Hover color on dropdown items */
   /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-dropdown-hover-color: #E95420;
 
-  /* Dark Mode - These colors override the default values when dark mode is active */
+  /*============= Dark Mode - These colors override the default values when dark mode is active */
   &.dark-mode {
-    --background-color: #121212;
     /* Dark background color for the entire website */
-    --default-color: #e0e0e0;
+    --background-color: #121212;
     /* Lighter color for text content to ensure readability on dark background */
-    --heading-color: #bbdefb;
+    --default-color: #e0e0e0;
     /* Light color for headings, subheadings and title */
-    --accent-color: #E95420;
+    --heading-color: #bbdefb;
     /* Lighter orange for dark mode */
     /* Accent color that stands out on dark background */
-    --surface-color: #333333;
+    --accent-color: #E95420;
     /* Surface color for boxed elements, cards, or sections that need contrast from the background */
-    --contrast-color: #ffffff;
+    --surface-color: #333333;
     /* Contrast color for text, ensuring readability on dark backgrounds */
-    --nav-color: #bbdefb;
+    --contrast-color: #ffffff;
     /* Light color for the main navmenu links */
-    --nav-hover-color: #E95420;
+    --nav-color: #bbdefb;
     /* Darker orange for hover in dark mode */
     /* Applied to main navmenu links when hovered over or active */
-    --nav-mobile-background-color: #121212;
+    --nav-hover-color: #E95420;
     /* Dark background color for mobile navigation menu */
-    --nav-dropdown-background-color: #333333;
+    --nav-mobile-background-color: #121212;
     /* Dark background color for dropdown items */
-    --nav-dropdown-color: #e0e0e0;
+    --nav-dropdown-background-color: #333333;
     /* Light color for navigation links in dropdown items */
-    --nav-dropdown-hover-color: #E95420;
+    --nav-dropdown-color: #e0e0e0;
     /* Darker hover color for dropdown links */
     /* Highlighted color for dropdown links when hovered over */
+    --nav-dropdown-hover-color: #E95420;
   }
 }
 
 
 /* Section Preset Backgrounds - These classes override global colors for specific sections */
 .main-background {
-  --background-color: #f9f9f9;
   /* Light background color for sections */
-  --surface-color: #ffffff;
+  --background-color: #f9f9f9;
   /* Light surface color for boxes */
+  --surface-color: #ffffff;
 }
 
 .dark-mode .main-background {
-  --background-color: #060606;
   /* Dark background color for sections */
-  --default-color: #ffffff;
+  --background-color: #060606;
   /* Light text color */
-  --heading-color: #ffffff;
+  --default-color: #ffffff;
   /* Light heading color */
-  --surface-color: #252525;
+  --heading-color: #ffffff;
   /* Dark surface color for boxes */
-  --contrast-color: #ffffff;
+  --surface-color: #252525;
   /* Light contrast color for readability */
+  --contrast-color: #ffffff;
 }
 
 
@@ -260,13 +260,29 @@ h6 {
 .navmenu {
   padding: 0;
   z-index: 9997;
+  display: flex;
+  /* Stack children vertically */
+  flex-direction: column;
+  /* Center nav links vertically */
+  justify-content: center;
+  /* Align nav links to the left */
+  align-items: flex-start;
+  /* Allow navmenu to take remaining space */
+  flex-grow: 1;
 }
 
 .navmenu ul {
   list-style: none;
-  padding: 0 0 20px 0;
+  padding: 0;
   margin: 0;
   width: 140px;
+  display: flex;
+  /* Stack nav links vertically */
+  flex-direction: column;
+  /* Center nav links vertically */
+  justify-content: center;
+  /* Allow nav links to take remaining space */
+  flex-grow: 1;
 }
 
 .navmenu a,

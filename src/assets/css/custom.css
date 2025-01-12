@@ -184,13 +184,24 @@ body {
 }
 
 /* ================== Toggle Theme Button START =============*/
+.header .container {
+    display: flex;
+    /* Stack children vertically */
+    flex-direction: column;
+    /* Align items to the top */
+    justify-content: flex-start;
+    /* Align children to the left */
+    align-items: flex-start;
+    /* Ensure container takes full height */
+    height: 100vh;
+    /* Ensure the button starts 1rem from the top */
+    padding-top: 1rem;
+}
+
 .theme-toggle {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    top: 1rem;
-    left: 1.95rem;
     padding: 0.5rem 1rem;
     font-size: 16px;
     z-index: 9997;
@@ -200,6 +211,10 @@ body {
     background-color: color-mix(in srgb, var(--default-color), transparent 92%);
     color: var(--nav-color);
     transition: background-color 0.3s ease, color 0.3s ease;
+    /* Margin from left */
+    margin-left: 0.4rem;
+    /* Space between butston and nav links */
+    margin-bottom: 1rem;
 }
 
 .theme-toggle:hover {

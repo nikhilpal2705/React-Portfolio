@@ -116,8 +116,8 @@ const Header = () => {
   return (
     <header ref={headerRef} id="header" className={`header d-flex flex-column justify-content-center ${isMenuOpen ? 'header-show' : ''}`}>
       <div className="container">
-        <ThemeToggle />
         <i className={`header-toggle d-xl-none bi ${isMenuOpen ? 'bi-x' : 'bi-list'}`} onClick={toggleMenu}></i>
+        <ThemeToggle />
         <nav id="navmenu" className="navmenu">
           <ul>
             {navmenulinks.map(link => (
