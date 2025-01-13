@@ -133,7 +133,7 @@ body {
 }
 
 .download-btn:hover {
-    background: color-mix(in srgb, var(--accent-color), transparent 25%);
+    background: color-mix(in srgb, var(--accent-color), transparent 15%);
 }
 
 /* Loader for send message button */
