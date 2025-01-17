@@ -33,6 +33,9 @@ body {
 }
 
 /* ================== Skill Section START =============*/
+section.skills-new {
+    background-color: unset;
+}
 
 .skills-card {
     position: relative;

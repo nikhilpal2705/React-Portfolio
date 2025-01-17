@@ -91,7 +91,7 @@ SkillItem.propTypes = {
 
 const Skills = () => {
   return (
-    <section id="skills" className="section ">
+    <section id="skills" className="skills-new section ">
 
       <div className="container section-title" data-aos="fade-up">
         <h2>Skills</h2>

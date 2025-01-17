@@ -2,6 +2,5 @@
 @import "devicon/devicon.min.css";
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import 'bootstrap-icons/font/bootstrap-icons.css';
-@import 'react-toastify/dist/ReactToastify.css';
 @import './main.css';
 @import './custom.css';

@@ -3,6 +3,7 @@ import Header from './Header';
 import Footer from './Footer';
 import ScrollTopButton from './ScrollTopButton';
 import { Outlet } from 'react-router-dom';
+import '@/constants';
 
 const Layout = ({ header = true, footer = true, scrollTopButton = true }) => {
     return (
