@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import emailjs from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { toast } from 'react-toastify';
 import { useTheme } from '@/hooks/useTheme';

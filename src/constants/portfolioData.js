@@ -75,7 +75,7 @@ export const portfolioDetailData = {
         ],
         projectDate: 'October 2024 - Present',
         projectURL: 'https://suryavanshi.vercel.app',
-        sourceCodeURL: 'https://github.com/nikhilpal2705/nikhilpal2705.github.io',
+        sourceCodeURL: 'https://github.com/nikhilpal2705/React-Portfolio',
         projectDescription: [
             "This project is a personal portfolio website designed to showcase the user's skills, projects, and professional achievements.",
             "It serves as an online resume and a platform to demonstrate various projects and technologies the user has worked on.",
