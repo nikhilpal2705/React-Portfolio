@@ -51,7 +51,7 @@ export const portfolioDetailData = {
             { name: 'CSS3', icon: 'devicon-css3-plain' },
         ],
         projectDate: 'September 2023 - Present',
-        projectURL: 'https://gfgstatscard.vercel.app/nikhilpal2705',
+        projectURL: 'https://gfgstatscard.vercel.app/',
         sourceCodeURL: 'https://github.com/nikhilpal2705/GeeksForGeeks-Stats-Card',
         projectDescription: [
             'Built a dynamic web application that empowers users to showcase their GeeksforGeeks problem-solving skills on GitHub profiles and personal websites.',
@@ -59,12 +59,13 @@ export const portfolioDetailData = {
             'The stats card dynamically updates based on a user’s GitHub activity and problem-solving contributions.',
         ],
         keyFeatures: {
-            "Dynamic Stats Generation": " Fetches data from GeeksForGeeks and displays it as a card.",
+            "Dynamic Stats Generation": "Fetches data from GeeksForGeeks and displays it as a card.",
+            "Demo Page": "Demo Page to check and test the Card.",
             "Markdown & HTML Integration": "Easily integrates with GitHub profiles or other websites.",
             "Customization": "Users can adjust the theme of the card (light/dark).",
-            "Raw Data Option": " Allows users to fetch raw JSON data of their stats."
+            "Raw Data Option": "Allows users to fetch raw JSON data of their stats."
         },
-        projectImages: [images["gfgcard"], images["gfgcard1"], images["gfgcard"], images["gfgcard1"]]
+        projectImages: [images["gfgcard"], images["gfgcard1"], images["gfgcard2"], images["gfgcard3"]]
     },
     portfolio: {
         techUsed: [
