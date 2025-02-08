@@ -65,7 +65,7 @@ export const portfolioDetailData = {
             "Customization": "Users can adjust the theme of the card (light/dark).",
             "Raw Data Option": "Allows users to fetch raw JSON data of their stats."
         },
-        projectImages: [images["gfgcard"], images["gfgcard1"], images["gfgcard2"], images["gfgcard3"]]
+        projectImages: [images["gfgcard"], images["gfgcard1"], images["gfgcard2"], images["gfgcard3"],images["gfgcard4"],images["gfgcard5"]]
     },
     portfolio: {
         techUsed: [
