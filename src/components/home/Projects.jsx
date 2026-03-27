@@ -31,8 +31,6 @@ const ProjectsItem = ({ item, index }) => {
           src={item.image}
           className="img-fluid custom-border"
           alt={item.title}
-          loading="lazy"
-          decoding="async"
         />
 
         {/* Icon Wrapper */}
