@@ -3,6 +3,17 @@ body {
     overflow-x: hidden;
 }
 
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at top right, color-mix(in srgb, var(--accent-color), transparent 91%), transparent 28%),
+        radial-gradient(circle at bottom left, color-mix(in srgb, var(--default-color), transparent 97%), transparent 34%);
+    z-index: -1;
+}
+
 *::-webkit-scrollbar {
     /* Vertical scrollbar width */
     width: 4px;
@@ -34,40 +45,21 @@ body {
 
 /* ================== Skill Section START =============*/
 section.skills-new {
-    background-color: unset;
+    background-color: transparent;
 }
 
 .skills-card {
-    position: relative;
     width: 100%;
-    background-color: var(--background-color);
-    padding: 5%;
-    padding-top: 0%;
-    margin: auto;
-    margin-bottom: 4%;
-    border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 40%);
-    overflow: visible !important;
+    margin: 0 auto 1rem;
 }
 
 .skills-card:after,
 .skills-card:before {
-    z-index: -1;
-    position: absolute;
-    content: "";
-    bottom: 15px;
-    left: 10px;
-    width: 50%;
-    top: 80%;
-    max-width: 300px;
-    background-color: var(--background-color);
-    box-shadow: 0 15px 12px rgba(0, 0, 0, 0.5);
-    transform: rotate(-3deg);
+    content: none;
 }
 
 .skills-card::after {
-    transform: rotate(3deg);
-    right: 10px;
-    left: auto;
+    content: none;
 }
 
 .skill-item {
@@ -99,11 +91,6 @@ section.skills-new {
     color: color-mix(in srgb, var(--default-color), transparent 10%);
 }
 
-.skill-item i.icon-color:hover,
-.skill-item svg.icon-color:hover {
-    color: var(--accent-color) !important;
-}
-
 .skill-item i,
 .skill-item svg {
     /* Smooth transition on hover */
@@ -114,7 +101,8 @@ section.skills-new {
 
 
 .skills-info {
-    padding: 3% 0% 3% 0%;
+    padding: 0;
+    row-gap: 0.6rem;
 }
 
 /* ================== Skill Section START =============*/
@@ -127,16 +115,296 @@ section.skills-new {
 
 
 .download-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     color: var(--contrast-color) !important;
     background: var(--accent-color);
     border: 0;
     padding: 10px 30px;
-    transition: 0.4s;
+    box-shadow: 0 14px 30px color-mix(in srgb, var(--accent-color), transparent 72%);
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
     border-radius: 50px;
 }
 
 .download-btn:hover {
     background: color-mix(in srgb, var(--accent-color), transparent 15%);
+    transform: translateY(-2px);
+    box-shadow: 0 18px 34px color-mix(in srgb, var(--accent-color), transparent 68%);
+}
+
+.section-title {
+    max-width: 760px;
+}
+
+.section-title p {
+    line-height: 1.8;
+}
+
+.about.section,
+.skills-new.section,
+.resume.section,
+.portfolio.section,
+.services.section,
+.contact.section,
+.codeprofile.section,
+.portfolio-details.section {
+    background-color: transparent;
+}
+
+.custom-border {
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
+    border-radius: 1rem;
+}
+
+.about-photo-frame,
+.about-card,
+.skills-card,
+.service-card,
+.resume-column,
+.portfolio-details .portfolio-info,
+.portfolio-details .portfolio-description,
+.contact .info-item,
+.contact .box-shadow,
+.profile-tile {
+    background:
+        linear-gradient(180deg,
+            color-mix(in srgb, var(--surface-color), transparent 2%) 0%,
+            color-mix(in srgb, var(--surface-color), transparent 8%) 100%);
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
+    box-shadow: 0 20px 45px color-mix(in srgb, black, transparent 90%);
+}
+
+.about-photo-frame {
+    overflow: hidden;
+    padding: 12px;
+    border-radius: 28px;
+}
+
+.about-photo {
+    width: 100%;
+    border-radius: 20px;
+    aspect-ratio: 4 / 4.4;
+    object-fit: cover;
+}
+
+.about-card {
+    padding: 2rem;
+    border-radius: 28px;
+}
+
+.skills-card {
+    max-width: 1080px;
+    background: color-mix(in srgb, var(--surface-color), transparent 1%);
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 89%);
+    border-radius: 26px;
+    box-shadow: 0 14px 34px color-mix(in srgb, black, transparent 93%);
+    padding: 1.6rem 1.15rem 1.2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-chip {
+    padding: 0.9rem 0.35rem 0.65rem;
+    border-radius: 16px;
+    transition: transform 0.18s ease, background-color 0.18s ease;
+}
+
+.skill-chip {
+    touch-action: manipulation;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .skill-item i.icon-color:hover,
+    .skill-item svg.icon-color:hover {
+        color: var(--accent-color) !important;
+    }
+
+    .skill-chip:hover {
+        transform: translateY(-2px);
+        background: color-mix(in srgb, var(--default-color), transparent 96%);
+    }
+}
+
+.service-card {
+    overflow: hidden;
+    border-radius: 28px !important;
+}
+
+.service-card::after {
+    content: "";
+    position: absolute;
+    inset: auto -20% -35% auto;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--accent-color), transparent 92%);
+    transition: transform 0.35s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+}
+
+.service-card:hover::after {
+    transform: scale(1.08);
+}
+
+.resume-column {
+    height: 100%;
+    border-radius: 28px;
+    padding: 1.2rem 1.4rem 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.resume .resume-item {
+    padding-bottom: 1.75rem;
+}
+
+.resume-download-wrap {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.project-details-wrap {
+    max-width: 1180px;
+}
+
+.project-content-column,
+.project-info-column {
+    display: flex;
+}
+
+.portfolio-details .portfolio-description,
+.portfolio-details .portfolio-info {
+    width: 100%;
+    border-radius: 28px;
+    padding: 1.5rem;
+}
+
+.portfolio-details .portfolio-description p {
+    line-height: 1.8;
+    color: color-mix(in srgb, var(--default-color), transparent 10%);
+}
+
+.portfolio-details .portfolio-description ul li {
+    align-items: flex-start;
+    gap: 0.4rem;
+}
+
+.portfolio-details .portfolio-info ul {
+    display: grid;
+    gap: 1rem;
+}
+
+.portfolio-details .portfolio-info ul li {
+    padding-bottom: 0;
+    gap: 0.35rem;
+}
+
+.portfolio-details .portfolio-info a:not(.btn-visit) {
+    overflow-wrap: anywhere;
+}
+
+.portfolio-details .portfolio-info .btn-visit {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+}
+
+.portfolio .portfolio-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+}
+
+.portfolio .portfolio-filters li {
+    margin-left: 0 !important;
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
+    background: color-mix(in srgb, var(--surface-color), transparent 2%);
+}
+
+.portfolio-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
+    background: var(--surface-color);
+}
+
+.portfolio-image-wrapper img {
+    display: block;
+    width: 100%;
+    border-radius: inherit;
+    transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.portfolio-image-wrapper > img.custom-border,
+.portfolio-image-wrapper > .portfolio-info.custom-border {
+    border-color: transparent;
+}
+
+.portfolio .portfolio-item:hover .portfolio-image-wrapper img {
+    transform: scale(1.03);
+    filter: saturate(1.05);
+}
+
+.icon-wrapper {
+    position: absolute;
+    margin: 10px;
+    z-index: 10;
+    background: color-mix(in srgb, var(--background-color), transparent 8%);
+    padding: 10px 12px;
+    border-radius: 999px;
+    backdrop-filter: blur(10px);
+}
+
+.portfolio .portfolio-item .portfolio-info {
+    backdrop-filter: blur(12px);
+    border-radius: 0 0 20px 20px;
+}
+
+.profiles-grid {
+    row-gap: 0.75rem;
+}
+
+.profile-tile {
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.85rem;
+    padding: 1.2rem 0.75rem;
+    border-radius: 24px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
+}
+
+.profile-tile-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-tile-name {
+    display: block;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--heading-color);
+}
+
+.contact .info-item,
+.contact .box-shadow {
+    border-radius: 24px;
+}
+
+.contact .info-item {
+    padding: 28px 18px 30px;
+}
+
+.contact .box-shadow {
+    padding: 0.75rem;
 }
 
 /* Loader for send message button */
@@ -167,23 +435,64 @@ section.skills-new {
 }
 
 @media (max-width: 575px) {
+    .resume .row {
+        row-gap: 1.25rem;
+    }
+
+    .resume .col-lg-6 {
+        margin-bottom: 0;
+    }
+
+    .about-card,
+    .resume-column,
+    .portfolio-details .portfolio-info,
+    .portfolio-details .portfolio-description {
+        padding: 1.2rem;
+        border-radius: 22px;
+    }
+
+    .resume-column {
+        margin-bottom: 0;
+    }
+
     .skills-card {
         margin-bottom: 15%;
+        padding: 1.3rem 0.8rem 1rem;
     }
 
     .portfolio .portfolio-filters li {
-        /* Temp css override*/
-        margin-left: 4px !important;
+        width: calc(50% - 0.4rem);
+        text-align: center;
     }
 
     .skills-info {
         padding: 0%;
-        padding-bottom: 15%;
+        padding-bottom: 8%;
     }
 
     .skills-card {
         width: 100%;
     }
+
+    .profile-tile {
+        min-height: 132px;
+        gap: 0.65rem;
+    }
+
+    .profile-tile-name {
+        font-size: 0.88rem;
+    }
+
+    .icon-wrapper {
+        margin: 8px;
+        padding: 8px 10px;
+    }
+
+    .project-content-column,
+    .project-info-column {
+        display: block;
+    }
+
 }
 
 /* ================== Toggle Theme Button START =============*/
@@ -231,6 +540,35 @@ section.skills-new {
 
 /* ================== Toggle Theme Button END =============*/
 
+@media (max-width: 1199px) {
+    .header .container {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding-top: 15px;
+        gap: 0.75rem;
+    }
+
+    .theme-toggle {
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        border-radius: 50%;
+        margin: 0 0 0.75rem 0;
+    }
+}
+
+@media (min-width: 1200px) {
+    .header {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .header .container {
+        gap: 0.5rem;
+    }
+}
+
 
 /* ========== Portfolio detail page START ================= */
 
@@ -268,34 +606,8 @@ section.skills-new {
 
 
 
-.portfolio .portfolio-filters li {
-    /* Temp css override*/
-    margin-left: 4px !important;
-}
-
-.custom-border {
-    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-    /* Set border color and width */
-    border-radius: 0.4rem;
-    /* Rounds the corners (adjust as needed) */
-}
-
-
 .portfolio .portfolio-item .portfolio-info {
     border-top: 0px;
-}
-
-.portfolio-image-wrapper {
-    position: relative;
-}
-
-.icon-wrapper {
-    position: absolute;
-    margin: 2px;
-    z-index: 10;
-    /* border-width: 0px; */
-    background: color-mix(in srgb, var(--background-color), transparent 10%);
-    padding: 6px;
 }
 
 /* ========== Glightbox START ================= */
@@ -336,10 +648,10 @@ section.skills-new {
 }
 
 .coding-profile-icon:hover {
-    opacity: 0.75;
-    /* Makes the icon 80% visible */
-    transition: opacity 0.3s ease-in-out;
-    /* Smooth transition effect */
+    opacity: 1;
+    transform: translateY(-6px);
+    box-shadow: 0 24px 40px color-mix(in srgb, black, transparent 88%);
+    border-color: color-mix(in srgb, var(--accent-color), transparent 70%);
 }
 
 .cursor-default {

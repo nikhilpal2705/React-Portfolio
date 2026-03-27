@@ -21,12 +21,12 @@ const CodingProfiles = () => {
             </div>
 
             <div className="container">
-                <div className="row justify-content-center p-md-4 p-0 pt-md-2">
+                <div className="row justify-content-center p-md-4 p-0 pt-md-2 profiles-grid">
                     {profiles.map(({ link, icon, name, color }) => (
                         <div
                             data-aos="fade-up"
                             data-aos-delay="100"
-                            className="col-4 col-sm-4 col-md-2 my-1 text-center mb-0"
+                            className="col-6 col-sm-4 col-md-4 col-lg-2 my-2 text-center mb-0"
                             key={name}>
                             <a
                                 href={link}
@@ -34,10 +34,10 @@ const CodingProfiles = () => {
                                 style={{ color: isDarkMode ? color.dark || color : color.light || color }}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="coding-profile-icon"
+                                className="coding-profile-icon profile-tile custom-border"
                                 >
-                                {icon}
-                                <p className="mt-2">{name}</p>
+                                <span className="profile-tile-icon">{icon}</span>
+                                <span className="profile-tile-name">{name}</span>
                             </a>
                         </div>
                     ))}

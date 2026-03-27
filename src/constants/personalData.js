@@ -47,6 +47,6 @@ export const aboutData = {
 export const contactData = {
     mainSummary: "For inquiries or collaboration opportunities, feel free to reach out.",
     address: profileData.address,
-    phone: links.phone,
+    phone: links.phone ?? "",
     email: links.email
 };

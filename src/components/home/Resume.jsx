@@ -16,33 +16,37 @@ const Resume = () => {
         <div className="row">
           {/* Left Column */}
           <div className="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <ResumeSection title="Summary">
-              <ResumeItem title={resumeData.summary.title} description={resumeData.summary.description} />
-            </ResumeSection>
+            <div className="resume-column">
+              <ResumeSection title="Summary">
+                <ResumeItem title={resumeData.summary.title} description={resumeData.summary.description} />
+              </ResumeSection>
 
-            <ResumeSection title="Education">
-              {resumeData.education.map((item, index) => (
-                <ResumeItem key={index} title={item.title} date={item.date} institution={item.institution} description={item.description} />
-              ))}
-            </ResumeSection>
+              <ResumeSection title="Education">
+                {resumeData.education.map((item) => (
+                  <ResumeItem key={`${item.title}-${item.date}`} title={item.title} date={item.date} institution={item.institution} description={item.description} />
+                ))}
+              </ResumeSection>
+            </div>
           </div>
 
           {/* Right Column */}
           <div className="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <ResumeSection title="Professional Experience">
-              {resumeData.experience.map((item, index) => (
-                <ResumeItem key={index} title={item.title} date={item.date} institution={item.company}>
-                  <ul>
-                    {item.tasks.map((task, i) => (
-                      <li key={i}>{task}</li>
-                    ))}
-                  </ul>
-                </ResumeItem>
-              ))}
-            </ResumeSection>
+            <div className="resume-column">
+              <ResumeSection title="Professional Experience">
+                {resumeData.experience.map((item) => (
+                  <ResumeItem key={`${item.title}-${item.date}`} title={item.title} date={item.date} institution={item.company}>
+                    <ul>
+                      {item.tasks.map((task) => (
+                        <li key={task}>{task}</li>
+                      ))}
+                    </ul>
+                  </ResumeItem>
+                ))}
+              </ResumeSection>
+            </div>
           </div>
 
-          <div className="p-3" data-aos="fade-up" data-aos-delay="300">
+          <div className="p-3 resume-download-wrap" data-aos="fade-up" data-aos-delay="300">
             <div className="text-center">
               <a className="download-btn" href={links.resume} target="_blank" rel="noopener noreferrer">Download Resume</a>
             </div>

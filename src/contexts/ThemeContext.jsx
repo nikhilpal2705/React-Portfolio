@@ -1,56 +1,63 @@
-// ThemeContext.jsx
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-// Create a Context for the theme
 const ThemeContext = createContext();
 
-// Create a Provider component to wrap around the app
+const getInitialTheme = () => {
+    const savedTheme = localStorage.getItem('theme');
+
+    if (savedTheme === 'dark') {
+        return true;
+    }
+
+    if (savedTheme === 'light') {
+        return false;
+    }
+
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+};
+
 export const ThemeProvider = ({ children }) => {
-    const [themeState, setThemeState] = useState(() => {
-        const savedTheme = localStorage.getItem('theme');
-        const isDarkMode = savedTheme ? savedTheme === 'dark' : document.documentElement.classList.contains('dark-mode');
-        return { isDarkMode, themeChangeKey: 0 };
-    });
+    const [isDarkMode, setIsDarkMode] = useState(getInitialTheme);
+    const [themeChangeKey, setThemeChangeKey] = useState(0);
 
     useEffect(() => {
-        document.documentElement.classList.toggle('dark-mode', themeState.isDarkMode);
-        localStorage.setItem('theme', themeState.isDarkMode ? 'dark' : 'light');
-
-        setThemeState(prevState => ({
-            ...prevState,
-            themeChangeKey: prevState.themeChangeKey + 1
-        }));
-    }, [themeState.isDarkMode]);
+        document.documentElement.classList.toggle('dark-mode', isDarkMode);
+        setThemeChangeKey((currentKey) => currentKey + 1);
+    }, [isDarkMode]);
 
     useEffect(() => {
-        const handleThemeChange = (e) => {
-            localStorage.setItem('theme', e.matches ? 'dark' : 'light');
-            document.documentElement.classList.toggle('dark-mode', e.matches);
+        if (localStorage.getItem('theme')) {
+            return undefined;
+        }
+
+        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        const handleThemeChange = (event) => {
+            setIsDarkMode(event.matches);
         };
 
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', handleThemeChange);
+        mediaQuery.addEventListener('change', handleThemeChange);
 
         return () => {
-            window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', handleThemeChange);
+            mediaQuery.removeEventListener('change', handleThemeChange);
         };
     }, []);
 
     const toggleTheme = () => {
-        setThemeState(prevState => ({
-            ...prevState,
-            isDarkMode: !prevState.isDarkMode
-        }));
+        setIsDarkMode((currentMode) => {
+            const nextMode = !currentMode;
+            localStorage.setItem('theme', nextMode ? 'dark' : 'light');
+            return nextMode;
+        });
     };
 
     return (
-        <ThemeContext.Provider value={{ isDarkMode: themeState.isDarkMode, toggleTheme, themeChangeKey: themeState.themeChangeKey }}>
+        <ThemeContext.Provider value={{ isDarkMode, toggleTheme, themeChangeKey }}>
             {children}
         </ThemeContext.Provider>
     );
 };
 
-// Define prop types
 ThemeProvider.propTypes = {
     children: PropTypes.node.isRequired
 };

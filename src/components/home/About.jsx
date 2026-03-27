@@ -12,10 +12,12 @@ const About = () => {
       <div className="container">
         <div className="row gy-4 justify-content-center">
           {aboutData.profileImage && <div className="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <img src={aboutData.profileImage} className="img-fluid" alt="Profile" />
+            <div className="about-photo-frame custom-border">
+              <img src={aboutData.profileImage} className="img-fluid about-photo" alt="Profile" />
+            </div>
           </div>}
 
-          <div className="col-lg-8 content">
+          <div className="col-lg-8 content about-card custom-border">
 
             <div data-aos="fade-up" data-aos-delay="100">
               <h2>{aboutData.title}</h2>
@@ -44,8 +46,8 @@ const About = () => {
 const InfoColumn = ({ items }) => (
   <div className="col-lg-6">
     <ul>
-      {items.map((item, index) => (
-        <li key={index}>
+      {items.map((item) => (
+        <li key={item.label}>
           <i className="bi bi-chevron-right"></i> <strong>{item.label}:</strong> <span>{item.value}</span>
         </li>
       ))}

@@ -12,16 +12,16 @@ const ProjectDescription = ({ projectInfo }) => (
     <div className="portfolio-description">
         <div>
             <h2 className='mb-3'>About the Project</h2> {/* Adds margin-bottom */}
-            {projectInfo.projectDescription.map((item, index) => (
-                <p key={index}>{item}</p>
+            {projectInfo.projectDescription.map((item) => (
+                <p key={item}>{item}</p>
             ))}
         </div>
 
         {projectInfo.keyFeatures && <div className="mt-4">
             <h2 className='mb-3'>Key Features</h2> {/* Adds margin-top */}
             <ul>
-                {Object.keys(projectInfo.keyFeatures).map((item, index) => (
-                    <li key={index}>
+                {Object.keys(projectInfo.keyFeatures).map((item) => (
+                    <li key={item}>
                         <i className="bi bi-check-circle"></i>
                         <span>
                             <strong>{item}:</strong>
@@ -57,8 +57,8 @@ const ProjectInfo = ({ projectInfo }) => (
             <li>
                 <strong>Tech Used:</strong>
                 <div className="tech-used">
-                    {projectInfo.techUsed.map((tech, index) => (
-                        <span key={index} className="tech-tag">
+                    {projectInfo.techUsed.map((tech) => (
+                        <span key={tech.name} className="tech-tag">
                             {/* Displaying each tech's icon and name */}
                             <i className={`${tech.icon} tech-icon`}></i>
                             {tech.name}
@@ -126,7 +126,7 @@ const ProjectSwiper = ({ projectImages }) => (
         className="portfolio-details-slider"
     >
         {projectImages.map((image, index) => image && (
-            <SwiperSlide key={index}>
+            <SwiperSlide key={image}>
                 <img src={image} className='custom-border' alt={`Project Image ${index + 1}`} />
             </SwiperSlide>
         ))}
@@ -185,13 +185,13 @@ const ProjectDetails = () => {
 
     return (
         <PageTitle>
-            <div className="container" data-aos="fade-up">
+            <div className="container project-details-wrap" data-aos="fade-up">
                 {projectInfo.projectImages && <ProjectSwiper projectImages={projectInfo.projectImages} />}
-                <div className="row justify-content-between gy-4 mt-4">
-                    <div className="col-lg-8" data-aos="fade-up">
+                <div className="row justify-content-between gy-4 mt-4 project-detail-layout">
+                    <div className="col-lg-8 project-content-column" data-aos="fade-up">
                         <ProjectDescription projectInfo={projectInfo} />
                     </div>
-                    <div className="col-lg-4 ps-lg-5" data-aos="fade-up" data-aos-delay="100">
+                    <div className="col-lg-4 ps-lg-5 project-info-column" data-aos="fade-up" data-aos-delay="100">
                         <ProjectInfo projectInfo={projectInfo} />
                     </div>
                 </div>

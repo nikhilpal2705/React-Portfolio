@@ -120,7 +120,9 @@ const Projects = () => {
           </ul>
 
           <div className="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200" ref={isotopeContainer}>
-            {portfolioData.portfolioItems.map((item, index) => (<ProjectsItem key={index} item={item} index={index} />))}
+            {portfolioData.portfolioItems.map((item, index) => (
+              <ProjectsItem key={item.id} item={item} index={index} />
+            ))}
           </div>
         </div>
       </div>
