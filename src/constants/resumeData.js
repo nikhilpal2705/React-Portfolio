@@ -1,11 +1,10 @@
 import { profileData } from "./personalData";
 
 export const resumeData = {
-    mainSummary: "Full Stack Developer with experience across the entire software development lifecycle, from planning and coding to testing and deployment.",
+    mainSummary: "Software Engineer with professional experience across product development, API integrations, performance optimization, production delivery, and modern AI-enabled product thinking.",
     summary: {
         title: profileData.name,
-        description: `A results-oriented developer proficient in Java, JavaScript, and modern frameworks, dedicated to creating meaningful digital solutions that align with business goals and meet user needs.
-                    My expertise includes developing projects from scratch, leading teams, meticulously crafting automation test cases, formulating and reviewing strategic approaches, conducting in-depth research and development, ensuring flawless code deployment to remote servers, and maintaining strong client relationships.`,
+        description: `Results-driven Software Engineer experienced in JavaScript, React, Node.js, and full-stack product development. I enjoy turning business requirements into scalable features, improving application performance, and exploring AI-enabled experiences that make products more useful, efficient, and intuitive.`,
     },
     education: [
         {
@@ -27,12 +26,13 @@ export const resumeData = {
             date: "Feb. 2023 - Present",
             company: "Agami Technologies, Noida, India",
             tasks: [
-                "Developed and maintained diverse features for mortgage, CRM, and marketing applications, achieving seamless client data management processes and enhanced customer engagement capabilities.",
-                "Led and coordinated a team in migrating the entire project from legacy jQuery frameworks to React.js, optimizing application performance, scalability, and maintainability.",
-                "Led the design, engineering, and optimization of robust RESTful APIs, reducing critical response times by up to 3x through advanced query optimization techniques and efficient caching strategies.",
-                "Enhanced frontend loading performance significantly by 40% by implementing advanced memoization techniques to prevent unnecessary re-rendering and virtualization for handling large datasets, while adhering to strict coding practices.",
-                "Implemented secure OAuth 2.0 protocols for authorization and successfully integrated various third-party services like Twilio for communication, AWS (S3 for storage, SES for email, and SNS for notifications), and Zapier for workflow automation.",
-                "Actively contributed to detailed code reviews and rigorous automated testing, ensuring consistently high code quality, stability, and robustness."
+                "Built and maintained product features for mortgage, CRM, and marketing platforms, improving workflow efficiency and supporting day-to-day client operations.",
+                "Led migration efforts from legacy jQuery-based modules to React, increasing maintainability and enabling a more scalable frontend architecture.",
+                "Designed and optimized RESTful APIs for data-heavy use cases, improving response times and supporting smoother integrations across internal systems.",
+                "Improved frontend performance through render optimization, code cleanup, and better handling of large datasets, resulting in a noticeably faster user experience.",
+                "Integrated third-party services including Twilio, AWS services (S3, SES, SNS), and Zapier while following secure authentication and authorization practices.",
+                "Contributed to code reviews, testing, and release readiness to maintain quality, reduce regressions, and support dependable production deployments.",
+                "Regularly explored automation-oriented solutions and modern AI-assisted workflows to improve productivity and identify opportunities for smarter product experiences."
             ]
 
         }

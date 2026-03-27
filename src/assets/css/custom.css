@@ -407,6 +407,142 @@ section.skills-new {
     padding: 0.75rem;
 }
 
+.contact .php-email-form {
+    padding: 2rem;
+    border-radius: 28px;
+    background:
+        linear-gradient(180deg,
+            color-mix(in srgb, var(--surface-color), white 4%) 0%,
+            color-mix(in srgb, var(--surface-color), black 2%) 100%);
+}
+
+.contact-form-header {
+    margin-bottom: 1.5rem;
+}
+
+.contact-form-kicker {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 0.7rem;
+    padding: 0.42rem 0.8rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--accent-color), transparent 88%);
+    color: var(--accent-color);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.contact-form-header h3 {
+    margin-bottom: 0.45rem;
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: var(--heading-color);
+}
+
+.contact-form-header p {
+    margin-bottom: 0;
+    max-width: 720px;
+    color: color-mix(in srgb, var(--default-color), transparent 26%);
+    line-height: 1.65;
+}
+
+.contact-form-body {
+    --bs-gutter-y: 1.35rem;
+}
+
+.contact-input-wrap {
+    position: relative;
+}
+
+.contact-field-label {
+    display: inline-block;
+    margin-bottom: 0.55rem;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--heading-color);
+}
+
+.contact .php-email-form input[type=text].form-control,
+.contact .php-email-form input[type=email].form-control,
+.contact .php-email-form textarea.form-control {
+    min-height: 60px;
+    border-radius: 18px;
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 86%);
+    background: color-mix(in srgb, var(--surface-color), white 18%);
+    padding: 1rem 1.1rem;
+    font-size: 0.98rem;
+    color: var(--default-color);
+    box-shadow: inset 0 1px 0 color-mix(in srgb, white, transparent 20%);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.contact .php-email-form textarea.form-control {
+    min-height: 210px;
+    resize: vertical;
+    padding-top: 1rem;
+}
+
+.contact .php-email-form input[type=text].form-control:hover,
+.contact .php-email-form input[type=email].form-control:hover,
+.contact .php-email-form textarea.form-control:hover {
+    border-color: color-mix(in srgb, var(--accent-color), transparent 48%);
+}
+
+.contact .php-email-form input[type=text].form-control:focus,
+.contact .php-email-form input[type=email].form-control:focus,
+.contact .php-email-form textarea.form-control:focus {
+    border-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+    box-shadow:
+        0 0 0 4px color-mix(in srgb, var(--accent-color), transparent 86%),
+        0 14px 24px color-mix(in srgb, var(--accent-color), transparent 92%);
+    background: var(--surface-color);
+}
+
+.contact .php-email-form input[type=text].form-control.is-invalid,
+.contact .php-email-form input[type=email].form-control.is-invalid,
+.contact .php-email-form textarea.form-control.is-invalid {
+    border-color: #dc3545;
+    box-shadow: none;
+}
+
+.contact .php-email-form .invalid-feedback {
+    display: block;
+    margin-top: 0.45rem;
+    padding-left: 0.35rem;
+    font-size: 0.88rem;
+}
+
+.contact-form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.85rem 0.95rem;
+    border-radius: 20px;
+    background: color-mix(in srgb, var(--surface-color), white 7%);
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    flex-wrap: wrap;
+}
+
+.contact-captcha-wrap {
+    flex: 1 1 304px;
+}
+
+.contact-submit-btn {
+    min-width: 210px;
+    min-height: 52px;
+    font-weight: 600;
+    box-shadow: 0 14px 30px color-mix(in srgb, var(--accent-color), transparent 74%);
+}
+
+.contact .php-email-form input[type=text]::placeholder,
+.contact .php-email-form input[type=email]::placeholder,
+.contact .php-email-form textarea::placeholder {
+    color: color-mix(in srgb, var(--default-color), transparent 60%);
+}
+
 /* Loader for send message button */
 .loading-spinner {
     display: inline-block;
@@ -481,6 +617,33 @@ section.skills-new {
 
     .profile-tile-name {
         font-size: 0.88rem;
+    }
+
+    .contact .php-email-form,
+    .contact .box-shadow {
+        padding: 1rem;
+    }
+
+    .contact-form-header {
+        margin-bottom: 1rem;
+    }
+
+    .contact-form-kicker {
+        margin-bottom: 0.6rem;
+    }
+
+    .contact-form-header h3 {
+        font-size: 1.28rem;
+    }
+
+    .contact-form-actions {
+        justify-content: center;
+        padding: 0.9rem;
+    }
+
+    .contact-submit-btn {
+        width: 100%;
+        max-width: 320px;
     }
 
     .icon-wrapper {
