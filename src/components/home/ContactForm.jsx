@@ -67,7 +67,7 @@ const ContactForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className="php-email-form">
+        <form onSubmit={handleSubmit(onSubmit)} className="php-email-form" noValidate>
             <div className="contact-form-header">
                 <span className="contact-form-kicker">Let&apos;s Connect</span>
                 <h3>Send Me a Message</h3>
@@ -82,6 +82,7 @@ const ContactForm = () => {
                             id="contact-name"
                             type="text"
                             placeholder="Enter your full name"
+                            autoComplete="name"
                             {...register('from_name', { required: 'Your Name is required.' })}
                             className={`form-control ${errors.from_name && 'is-invalid'}`}
                             aria-invalid={!!errors.from_name}
@@ -99,6 +100,7 @@ const ContactForm = () => {
                             id="contact-email"
                             type="email"
                             placeholder="Enter your email address"
+                            autoComplete="email"
                             {...register('from_email', {
                                 required: 'Your Email is required.',
                                 pattern: {
@@ -122,6 +124,7 @@ const ContactForm = () => {
                             id="contact-subject"
                             type="text"
                             placeholder="What would you like to discuss?"
+                            autoComplete="off"
                             {...register('subject', { required: 'Subject is required.' })}
                             className={`form-control ${errors.subject && 'is-invalid'}`}
                             aria-invalid={!!errors.subject}
@@ -139,6 +142,7 @@ const ContactForm = () => {
                             id="contact-message"
                             rows="6"
                             placeholder="Tell me a bit about your requirement, role, or project."
+                            autoComplete="off"
                             {...register('message', {
                                 required: 'Message is required.',
                                 minLength: {
@@ -171,7 +175,7 @@ const ContactForm = () => {
                             />
                         </div>
 
-                        <button type="submit" disabled={isLoading} className="download-btn contact-submit-btn">
+                        <button type="submit" disabled={isLoading} className="download-btn contact-submit-btn" aria-busy={isLoading}>
                             {isLoading ? (<span><span className="loading-spinner"></span> Sending...</span>) : ('Send Message')}
                         </button>
                     </div>

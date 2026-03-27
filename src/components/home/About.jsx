@@ -13,7 +13,7 @@ const About = () => {
         <div className="row gy-4 justify-content-center">
           {aboutData.profileImage && <div className="col-lg-4" data-aos="fade-up" data-aos-delay="100">
             <div className="about-photo-frame custom-border">
-              <img src={aboutData.profileImage} className="img-fluid about-photo" alt="Profile" />
+              <img src={aboutData.profileImage} className="img-fluid about-photo" alt={`${aboutData.title} portrait`} loading="lazy" decoding="async" />
             </div>
           </div>}
 

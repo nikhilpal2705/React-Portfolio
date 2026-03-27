@@ -27,14 +27,15 @@ const ScrollTopButton = () => {
 
   return (
     <div className="container">
-      <a
-        href="#"
+      <button
+        type="button"
         id="scroll-top"
         className={`scroll-top d-flex align-items-center justify-content-center ${isVisible ? 'active' : ''}`}
         onClick={scrollToTop} // Smooth scroll to top
+        aria-label="Scroll to top"
       >
         <i className="bi bi-arrow-up-short"></i>
-      </a>
+      </button>
     </div>
   );
 };

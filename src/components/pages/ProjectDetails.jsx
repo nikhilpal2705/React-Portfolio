@@ -127,7 +127,7 @@ const ProjectSwiper = ({ projectImages }) => (
     >
         {projectImages.map((image, index) => image && (
             <SwiperSlide key={image}>
-                <img src={image} className='custom-border' alt={`Project Image ${index + 1}`} />
+                <img src={image} className='custom-border' alt={`Project image ${index + 1}`} loading="lazy" decoding="async" />
             </SwiperSlide>
         ))}
     </Swiper>

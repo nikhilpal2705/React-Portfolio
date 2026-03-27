@@ -31,6 +31,8 @@ const ProjectsItem = ({ item, index }) => {
           src={item.image}
           className="img-fluid custom-border"
           alt={item.title}
+          loading="lazy"
+          decoding="async"
         />
 
         {/* Icon Wrapper */}
@@ -42,6 +44,7 @@ const ProjectsItem = ({ item, index }) => {
           <a
             href={item.image}
             title="Zoom In"
+            aria-label={`Preview ${item.title} image`}
             className="glightbox preview-link"
             data-title={item.title}
             data-description={`.desc${index}`}
@@ -53,6 +56,7 @@ const ProjectsItem = ({ item, index }) => {
           <Link
             to={`/project-details?id=${item.id}`}
             title="More Details"
+            aria-label={`Open details for ${item.title}`}
             className="preview-link ms-3"
           >
             <AiOutlineLink />
@@ -64,6 +68,7 @@ const ProjectsItem = ({ item, index }) => {
             onClick={() => setShowInfo((prev) => !prev)}
             className="preview-link ms-3 btn btn-link p-0"
             title="Show Info"
+            aria-label={`Toggle project info for ${item.title}`}
           >
             <AiOutlineInfoCircle />
           </button>

@@ -6,7 +6,7 @@ const Hero = () => {
 
   return (
     <section id="hero" className="hero section main-background">
-      <img src={profileData.bgImage} alt="" />
+      <img src={profileData.bgImage} alt="" aria-hidden="true" />
       <div className="container" data-aos="zoom-out">
         <div className="row justify-content-center">
           <div className="col-lg-9">
@@ -14,11 +14,11 @@ const Hero = () => {
             <p>I&apos;m <span className="typed"></span></p>
 
             <div className="social-links">
-              <a href={"mailto:" + links.email} target="_blank" rel="noopener noreferrer"><i className="bi bi-envelope-fill"></i></a>
-              <a href={links.linkedin} target="_blank" rel="noopener noreferrer"><i className="bi bi-linkedin"></i></a>
-              <a href={links.github} target="_blank" rel="noopener noreferrer"><i className="bi bi-github"></i></a>
-              <a href={links.telegram} target="_blank" rel="noopener noreferrer"><i className="bi bi-telegram"></i></a>
-              <a href={links.twitter} target="_blank" rel="noopener noreferrer"><i className="bi bi-twitter-x"></i></a>
+              <a href={"mailto:" + links.email} aria-label="Send email" target="_blank" rel="noopener noreferrer"><i className="bi bi-envelope-fill"></i></a>
+              <a href={links.linkedin} aria-label="Open LinkedIn profile" target="_blank" rel="noopener noreferrer"><i className="bi bi-linkedin"></i></a>
+              <a href={links.github} aria-label="Open GitHub profile" target="_blank" rel="noopener noreferrer"><i className="bi bi-github"></i></a>
+              <a href={links.telegram} aria-label="Open Telegram profile" target="_blank" rel="noopener noreferrer"><i className="bi bi-telegram"></i></a>
+              <a href={links.twitter} aria-label="Open X profile" target="_blank" rel="noopener noreferrer"><i className="bi bi-twitter-x"></i></a>
             </div>
 
           </div>
