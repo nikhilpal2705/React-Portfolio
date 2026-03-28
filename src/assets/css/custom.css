@@ -173,10 +173,11 @@ section.skills-new {
             color-mix(in srgb, var(--surface-color), transparent 8%) 100%);
     border: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
     box-shadow: 0 20px 45px color-mix(in srgb, black, transparent 90%);
+    position: relative;
+    overflow: hidden;
 }
 
 .about-photo-frame {
-    overflow: hidden;
     padding: 12px;
     border-radius: 28px;
 }
@@ -200,8 +201,6 @@ section.skills-new {
     border-radius: 26px;
     box-shadow: 0 14px 34px color-mix(in srgb, black, transparent 93%);
     padding: 1.6rem 1.15rem 1.2rem;
-    position: relative;
-    overflow: hidden;
 }
 
 .skill-chip {
@@ -227,7 +226,6 @@ section.skills-new {
 }
 
 .service-card {
-    overflow: hidden;
     border-radius: 28px !important;
 }
 
