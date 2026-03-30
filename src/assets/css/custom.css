@@ -268,9 +268,109 @@ section.skills-new {
     max-width: 1180px;
 }
 
-.project-content-column,
-.project-info-column {
+.project-hero-card {
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.9rem;
+    margin: 1.25rem 0 0;
+    padding: 1.5rem;
+    border-radius: 28px;
+    background:
+        linear-gradient(145deg,
+            color-mix(in srgb, var(--surface-color), transparent 3%) 0%,
+            color-mix(in srgb, var(--surface-color), transparent 10%) 100%);
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
+    box-shadow: 0 20px 45px color-mix(in srgb, black, transparent 90%);
+}
+
+.project-hero-copy h2 {
+    margin-bottom: 0.45rem;
+    font-size: clamp(2.1rem, 3.8vw, 3rem);
+    line-height: 1.05;
+    font-family: var(--nav-font);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+}
+
+.project-hero-copy p {
+    margin-bottom: 0;
+    max-width: none;
+    line-height: 1.65;
+    font-size: 1.02rem;
+    color: color-mix(in srgb, var(--default-color), transparent 16%);
+}
+
+.project-hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 0.9rem;
+    margin-bottom: 0.6rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--accent-color), transparent 88%);
+    border: 1px solid color-mix(in srgb, var(--accent-color), transparent 82%);
+    color: var(--accent-color);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.project-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.2rem;
+}
+
+.project-hero-actions .btn-visit,
+.project-hero-actions .btn-source {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 160px;
+    padding: 0.72rem 1.2rem;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.project-hero-actions .btn-visit {
+    background: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    color: var(--contrast-color);
+    box-shadow: 0 12px 24px color-mix(in srgb, var(--accent-color), transparent 78%);
+}
+
+.project-hero-actions .btn-source {
+    background: var(--surface-color);
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
+    color: var(--heading-color);
+}
+
+.project-hero-actions .btn-visit:hover,
+.project-hero-actions .btn-source:hover {
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+.project-hero-actions .btn-visit:hover {
+    background: color-mix(in srgb, var(--accent-color), black 8%);
+    border-color: color-mix(in srgb, var(--accent-color), black 8%);
+    color: var(--contrast-color);
+    box-shadow: 0 16px 28px color-mix(in srgb, var(--accent-color), transparent 72%);
+}
+
+.project-hero-actions .btn-source:hover {
+    background: color-mix(in srgb, var(--default-color), transparent 95%);
+    border-color: color-mix(in srgb, var(--default-color), transparent 80%);
+    color: var(--heading-color);
+    box-shadow: 0 10px 20px color-mix(in srgb, black, transparent 90%);
+}
+
+.project-detail-layout {
+    display: block;
 }
 
 .portfolio-details .portfolio-description,
@@ -278,6 +378,19 @@ section.skills-new {
     width: 100%;
     border-radius: 28px;
     padding: 1.5rem;
+}
+
+.project-info-panel {
+    margin-top: 0;
+}
+
+.project-info-panel .project-info-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: flex-start;
+}
+
+.project-info-panel .project-info-list > li:first-child {
+    grid-column: 1 / -1;
 }
 
 .portfolio-details .portfolio-description p {
@@ -308,6 +421,12 @@ section.skills-new {
     width: 100%;
     justify-content: center;
     text-align: center;
+}
+
+@media (max-width: 991.98px) {
+    .project-info-panel .project-info-list {
+        grid-template-columns: 1fr;
+    }
 }
 
 .portfolio .portfolio-filters {
@@ -653,10 +772,33 @@ section.skills-new {
 
     .about-card,
     .resume-column,
+    .project-hero-card,
     .portfolio-details .portfolio-info,
     .portfolio-details .portfolio-description {
         padding: 1.2rem;
         border-radius: 22px;
+    }
+
+    .project-hero-copy h2 {
+        font-size: 2.1rem;
+        line-height: 1.08;
+    }
+
+    .project-hero-copy p {
+        font-size: 0.98rem;
+        line-height: 1.7;
+    }
+
+    .project-hero-actions {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .project-hero-actions .btn-visit,
+    .project-hero-actions .btn-source {
+        width: 100%;
+        min-width: 0;
     }
 
     .resume-column {
