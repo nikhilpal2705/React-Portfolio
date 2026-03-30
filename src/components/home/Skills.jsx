@@ -1,6 +1,6 @@
 import { skillsData } from "@/constants";
 import PropTypes from 'prop-types';
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // const Skills = () => {
 //   return (
@@ -49,18 +49,38 @@ import { useState } from "react";
 
 const SkillItem = ({ label, svg, iconClass }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const touchFeedbackTimeoutRef = useRef(null);
+
+  useEffect(() => {
+    return () => {
+      if (touchFeedbackTimeoutRef.current) {
+        clearTimeout(touchFeedbackTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  const handleTouchFeedback = () => {
+    if (touchFeedbackTimeoutRef.current) {
+      clearTimeout(touchFeedbackTimeoutRef.current);
+    }
+
+    setIsHovered(true);
+    touchFeedbackTimeoutRef.current = setTimeout(() => {
+      setIsHovered(false);
+    }, 500);
+  };
 
   return (
     <div
       data-aos="fade-up"
       data-aos-delay="100"
-      className="skill-item col-4 col-sm-4 col-md-2 my-2 text-center"
-
+      className="skill-item skill-chip col-4 col-sm-4 col-md-3 col-lg-2 my-2 text-center"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onTouchStart={handleTouchFeedback}
     >
       {svg ? (
         <svg
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
           className={`icon ${isHovered ? '' : 'icon-color'}`}  // Conditionally add/remove the icon-color class
           focusable="false"
           data-icon={label}
@@ -72,8 +92,6 @@ const SkillItem = ({ label, svg, iconClass }) => {
         </svg>
       ) : (
         <i
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
           className={`mx-auto my-auto ${iconClass} ${isHovered ? '' : 'icon-color'}`}>
         </i>
       )}

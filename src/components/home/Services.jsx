@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const ServiceItem = ({ icon, title, description, delay, colorClass }) => (
   <div className={`col-lg-4 col-md-6`} data-aos="fade-up" data-aos-delay={delay}>
-    <div className={`service-item ${colorClass} position-relative`}>
+    <div className={`service-item service-card ${colorClass} position-relative`}>
       <div className="icon">
         <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -40,9 +40,9 @@ const Services = () => {
 
       <div className="container">
         <div className="row gy-4">
-          {servicesData.services.map((service, index) => (
+          {servicesData.services.map((service) => (
             <ServiceItem
-              key={index}
+              key={service.title}
               icon={service.icon}
               title={service.title}
               description={service.description}

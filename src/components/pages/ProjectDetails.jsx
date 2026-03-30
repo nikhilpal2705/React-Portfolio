@@ -5,23 +5,25 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { portfolioDetailData } from '@/constants';
+import { portfolioData, portfolioDetailData } from '@/constants';
+
+const getProjectMeta = (projectId) => portfolioData.portfolioItems.find((item) => item.id === projectId);
 
 // Subcomponent for Project Description
 const ProjectDescription = ({ projectInfo }) => (
     <div className="portfolio-description">
         <div>
             <h2 className='mb-3'>About the Project</h2> {/* Adds margin-bottom */}
-            {projectInfo.projectDescription.map((item, index) => (
-                <p key={index}>{item}</p>
+            {projectInfo.projectDescription.map((item) => (
+                <p key={item}>{item}</p>
             ))}
         </div>
 
         {projectInfo.keyFeatures && <div className="mt-4">
             <h2 className='mb-3'>Key Features</h2> {/* Adds margin-top */}
             <ul>
-                {Object.keys(projectInfo.keyFeatures).map((item, index) => (
-                    <li key={index}>
+                {Object.keys(projectInfo.keyFeatures).map((item) => (
+                    <li key={item}>
                         <i className="bi bi-check-circle"></i>
                         <span>
                             <strong>{item}:</strong>
@@ -48,25 +50,64 @@ ProjectDescription.propTypes = {
     }).isRequired,
 };
 
+const ProjectHero = ({ projectMeta, projectInfo }) => (
+    <div className="project-hero-card">
+        <div className="project-hero-copy">
+            <span className="project-hero-eyebrow">Project Overview</span>
+            <h2>{projectMeta?.title ?? 'Project Overview'}</h2>
+            <p>{projectMeta?.description ?? projectInfo.projectDescription[0]}</p>
+        </div>
+        <div className="project-hero-actions">
+            {projectInfo.projectURL && (
+                <a href={projectInfo.projectURL} className="btn-visit" target="_blank" rel="noopener noreferrer">
+                    Visit Website
+                </a>
+            )}
+            <a href={projectInfo.sourceCodeURL} className="btn-source" target="_blank" rel="noopener noreferrer">
+                Source Code
+            </a>
+        </div>
+    </div>
+);
+
+ProjectHero.propTypes = {
+    projectMeta: PropTypes.shape({
+        title: PropTypes.string,
+        description: PropTypes.string,
+    }),
+    projectInfo: PropTypes.shape({
+        techUsed: PropTypes.arrayOf(
+            PropTypes.shape({
+                icon: PropTypes.string,
+                name: PropTypes.string,
+            })
+        ).isRequired,
+        projectDate: PropTypes.string.isRequired,
+        projectDescription: PropTypes.arrayOf(PropTypes.string).isRequired,
+        keyFeatures: PropTypes.objectOf(PropTypes.string),
+    }).isRequired,
+};
+
+ProjectHero.defaultProps = {
+    projectMeta: null,
+};
+
 // Subcomponent for Project Info
 const ProjectInfo = ({ projectInfo }) => (
-    <div className="portfolio-info">
+    <div className="portfolio-info project-info-panel">
         <h3>Project Information</h3>
         <ul className="project-info-list">
-            {/* Displaying the technologies used in the project */}
             <li>
                 <strong>Tech Used:</strong>
                 <div className="tech-used">
-                    {projectInfo.techUsed.map((tech, index) => (
-                        <span key={index} className="tech-tag">
-                            {/* Displaying each tech's icon and name */}
+                    {projectInfo.techUsed.map((tech) => (
+                        <span key={tech.name} className="tech-tag">
                             <i className={`${tech.icon} tech-icon`}></i>
                             {tech.name}
                         </span>
                     ))}
                 </div>
             </li>
-            {/* Displaying other project details such as date, URL, and source code */}
             <li>
                 <strong>Project Date:</strong>
                 {projectInfo.projectDate}
@@ -79,9 +120,6 @@ const ProjectInfo = ({ projectInfo }) => (
                 <strong>Source Code:</strong>
                 <a href={projectInfo.sourceCodeURL} target="_blank" rel="noopener noreferrer">{projectInfo.sourceCodeURL}</a>
             </li>
-            {projectInfo.projectURL && <li>
-                <a href={projectInfo.projectURL} className="btn-visit align-self-start" target="_blank" rel="noopener noreferrer">Visit Website</a>
-            </li>}
         </ul>
     </div>
 );
@@ -126,8 +164,8 @@ const ProjectSwiper = ({ projectImages }) => (
         className="portfolio-details-slider"
     >
         {projectImages.map((image, index) => image && (
-            <SwiperSlide key={index}>
-                <img src={image} className='custom-border' alt={`Project Image ${index + 1}`} />
+            <SwiperSlide key={image}>
+                <img src={image} className='custom-border' alt={`Project image ${index + 1}`} loading="lazy" decoding="async" />
             </SwiperSlide>
         ))}
     </Swiper>
@@ -177,6 +215,7 @@ const ProjectDetails = () => {
     const projectId = searchParams.get('id');  // Get 'id' from the search parameters
 
     const projectInfo = portfolioDetailData[projectId];  // Get project data based on projectId
+    const projectMeta = getProjectMeta(projectId);
 
     // If project data is not found, render a 'Project Not Found' page
     if (!projectInfo) {
@@ -185,15 +224,14 @@ const ProjectDetails = () => {
 
     return (
         <PageTitle>
-            <div className="container" data-aos="fade-up">
+            <div className="container project-details-wrap" data-aos="fade-up">
                 {projectInfo.projectImages && <ProjectSwiper projectImages={projectInfo.projectImages} />}
-                <div className="row justify-content-between gy-4 mt-4">
-                    <div className="col-lg-8" data-aos="fade-up">
-                        <ProjectDescription projectInfo={projectInfo} />
-                    </div>
-                    <div className="col-lg-4 ps-lg-5" data-aos="fade-up" data-aos-delay="100">
-                        <ProjectInfo projectInfo={projectInfo} />
-                    </div>
+                <ProjectHero projectMeta={projectMeta} projectInfo={projectInfo} />
+                <div className="mt-4" data-aos="fade-up" data-aos-delay="50">
+                    <ProjectInfo projectInfo={projectInfo} />
+                </div>
+                <div className="mt-4 project-detail-layout" data-aos="fade-up" data-aos-delay="100">
+                    <ProjectDescription projectInfo={projectInfo} />
                 </div>
             </div>
         </PageTitle>

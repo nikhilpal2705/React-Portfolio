@@ -235,11 +235,13 @@ h6 {
   color: var(--contrast-color);
   background-color: var(--accent-color);
   font-size: 22px;
+  border: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 40px;
   height: 40px;
+  padding: 0;
   border-radius: 50%;
   cursor: pointer;
   position: fixed;
@@ -247,6 +249,10 @@ h6 {
   right: 15px;
   z-index: 9999;
   transition: background-color 0.3s;
+}
+
+.header .header-toggle .bi {
+  line-height: 1;
 }
 
 .header .header-toggle:hover {
@@ -454,6 +460,9 @@ h6 {
   background-color: var(--accent-color);
   width: 44px;
   height: 44px;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
   border-radius: 50px;
   transition: all 0.4s;
 }
@@ -473,6 +482,22 @@ h6 {
   visibility: visible;
   opacity: 1;
   bottom: 15px;
+}
+
+@media (max-width: 575px) {
+  .scroll-top {
+    right: 12px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .scroll-top i {
+    font-size: 20px;
+  }
+
+  .scroll-top.active {
+    bottom: 12px;
+  }
 }
 
 /*--------------------------------------------------------------

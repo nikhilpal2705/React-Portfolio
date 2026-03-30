@@ -19,16 +19,16 @@ export const links = {
 export const profileData = {
     bgImage: images["hero-bg"],
     name: "Nikhil Suryavanshi",
-    roles: ["Software Engineer", "Full Stack Developer"],
+    roles: ["Software Engineer", "Full Stack Developer", "AI Web Developer"],
     city: "Gorakhpur, Uttar Pradesh, India",
     address: "Taramandal, Gorakhpur, Uttar Pradesh, India, 273017",
     currentCity: "Noida, Uttar Pradesh, India"
 };
 
 export const aboutData = {
-    mainSummary: "Experienced Full Stack Developer with a track record of delivering high-quality software solutions, specializing in optimizing performance and integrating complex systems.",
+    mainSummary: "Software Engineer focused on building reliable full-stack products, polished user experiences, and practical AI-powered features that solve real business problems.",
     title: "Software Engineer",
-    description: `I am a Software Engineer with ${((new Date() - new Date("2023-02-13")) / (1000 * 60 * 60 * 24 * 365.25)).toFixed(1)} years of hands-on experience in full-stack development. My expertise lies in building scalable web applications, enhancing UI/UX, and ensuring backend efficiency. Passionate about implementing secure API integrations, enhancing frontend performance, and utilizing DevOps practices to streamline deployment processes.`,
+    description: `I am a Software Engineer with ${((new Date() - new Date("2023-02-13")) / (1000 * 60 * 60 * 24 * 365.25)).toFixed(1)} years of hands-on experience building scalable web applications. My work spans responsive frontend development, API integrations, performance optimization, and modern product workflows, with growing interest in AI-enhanced features, automation, and intelligent user experiences.`,
     profileImage: images["profile"],
     detailsLeft: [
         { label: "Home Town", value: profileData.city },
@@ -40,13 +40,13 @@ export const aboutData = {
         { label: "Field", value: "Computer Science & Engineering" },
         { label: "Website", value: links.website.split("https://")[1] },
     ],
-    additionalDescription: "Alongside my work, I am dedicated to continuous learning, with a focus on exploring cloud technologies, microservices architecture, and open-source contributions."
+    additionalDescription: "Beyond day-to-day product delivery, I enjoy refining developer workflows, exploring cloud-native tools, experimenting with LLM APIs and automation use cases, and continuously improving how digital products are built and shipped."
 };
 
 
 export const contactData = {
-    mainSummary: "For inquiries or collaboration opportunities, feel free to reach out.",
+    mainSummary: "Open to software engineering roles, freelance collaborations, and conversations around full-stack development, AI-enhanced product ideas, and product engineering.",
     address: profileData.address,
-    phone: links.phone,
+    phone: links.phone ?? "",
     email: links.email
 };

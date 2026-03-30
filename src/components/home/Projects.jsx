@@ -42,6 +42,7 @@ const ProjectsItem = ({ item, index }) => {
           <a
             href={item.image}
             title="Zoom In"
+            aria-label={`Preview ${item.title} image`}
             className="glightbox preview-link"
             data-title={item.title}
             data-description={`.desc${index}`}
@@ -53,6 +54,7 @@ const ProjectsItem = ({ item, index }) => {
           <Link
             to={`/project-details?id=${item.id}`}
             title="More Details"
+            aria-label={`Open details for ${item.title}`}
             className="preview-link ms-3"
           >
             <AiOutlineLink />
@@ -64,6 +66,7 @@ const ProjectsItem = ({ item, index }) => {
             onClick={() => setShowInfo((prev) => !prev)}
             className="preview-link ms-3 btn btn-link p-0"
             title="Show Info"
+            aria-label={`Toggle project info for ${item.title}`}
           >
             <AiOutlineInfoCircle />
           </button>
@@ -120,7 +123,9 @@ const Projects = () => {
           </ul>
 
           <div className="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200" ref={isotopeContainer}>
-            {portfolioData.portfolioItems.map((item, index) => (<ProjectsItem key={index} item={item} index={index} />))}
+            {portfolioData.portfolioItems.map((item, index) => (
+              <ProjectsItem key={item.id} item={item} index={index} />
+            ))}
           </div>
         </div>
       </div>

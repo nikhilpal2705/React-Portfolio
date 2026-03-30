@@ -1,15 +1,15 @@
 import { useTheme } from "@/hooks/useTheme";
 
 const ThemeToggle = () => {
-    const { isDarkMode, toggleTheme } = useTheme(); // Get the current theme and the setter
-    // Toggle the theme
-    const toggleDarkMode = () => { toggleTheme((prevMode) => !prevMode) };
+    const { isDarkMode, toggleTheme } = useTheme();
 
     return (
         <button
-            onClick={toggleDarkMode}
+            type="button"
+            onClick={toggleTheme}
             className="theme-toggle"
             title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+            aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
         >
             <i className={`bi ${isDarkMode ? 'bi-sun' : 'bi-moon'}`}></i>
         </button>

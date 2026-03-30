@@ -6,11 +6,10 @@ import ThemeToggle from './ThemeToggle';
 const MenuItem = ({ id, label, icon, isActive, closeMenu }) => {
   const navigate = useNavigate();
 
-  // Scroll to section and update URL
   const handleClick = useCallback((e) => {
     e.preventDefault();
     closeMenu();
-    navigate('/' + id); // Navigate to hash, triggering `useEffect` to scroll
+    navigate(`/${id}`);
   }, [navigate, id, closeMenu]);
 
   return (
@@ -47,7 +46,6 @@ const Header = () => {
   const location = useLocation();
   const [activeMenu, setActiveMenu] = useState(location.pathname === '/project-details' ? '#projects' : '#hero');
 
-  // Update activeMenu based on route change
   useEffect(() => {
     if (location.pathname === '/project-details') {
       setActiveMenu('#projects');
@@ -57,7 +55,6 @@ const Header = () => {
   }, [location.pathname]);
 
 
-  // Set active link based on scroll position on homepage
   const handleScroll = useCallback(() => {
     const scrollPosition = window.scrollY + 200;
     for (const link of navmenulinks) {
@@ -70,7 +67,6 @@ const Header = () => {
   }, [navmenulinks]);
 
 
-  // Debounce scroll events
   useEffect(() => {
     if (location.pathname !== '/') return;
 
@@ -79,12 +75,11 @@ const Header = () => {
     };
 
     window.addEventListener('scroll', debouncedScroll);
-    handleScroll(); // Initial call
+    handleScroll();
     return () => window.removeEventListener('scroll', debouncedScroll);
   }, [location.pathname, handleScroll]);
 
 
-  // Smooth scroll to section if URL contains hash
   useEffect(() => {
     if (location.hash) {
       const targetSection = document.querySelector(location.hash);
@@ -97,7 +92,6 @@ const Header = () => {
   }, [location]);
 
 
-  // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (headerRef.current && !headerRef.current.contains(event.target)) {
@@ -109,14 +103,22 @@ const Header = () => {
   }, []);
 
 
-  // Toggle menu function
   const toggleMenu = useCallback(() => setIsMenuOpen(prev => !prev), []);
+  const closeMenu = useCallback(() => setIsMenuOpen(false), []);
 
 
   return (
     <header ref={headerRef} id="header" className={`header d-flex flex-column justify-content-center ${isMenuOpen ? 'header-show' : ''}`}>
       <div className="container">
-        <i className={`header-toggle d-xl-none bi ${isMenuOpen ? 'bi-x' : 'bi-list'}`} onClick={toggleMenu}></i>
+        <button
+          type="button"
+          className="header-toggle d-xl-none"
+          onClick={toggleMenu}
+          aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-expanded={isMenuOpen}
+        >
+          <i className={`bi ${isMenuOpen ? 'bi-x' : 'bi-list'}`}></i>
+        </button>
         <ThemeToggle />
         <nav id="navmenu" className="navmenu">
           <ul>
@@ -125,7 +127,7 @@ const Header = () => {
                 key={link.id}
                 {...link}
                 isActive={activeMenu === link.id}
-                closeMenu={toggleMenu}
+                closeMenu={closeMenu}
               />
             ))}
           </ul>
