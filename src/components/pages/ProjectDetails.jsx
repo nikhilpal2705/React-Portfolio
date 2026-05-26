@@ -85,6 +85,8 @@ ProjectHero.propTypes = {
         projectDate: PropTypes.string.isRequired,
         projectDescription: PropTypes.arrayOf(PropTypes.string).isRequired,
         keyFeatures: PropTypes.objectOf(PropTypes.string),
+        projectURL: PropTypes.string,
+        sourceCodeURL: PropTypes.string.isRequired,
     }).isRequired,
 };
 

@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import emailjs from '@emailjs/browser';
 import ReCAPTCHA from 'react-google-recaptcha';
@@ -12,17 +12,14 @@ const ContactForm = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [captchaValue, setCaptchaValue] = useState(null); // Store captcha value
 
-    useEffect(() => {
-        setCaptchaValue(null);
-    }, [isDarkMode]);
-
     const onSubmit = async (data) => {
         setIsLoading(true);
+        const captchaToken = captchaRef.current?.getValue() || captchaValue;
         // Run reCAPTCHA v3 to get the token
         // Use size="invisible" to handle automatic captcha
         // captchaToken = await captchaRef.current.executeAsync();
 
-        if (!captchaValue) {
+        if (!captchaToken) {
             setIsLoading(false);
             toast.warn('Please complete the reCAPTCHA.', {
                 toastId: 'recaptchaWarning', // Fixed ID ensures seamless replacement
@@ -35,7 +32,7 @@ const ContactForm = () => {
             import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
             {
                 ...data,
-                'g-recaptcha-response': captchaValue,
+                'g-recaptcha-response': captchaToken,
             },
             import.meta.env.VITE_EMAILJS_PUBLIC_KEY
         )

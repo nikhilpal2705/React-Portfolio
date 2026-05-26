@@ -19,11 +19,10 @@ const getInitialTheme = () => {
 
 export const ThemeProvider = ({ children }) => {
     const [isDarkMode, setIsDarkMode] = useState(getInitialTheme);
-    const [themeChangeKey, setThemeChangeKey] = useState(0);
+    const themeChangeKey = isDarkMode ? 'dark' : 'light';
 
     useEffect(() => {
         document.documentElement.classList.toggle('dark-mode', isDarkMode);
-        setThemeChangeKey((currentKey) => currentKey + 1);
     }, [isDarkMode]);
 
     useEffect(() => {

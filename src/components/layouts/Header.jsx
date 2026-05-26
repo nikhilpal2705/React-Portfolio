@@ -44,15 +44,15 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const headerRef = useRef(null);
   const location = useLocation();
-  const [activeMenu, setActiveMenu] = useState(location.pathname === '/project-details' ? '#projects' : '#hero');
+  const getRouteActiveMenu = useCallback((pathname) => (pathname === '/project-details' ? '#projects' : '#hero'), []);
+  const [activeMenu, setActiveMenu] = useState(() => getRouteActiveMenu(location.pathname));
 
   useEffect(() => {
-    if (location.pathname === '/project-details') {
-      setActiveMenu('#projects');
-    } else if (location.pathname === '/') {
-      setActiveMenu('#hero');
-    }
-  }, [location.pathname]);
+    const frameId = window.requestAnimationFrame(() => {
+      setActiveMenu(getRouteActiveMenu(location.pathname));
+    });
+    return () => window.cancelAnimationFrame(frameId);
+  }, [getRouteActiveMenu, location.pathname]);
 
 
   const handleScroll = useCallback(() => {
@@ -75,8 +75,11 @@ const Header = () => {
     };
 
     window.addEventListener('scroll', debouncedScroll);
-    handleScroll();
-    return () => window.removeEventListener('scroll', debouncedScroll);
+    const frameId = window.requestAnimationFrame(handleScroll);
+    return () => {
+      window.cancelAnimationFrame(frameId);
+      window.removeEventListener('scroll', debouncedScroll);
+    };
   }, [location.pathname, handleScroll]);
 
 

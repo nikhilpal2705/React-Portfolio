@@ -14,6 +14,14 @@ body::before {
     z-index: -1;
 }
 
+.hero .social-links a {
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.hero .social-links a:hover {
+    transform: translateY(-2px);
+}
+
 *::-webkit-scrollbar {
     /* Vertical scrollbar width */
     width: 4px;
