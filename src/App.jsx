@@ -3,6 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { ToastContainer, Bounce } from 'react-toastify';
 import { useAOS } from '@/hooks/useAOS';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { useTheme } from './hooks/useTheme';
 
 // Import the AppRoutes component (which handles lazy loading of routes)
@@ -24,6 +25,7 @@ const App = () => {
   return (
     <>
       <Analytics />
+      <SpeedInsights />
       <BrowserRouter>
         <ScrollToTop />
         <Suspense fallback={<Preloader />}>
