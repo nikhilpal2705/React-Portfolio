@@ -22,10 +22,10 @@ const CodingProfiles = () => {
 
             <div className="container">
                 <div className="row justify-content-center p-md-4 p-0 pt-md-2 profiles-grid">
-                    {profiles.map(({ link, icon, name, color }) => (
+                    {profiles.map(({ link, icon, name, color }, index) => (
                         <div
                             data-aos="fade-up"
-                            data-aos-delay="100"
+                            data-aos-delay={(index + 1) * 100}
                             className="col-6 col-sm-4 col-md-4 col-lg-2 my-2 text-center mb-0"
                             key={name}>
                             <a
