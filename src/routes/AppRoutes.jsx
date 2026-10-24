@@ -5,6 +5,7 @@ const Layout = lazy(() => import('@/components/layouts/Layout'));
 // Lazy-load the route components
 const Home = lazy(() => import('@/components/pages/Home'));
 const ProjectDetails = lazy(() => import('@/components/pages/ProjectDetails'));
+const ContributionDetails = lazy(() => import('@/components/pages/ContributionDetails'));
 
 function AppRoutes() {
     return (
@@ -12,6 +13,7 @@ function AppRoutes() {
             <Route element={<Layout />}>
                 <Route path="/" element={<Home />} />
                 <Route path="/project-details" element={<ProjectDetails />} />
+                <Route path="/contribution-details" element={<ContributionDetails />} />
             </Route>
             {/* Other routes with Different Layout */}
             <Route element={<Layout header={false} />}>

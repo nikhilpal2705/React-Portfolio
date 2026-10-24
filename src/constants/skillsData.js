@@ -4,7 +4,7 @@ export const skillsData = {
         { name: "HTML", level: 90, class: "devicon-html5-plain colored" },
         { name: "CSS", level: 85, class: "devicon-css3-plain colored" },
         { name: "JavaScript", level: 88, class: "devicon-javascript-plain colored" },
-        // { name: "TypeScript", level: 25, class: "devicon-typescript-plain colored" },
+        { name: "Python", level: 82, class: "devicon-python-plain colored" },
         { name: "jQuery", level: 82, class: "devicon-jquery-plain colored" },
         { name: "React", level: 90, class: "devicon-react-original colored" },
         { name: "Vue", level: 78, class: "devicon-vuejs-plain colored" },

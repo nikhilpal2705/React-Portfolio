@@ -166,7 +166,7 @@ const ContactForm = () => {
                                 theme={isDarkMode ? 'dark' : 'light'} // Dynamically set the theme
                                 key={themeChangeKey} // Force remount on theme change
                                 style={{ display: 'inline-block' }}
-                                sitekey={import.meta.env.VITE_GOOGLE_RECAPTCHA_SITE_KEY}
+                                sitekey={import.meta.env.VITE_GOOGLE_RECAPTCHA_SITE_KEY || '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'}
                                 size="normal"
                                 onChange={handleCaptchaChange} // Set captcha value on change
                             />

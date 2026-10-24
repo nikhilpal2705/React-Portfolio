@@ -3,6 +3,7 @@ import { skillsData } from './skillsData';
 import { resumeData } from './resumeData';
 import { servicesData } from './servicesData';
 import { portfolioData, portfolioDetailData } from './portfolioData';
+import { contributionsData, contributionsDetailData } from './contributionsData';
 
 export {
     links,
@@ -11,6 +12,8 @@ export {
     resumeData,
     skillsData,
     portfolioData,
+    contributionsData,
+    contributionsDetailData,
     servicesData,
     contactData,
     portfolioDetailData

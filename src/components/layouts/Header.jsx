@@ -37,6 +37,7 @@ const Header = () => {
     { id: '#skills', label: 'Skills', icon: 'bi-book' },
     { id: '#resume', label: 'Resume', icon: 'bi-file-earmark-text' },
     { id: '#projects', label: 'Projects', icon: 'bi-images' },
+    { id: '#contributions', label: 'Contributions', icon: 'bi-git' },
     { id: '#services', label: 'Services', icon: 'bi-hdd-stack' },
     { id: '#contact', label: 'Contact', icon: 'bi-envelope' },
   ], []);
@@ -44,7 +45,11 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const headerRef = useRef(null);
   const location = useLocation();
-  const getRouteActiveMenu = useCallback((pathname) => (pathname === '/project-details' ? '#projects' : '#hero'), []);
+  const getRouteActiveMenu = useCallback((pathname) => {
+    if (pathname === '/project-details') return '#projects';
+    if (pathname === '/contribution-details') return '#contributions';
+    return '#hero';
+  }, []);
   const [activeMenu, setActiveMenu] = useState(() => getRouteActiveMenu(location.pathname));
 
   useEffect(() => {

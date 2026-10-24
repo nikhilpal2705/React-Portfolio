@@ -46,9 +46,7 @@ const Contact = () => {
 
         <div className="row gy-4 mt-1">
           <div className="col-lg-12" data-aos="fade-up" data-aos-delay="400">
-            <div className="box-shadow">
-              <ContactForm />
-            </div>
+            <ContactForm />
           </div>
         </div>
       </div>
