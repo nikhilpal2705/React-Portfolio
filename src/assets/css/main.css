@@ -281,7 +281,7 @@ h6 {
   list-style: none;
   padding: 0;
   margin: 0;
-  width: 140px;
+  width: 170px;
   display: flex;
   /* Stack nav links vertically */
   flex-direction: column;
@@ -316,18 +316,32 @@ h6 {
 .navmenu a span,
 .navmenu a:focus span {
   padding: 0 5px 0 7px;
+  white-space: nowrap;
 }
 
 @media (min-width: 992px) {
 
+  .navmenu ul {
+    width: auto;
+    align-items: flex-start;
+  }
+
   .navmenu a,
   .navmenu a:focus {
+    width: max-content;
+    min-width: 56px;
     max-width: 56px;
   }
 
   .navmenu a span,
   .navmenu a:focus span {
     display: none;
+  }
+
+  .navmenu a:hover,
+  .navmenu li:hover>a {
+    max-width: 250px;
+    color: var(--contrast-color);
   }
 }
 
@@ -337,12 +351,6 @@ h6 {
 .navmenu li:hover>a {
   color: var(--contrast-color);
   background: var(--nav-hover-color);
-}
-
-.navmenu a:hover,
-.navmenu li:hover>a {
-  max-width: 100%;
-  color: var(--contrast-color);
 }
 
 .navmenu a:hover span,
